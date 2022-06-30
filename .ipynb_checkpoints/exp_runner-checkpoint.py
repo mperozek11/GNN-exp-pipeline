@@ -1,4 +1,4 @@
-
+import yaml
 
 RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
 
