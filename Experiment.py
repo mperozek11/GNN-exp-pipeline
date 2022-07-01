@@ -35,6 +35,7 @@ class Experiment:
         
         torch.manual_seed(11)
         np.random.seed(11)
+        # need to set random random seed as well
         
     def run(self):
         

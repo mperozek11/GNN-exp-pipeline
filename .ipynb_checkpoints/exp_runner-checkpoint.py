@@ -1,8 +1,36 @@
-import yaml
+import sys, getopt, yaml
+from Experiment import Experiment 
 
-RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
+def main(argv):
 
-with open(config_file) as file:
-    config = yaml.safe_load(file)
+    try:
+        opts, args = getopt.getopt(argv, 'c:o:')
+    except getopt.GetoptError:
+        print('invalid args')
+        sys.exit(2)
+        
+    for opt, arg in opts:
+        if opt == '-c':
+            print(f'config file: {arg}')
+            config_file = arg
+        if opt == '-o':
+            print(f'output directory: {arg}')
+            output_dir = arg
+            
+    try:
+        with open(config_file) as file:
+            config = yaml.safe_load(file)
+    except Exception:
+        print(f'{config_file} not a valid config file')
+        sys.exit(2)
+        
+    experiment = Experiment(config, output_dir)
+    print(experiment)
+    sys.exit(0)
+        
+
     
-experiment = Experiment(config, RESULT_DIR)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+

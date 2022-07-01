@@ -1,0 +1,22 @@
+device: 'cpu'
+
+# DATA
+dataset: 'wico'
+transform: 'wico_5g_vs_non_conspiracy_downsampled_balanced'
+class_weights: True
+
+# MODEL
+model: 'GIN'
+hidden_units: [128,128,128,128]
+train_eps: False
+aggregation: mean
+dropout: 0.0
+
+# TRAINING
+kfolds: 5
+optimizer: Adam
+loss_fn: CrossEntropyLoss
+batch_size: 64
+epochs: 20
+lr: 0.01
+# add: early stopping config options

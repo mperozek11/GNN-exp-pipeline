@@ -10,8 +10,11 @@ Framework and script for running experiments on graph classification datasets.
 Required config fields:
 
 `hidden_units: list of embedding dimension for each layer (List(int))`
+
 `train_eps: When true, epsilon will be a trainable parameter in neighborhood aggregation function (True | False)`
+
 `aggregation: aggregation scheme (sum | mean)`
+
 `dropout: dropout (float 0.0-1.0)`
 
 ### Config file fields and format
