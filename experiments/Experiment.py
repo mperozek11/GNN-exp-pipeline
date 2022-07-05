@@ -15,8 +15,12 @@ import torch
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 
-from transforms.wico_transforms import WICOTransforms
-from models.GIN import GIN
+import sys
+  
+sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms')
+from wico_transforms import WICOTransforms
+sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/models')
+from GIN import GIN
 
 
 DATASETS = {
@@ -48,9 +52,6 @@ class Experiment:
         fold_eval_acc = np.empty(kfold.get_n_splits())
         fold_eval_f1 = np.empty(kfold.get_n_splits())
 
-        pbar_kfold = tqdm(total = kfold.get_n_splits(), 
-                          desc=f"training model {self.config['model']} on {self.config['dataset']} over {self.config['kfolds']} folds",
-                          position=0, leave=True)
         start = datetime.now()
         for fold, (train_idx, test_idx) in enumerate(kfold.split(dataset)):
 
@@ -63,13 +64,13 @@ class Experiment:
 
             fold_eval_acc[fold] = fold_acc
             fold_eval_f1[fold] = fold_f1
-
-            pbar_kfold.update(1)
             
+        mean_f1 = float(fold_eval_f1.mean())
         mean_acc = float(fold_eval_acc.mean())
         runtime = str(datetime.now() - start)
         self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, runtime)
         self.logger.dump_log()
+        return mean_f1, mean_acc
         
     
     # returned dataset must be of the type list[Data] or torch Tensor with shape (num graphs, num features)
