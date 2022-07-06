@@ -1,0 +1,26 @@
+config:
+  aggregation: sum
+  batch_size: 32
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 3
+  hidden_units:
+  - 32
+  - 32
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-05 14:22:21.750286'
+training_metrics:
+  fold_eval_accs: '[0.7066895368782161, 0.1269296740994854, 0.5437392795883362, 0.5608919382504288,
+    0.506872852233677]'
+  fold_eval_f1: '[0.29629629629629634, 0.2009419152276295, 0.3248730964467005, 0.2967032967032967,
+    0.3636363636363637]'
+  mean_eval_accuracy: 0.48902465621002866
+  total_train_time: '0:00:10.871291'

@@ -2,15 +2,11 @@ device: 'cpu'
 
 # DATA
 dataset: 'wico'
-transform: 'wico_5g_vs_non_conspiracy'
+transform: 'torch_dummy_transform'
 class_weights: True
 
 # MODEL
-model: 'GIN'
-hidden_units: [32,32]
-train_eps: True
-aggregation: sum
-dropout: 0.0
+model: 'TorchDummy'
 
 # TRAINING
 kfolds: 2

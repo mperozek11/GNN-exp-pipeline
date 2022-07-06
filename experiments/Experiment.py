@@ -21,6 +21,7 @@ sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/models')
 from GIN import GIN
+from TorchDummy import TorchDummy
 
 
 DATASETS = {
@@ -44,8 +45,8 @@ class Experiment:
     def run(self):
         
         dataset, kfold = self.prep_data()
-        in_dim, target_dim = self.get_dimensions(dataset)
-        self.model = self.config_model(in_dim, target_dim)
+        self.in_dim, self.target_dim = self.get_dimensions(dataset)
+        self.model = self.config_model()
         self.optimizer = self.config_optim()
         self.loss_fn = self.config_loss()
         
@@ -89,7 +90,7 @@ class Experiment:
         # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
         self.class_weights = None
         if self.config['class_weights'] == True:
-            y = np.array([data.y for data in dataset]).astype(int)
+            y = ExperimentUtils.get_y(dataset)
             classes = np.unique(np.array(y))
             self.class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
             self.class_weights = torch.tensor(self.class_weights, dtype=torch.float)
@@ -100,16 +101,18 @@ class Experiment:
         return dataset, kfold
     
     def get_dimensions(self, dataset):
-        if type(dataset) == torch.Tensor:
-            return 3,2
-        elif type(dataset) == list:
+        if type(dataset[0]) == list:
+            in_dim = len(dataset[0][0])
+            out_dim = len(np.unique(np.array([item[1] for item in dataset]).astype(int)))
+            return in_dim, out_dim
+        else:
             in_dim = dataset[0].x.shape[1]
             out_dim = len(np.unique(np.array([data.y for data in dataset]).astype(int)))
             return in_dim, out_dim
         
     # in_dim is the number of features on input dimension. This should be # features per graph for conventional NN and # node features for GNN
     # target dim is the output dimension of the model (2 for binary classification)
-    def config_model(self, in_dim, target_dim):
+    def config_model(self):
         if self.config['model'] == 'GIN':
             GIN_config = {
                 'hidden_units': self.config['hidden_units'],
@@ -117,8 +120,12 @@ class Experiment:
                 'aggregation': self.config['aggregation'],
                 'dropout': self.config['dropout']
             }
-            model = GIN(dim_features=in_dim, dim_target=target_dim, config=GIN_config)
-        else: return None
+            model = GIN(dim_features=self.in_dim, dim_target=self.target_dim, config=GIN_config)
+        elif self.config['model'] == 'TorchDummy':
+            model = TorchDummy(self.in_dim, self.target_dim)
+        else:
+            raise Exception(f"model defined in config ({self.config['model']}) has not been implemented")
+        
         return model
     
     def config_optim(self):
@@ -137,9 +144,16 @@ class Experiment:
             for _, batch in enumerate(train_loader):
                 self.optimizer.zero_grad()
 
-                model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
+                if type(batch) == list:
+                    model_out = self.model(batch[0].float())
+                    y = keras.utils.to_categorical(batch[1], self.target_dim)
 
-                y = keras.utils.to_categorical(batch.y, 2)
+                else:
+                    model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
+                    y = keras.utils.to_categorical(batch.y, self.target_dim)
+
+
+
                 loss = self.loss_fn(model_out, torch.Tensor(y))
                 loss.backward()
                 self.optimizer.step()
@@ -171,7 +185,13 @@ class ExperimentUtils:
         self.LOSS_FUNCTIONS = {
             'CrossEntropyLoss': torch.nn.CrossEntropyLoss(weight=experiment.class_weights)
         }
-        
+    def get_y(dataset): # I think there is a pythonic way to do this in one line ~~ y = np.array([item[1] for item in dataset]) if type(dataset[0]) == list else np.array([data.y for data in dataset]).astype(int)
+
+        if type(dataset[0]) == list: # X, y case
+            return np.array([item[1] for item in dataset]).astype(int)
+        else: # geometric Data object case
+            return np.array([data.y for data in dataset]).astype(int)
+
 class ExperimentLogger():
     
     def __init__(self, config, output_dir):

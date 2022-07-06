@@ -1,3 +1,6 @@
+import numpy as np
+import torch
+
 class WICOTransforms:
     
     def wico_5g_vs_non_conspiracy(wico):
@@ -9,3 +12,12 @@ class WICOTransforms:
 
         return ones + zeros[:412]
     
+
+    def torch_dummy_transform(wico):
+        n_features = 10
+        dataset = []
+
+        for data in wico:
+            dataset.append([torch.Tensor(np.random.random((n_features))), data.y])
+
+        return dataset
