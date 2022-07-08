@@ -1,0 +1,31 @@
+config:
+  aggregation: sum
+  batch_size: 32
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 1
+  hidden_units:
+  - 32
+  - 32
+  kfolds: 2
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-08 12:56:23.470470'
+fold_0_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/test_configfold_0_optim_dict.pt
+fold_0_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/test_configfold_0_state_dict.pt
+fold_1_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/test_configfold_1_optim_dict.pt
+fold_1_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/test_configfold_1_state_dict.pt
+training fold messages:
+  fold 0 training message: completed 1 epochs without stopping early
+  fold 1 training message: completed 1 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.1935483870967742, 0.41592312971859985]'
+  fold_eval_f1: '[0.1935483870967742, 0.41592312971859985]'
+  mean_eval_accuracy: 0.304735758407687
+  total_train_time: '0:00:01.703640'

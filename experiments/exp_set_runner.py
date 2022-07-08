@@ -27,28 +27,34 @@ def main(argv):
         print(f'{config_file} not a valid config file')
         sys.exit(2)
         
+    run_experiment(config, output_dir)
+    
+    sys.exit(0)
+
+def run_experiment(config, output_dir):
     exp_builder = ExperimentBuilder(config)
     configs = exp_builder.get_configs()
-
-
     start = datetime.now()
     dt_string = start.strftime('%m.%d.%Y_%H.%M.%S')
     out_root = f'{output_dir}/experiment_{dt_string}'
+
     if not os.path.exists(out_root):
         os.makedirs(out_root)
 
     i = 0
     results = np.empty((len(configs), 2))
     for c in configs:
-        experiment = Experiment(c, f'{out_root}/{i}')
+        if not os.path.exists(f'{out_root}/{i}'):
+            os.makedirs(f'{out_root}/{i}')
+
+        experiment = Experiment(c, f'{out_root}/{i}/')
         meanf1, mean_acc = experiment.run() 
         results[i,:] = (meanf1, mean_acc) 
         i += 1
 
     total_runtime = str(datetime.now() - start)
-    summarize(total_runtime, results, len(configs), out_root)
-    
-    sys.exit(0)
+
+    return summarize(total_runtime, results, len(configs), out_root)
 
 
 def summarize(total_runtime, results, n_runs, out_root):
@@ -65,6 +71,7 @@ def summarize(total_runtime, results, n_runs, out_root):
 
     with open(f'{out_root}/exp_overview.yaml', 'w') as file:
         yaml.dump(summary, file)
+    return summary
 
 if __name__ == "__main__":
     main(sys.argv[1:])

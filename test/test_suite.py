@@ -5,6 +5,7 @@ import numpy as np
 
 sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/experiments')
 from Experiment import Experiment, ExperimentLogger
+from exp_set_runner import run_experiment
 sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 
@@ -74,12 +75,14 @@ def test_torch_dummy_transform():
     DATA_DIR = '/Users/maxperozek/GNN-research/data_pro/data/'
     full_wico_pyg = 'full_wico.pt'
     wico = torch.load(DATA_DIR + full_wico_pyg)
-    X, y = t(wico)
-    
-    print(X)
+    dataset = t(wico)
+    X = torch.Tensor(np.array([np.array(data[0]) for data in dataset]))
+    y = torch.Tensor(np.array([np.array(data[1]) for data in dataset]))
+
     assert len(wico) == 3511
     assert X.shape[0] == 3511
     assert X.shape[1] == 10
+    assert y.shape[0] == 3511
 
 def test_non_geometric_dataset_handling():
     RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
@@ -91,11 +94,45 @@ def test_non_geometric_dataset_handling():
     exp = Experiment(config, RESULT_DIR + config_name)
     mean_f1, mean_acc = exp.run()
 
+# ========================================================================================
+# ==================================== TRAINING TESTS ====================================
+# ========================================================================================
+
+def test_early_stopping():
+    CONFIG_FILE = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/early_stop_test_config.yml'
+    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
+
+    config_name = os.path.basename(CONFIG_FILE)[:-4]
+    with open(CONFIG_FILE) as file:
+        config = yaml.safe_load(file)
+
+    exp = Experiment(config, RESULT_DIR + config_name)
+    exp.run()
+
+
+
+# ========================================================================================
+# ====================================== SET TESTS =======================================
+# ========================================================================================
+
+
+def test_exp_set_runner():
+    CONFIG_FILE = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/top_level_small_test.yml'
+    OUTPUT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result' 
+    with open(CONFIG_FILE) as file:
+        config = yaml.safe_load(file)
+
+    summary = run_experiment(config, OUTPUT_DIR)
+    assert summary['total_runs'] == 2
+    assert type(summary['cumulative runtime']) == str
+    assert 'mean_f1' in summary['0']
+    assert 'mean_acc' in summary['0']
+    assert 'mean_f1' in summary['1']
+    assert 'mean_acc' in summary['1']
+
 
 def main(argv):
-    test_non_geometric_dataset_handling()
 
-    return
     # general
     test_experiment_class_init()
     test_experiment_run_e2e()
@@ -104,10 +141,16 @@ def main(argv):
     test_experiment_prep_data()
     test_wico_5g_vs_non_conspiracy_transform()
     test_torch_dummy_transform()
+    test_non_geometric_dataset_handling()
 
-    # model
+    # training 
+    test_early_stopping()
 
-    # random
+    # random state
+
+    # top level
+    test_exp_set_runner()
+
 
 
 if __name__ == "__main__":

@@ -38,4 +38,7 @@ kfolds: number of folds for cross validation >=2
 batch_size: size of training batches
 epochs: training epochs
 
+## Testing
 
+There is a unit test suite that should be run when making changes before commit.
+You can run the test suite with `python test_suite.py`

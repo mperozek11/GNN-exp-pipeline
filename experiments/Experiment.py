@@ -54,22 +54,29 @@ class Experiment:
         fold_eval_f1 = np.empty(kfold.get_n_splits())
 
         start = datetime.now()
+        state_dicts = []
+        optim_dicts = []
+        train_message_dict = {}
         for fold, (train_idx, test_idx) in enumerate(kfold.split(dataset)):
-
+            
+            self.best_model = None
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
             train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=True)
             test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=True) # single batch for test data since wico fits in memory
 
-            self.train_model(train_loader)
+            train_message, epochs_trained = self.train_model(train_loader, test_loader)
             fold_acc, fold_f1 = self.eval_model(test_loader)
 
+            train_message_dict[f'fold {fold} training message'] = train_message
             fold_eval_acc[fold] = fold_acc
             fold_eval_f1[fold] = fold_f1
-            
+            state_dicts.append(self.best_model['model_state_dict'])
+            optim_dicts.append(self.best_model['optim_state_dict'])
+
         mean_f1 = float(fold_eval_f1.mean())
         mean_acc = float(fold_eval_acc.mean())
         runtime = str(datetime.now() - start)
-        self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, runtime)
+        self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, runtime, state_dicts, optim_dicts, train_message_dict)
         self.logger.dump_log()
         return mean_f1, mean_acc
         
@@ -85,7 +92,6 @@ class Experiment:
             # transform dataset
             t = getattr(WICOTransforms, self.config['transform'])
             dataset = t(dataset)
-        
         
         # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
         self.class_weights = None
@@ -135,10 +141,12 @@ class Experiment:
         util = ExperimentUtils(self)
         return util.LOSS_FUNCTIONS[self.config['loss_fn']]
 
-    def train_model(self, train_loader):
+    # trains and evaluates the model each epoch. 
+    # The running best model is stored in self.best_model on the criteria of lowest validation loss over training.
+    def train_model(self, train_loader, eval_loader, patience=5):
         epochs = self.config['epochs']
         
-        
+        val_losses = []
         for e in tqdm(range(epochs), position=0, leave=True):
             self.model.train()
             for _, batch in enumerate(train_loader):
@@ -152,25 +160,68 @@ class Experiment:
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
                     y = keras.utils.to_categorical(batch.y, self.target_dim)
 
-
-
                 loss = self.loss_fn(model_out, torch.Tensor(y))
                 loss.backward()
                 self.optimizer.step()
+            
+            self.model.eval()
+            total_loss = 0
+            for _, batch in enumerate(eval_loader):
+                if type(batch) == list:
+                    model_out = self.model(batch[0].float())
+                    y = keras.utils.to_categorical(batch[1], self.target_dim)
+
+                else:
+                    model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
+                    y = keras.utils.to_categorical(batch.y, self.target_dim)
+
+                loss = self.loss_fn(model_out, torch.Tensor(y))
+                total_loss += loss.item()
+            
+            if self.best_model == None or total_loss < self.best_model['total_eval_loss']:
+                self.best_model = {}
+                self.best_model['model_state_dict'] = self.model.state_dict()
+                self.best_model['optim_state_dict'] = self.optimizer.state_dict()
+                self.best_model['total_eval_loss'] = total_loss
+            
+            val_losses.append(total_loss)
+            if len(val_losses) > patience and self.not_improving(val_losses[-patience:]):
+                return f'stopped training due to stagnating improvement on validation loss after {e+1} epochs', e+1
+
+        return f'completed {e+1} epochs without stopping early', e+1
+
+    def not_improving(self, last_n_losses, epsilon=0.1):
+        for i in range(len(last_n_losses[:-1])):
+            if last_n_losses[i] + epsilon < last_n_losses[i+1]:
+                return False
+        return True
         
+    # Tests the best model per fold. Best model determined by model with lowest eval loss during training
     def eval_model(self, test_loader):
+        self.model.load_state_dict(self.best_model['model_state_dict'])
         self.model.eval()
         correct = 0
+        total = 0
         with torch.no_grad():
             for data in test_loader:
-                out = self.model(data.x.float(), data.edge_index, data.batch)
-                cor_list = (torch.argmax(out, dim=1).numpy() == data.y.numpy())
-                correct += cor_list.sum()
-                f1 = f1_score(data.y.numpy(), torch.argmax(out, dim=1).numpy())
+                if type(data) == list:
+                    out = self.model(data[0].float())
+                    cor_list = (torch.argmax(out, dim=1).numpy() == data[1].numpy()) # np.array of shape (n_test_examples,) where each index corresponds a binary value for correctness of pred
+                    correct += cor_list.sum()
+                    f1 = f1_score(data[1].numpy(), torch.argmax(out, dim=1).numpy(), average='micro')
+                    total += len(data[0])
+                else:
+                    out = self.model(data.x.float(), data.edge_index, data.batch)
+                    cor_list = (torch.argmax(out, dim=1).numpy() == data.y.numpy())
+                    correct += cor_list.sum()
+                    f1 = f1_score(data.y.numpy(), torch.argmax(out, dim=1).numpy(), average='micro')
+                    total += len(data.y)
+
                 
-            acc = correct / len(test_loader.dataset)
+            acc = correct / total
         # This needs to be fixed to work on large validation datasets which need to be tested in batches. 
         # Code will fail when val set is too large for memory per DataLoader initialization so all reported f1 scores will be correct
+
         return acc, f1
         
         
@@ -199,17 +250,28 @@ class ExperimentLogger():
         self.log = { "experiment_run_start": str(datetime.now()) } 
         self.log['config'] = config
         
-    def log_train(self, fold_eval_acc, fold_eval_f1, mean_acc, runtime):
+    def log_train(self, fold_eval_acc, fold_eval_f1, mean_acc, runtime, state_dicts, optim_dicts, train_message_dict):
         training = {
             'total_train_time': runtime,
             'mean_eval_accuracy': mean_acc,
             'fold_eval_accs': str(list(fold_eval_acc)),
             'fold_eval_f1': str(list(fold_eval_f1))
         }
+        for i in range(len(state_dicts)):
+            model_fname = f'{self.output_dir}fold_{i}_state_dict.pt'
+            optim_fname = f'{self.output_dir}fold_{i}_optim_dict.pt'
+            torch.save(state_dicts[i], model_fname)
+            torch.save(state_dicts[i], optim_fname)
+
+            self.log[f'fold_{i}_state_dict'] = str(model_fname)
+            self.log[f'fold_{i}_optim_dict'] = str(optim_fname)
+
         self.log['training_metrics'] = training
+        self.log['training fold messages'] = train_message_dict
+
         
     def dump_log(self):
-        with open(self.output_dir + '_result.yaml', 'w') as file:
+        with open(f'{self.output_dir}result.yaml', 'w') as file:
             yaml.dump(self.log, file)
         print('log saved to: ', file)
     
