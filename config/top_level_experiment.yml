@@ -39,4 +39,7 @@ lr:
   - 0.005
   - 0.01
   - 0.1
-# TODO: add early stopping config options
+
+# EARLY STOPPING
+patience: 5
+improvement_threshold: 0.05

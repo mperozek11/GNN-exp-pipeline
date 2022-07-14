@@ -1,0 +1,43 @@
+config:
+  aggregation: mean
+  batch_size: 128
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.5
+  epochs: 20
+  hidden_units:
+  - 32
+  - 32
+  - 32
+  improvement_threshold: 0.01
+  kfolds: 4
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-12 22:00:29.446477'
+fold_0_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_0_optim_dict.pt
+fold_0_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_0_state_dict.pt
+fold_1_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_1_optim_dict.pt
+fold_1_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_1_state_dict.pt
+fold_2_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_2_optim_dict.pt
+fold_2_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_2_state_dict.pt
+fold_3_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_3_optim_dict.pt
+fold_3_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_21.59.15/1/fold_3_state_dict.pt
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 11 epochs
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 13 epochs
+  fold 3 training message: completed 20 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.5857338820301783, 0.45816186556927296, 0.7019230769230769, 0.5082417582417582]'
+  fold_eval_f1: '[0.33480176211453744, 0.28051001821493626, 0.3444108761329305, 0.26938775510204077]'
+  mean_eval_accuracy: 0.5635151456910716
+  total_train_time: '0:00:43.536277'

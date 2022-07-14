@@ -1,0 +1,49 @@
+config:
+  aggregation: mean
+  batch_size: 128
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 50
+  hidden_units:
+  - 32
+  - 32
+  - 32
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-11 22:07:01.045725'
+fold_0_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_0_optim_dict.pt
+fold_0_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_0_state_dict.pt
+fold_1_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_1_optim_dict.pt
+fold_1_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_1_state_dict.pt
+fold_2_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_2_optim_dict.pt
+fold_2_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_2_state_dict.pt
+fold_3_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_3_optim_dict.pt
+fold_3_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_3_state_dict.pt
+fold_4_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_4_optim_dict.pt
+fold_4_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.11.2022_19.19.59/112/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: completed 50 epochs without stopping early
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 15 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 29 epochs
+  fold 3 training message: stopped training due to stagnating improvement on validation
+    loss after 27 epochs
+  fold 4 training message: stopped training due to stagnating improvement on validation
+    loss after 42 epochs
+training_metrics:
+  fold_eval_accs: '[0.3979416809605489, 0.4922813036020583, 0.45797598627787306, 0.4202401372212693,
+    0.6666666666666666]'
+  fold_eval_f1: '[0.24190064794816413, 0.3363228699551569, 0.2785388127853881, 0.3346456692913386,
+    0.35761589403973515]'
+  mean_eval_accuracy: 0.4870211549456832
+  total_train_time: '0:02:14.096546'

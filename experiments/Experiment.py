@@ -1,3 +1,4 @@
+from cProfile import label
 import os
 import numpy as np
 from datetime import datetime
@@ -59,12 +60,12 @@ class Experiment:
         train_message_dict = {}
         for fold, (train_idx, test_idx) in enumerate(kfold.split(dataset)):
             
-            self.best_model = None
+            self.best_model = None # this will be the best model per training fold
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
             train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=True)
             test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=True) # single batch for test data since wico fits in memory
 
-            train_message, epochs_trained = self.train_model(train_loader, test_loader)
+            train_message, epochs_trained = self.train_model(train_loader, test_loader, patience=int(self.config['patience']))
             fold_acc, fold_f1 = self.eval_model(test_loader)
 
             train_message_dict[f'fold {fold} training message'] = train_message
@@ -98,8 +99,21 @@ class Experiment:
         if self.config['class_weights'] == True:
             y = ExperimentUtils.get_y(dataset)
             classes = np.unique(np.array(y))
+
+            # below are two different weighting schemes which yeild the same proportions but use different strategies
+
+            # === 1 ===
+            # prevs = []
+            # for c in classes:
+            #     prev = len((y == c).nonzero()[0])
+            #     prevs.append(prev)
+            # most_ex = sorted(prevs)[-1] # get most prevelant class number of examples
+            # self.class_weights = most_ex / torch.Tensor(prevs)
+
+            # === 2 ===
             self.class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
             self.class_weights = torch.tensor(self.class_weights, dtype=torch.float)
+            
             
         # kfold
         kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
@@ -185,12 +199,13 @@ class Experiment:
                 self.best_model['total_eval_loss'] = total_loss
             
             val_losses.append(total_loss)
-            if len(val_losses) > patience and self.not_improving(val_losses[-patience:]):
+
+            if len(val_losses) > patience and self.not_improving(val_losses[-patience:], epsilon=self.config['improvement_threshold']):
                 return f'stopped training due to stagnating improvement on validation loss after {e+1} epochs', e+1
 
         return f'completed {e+1} epochs without stopping early', e+1
 
-    def not_improving(self, last_n_losses, epsilon=0.1):
+    def not_improving(self, last_n_losses, epsilon=0.01):
         for i in range(len(last_n_losses[:-1])):
             if last_n_losses[i] + epsilon < last_n_losses[i+1]:
                 return False
@@ -202,19 +217,20 @@ class Experiment:
         self.model.eval()
         correct = 0
         total = 0
+        average = 'binary' if self.target_dim == 2 else 'micro' # sklearn f1 function's averaging scheme should be understood for multiclass
         with torch.no_grad():
             for data in test_loader:
                 if type(data) == list:
                     out = self.model(data[0].float())
                     cor_list = (torch.argmax(out, dim=1).numpy() == data[1].numpy()) # np.array of shape (n_test_examples,) where each index corresponds a binary value for correctness of pred
                     correct += cor_list.sum()
-                    f1 = f1_score(data[1].numpy(), torch.argmax(out, dim=1).numpy(), average='micro')
+                    f1 = f1_score(data[1].numpy(), torch.argmax(out, dim=1).numpy(), average=average)
                     total += len(data[0])
                 else:
                     out = self.model(data.x.float(), data.edge_index, data.batch)
                     cor_list = (torch.argmax(out, dim=1).numpy() == data.y.numpy())
                     correct += cor_list.sum()
-                    f1 = f1_score(data.y.numpy(), torch.argmax(out, dim=1).numpy(), average='micro')
+                    f1 = f1_score(data.y.numpy(), torch.argmax(out, dim=1).numpy(), average=average)
                     total += len(data.y)
 
                 

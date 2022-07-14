@@ -43,7 +43,10 @@ def run_experiment(config, output_dir):
 
     i = 0
     results = np.empty((len(configs), 2))
+    print(f'beginning experiment set now with {len(configs)} total configs')
     for c in configs:
+        
+        print(f'training on config {i+1} / {len(configs)} total model configs')
         if not os.path.exists(f'{out_root}/{i}'):
             os.makedirs(f'{out_root}/{i}')
 
@@ -54,17 +57,21 @@ def run_experiment(config, output_dir):
 
     total_runtime = str(datetime.now() - start)
 
-    return summarize(total_runtime, results, len(configs), out_root)
+    return summarize(config, total_runtime, results, len(configs), out_root)
 
 
-def summarize(total_runtime, results, n_runs, out_root):
-    summary = {'cumulative runtime': total_runtime}
+def summarize(config, total_runtime, results, n_runs, out_root):
+    summary = {}
+    summary['top_lvl_config'] = config
+
+    summary['cumulative runtime'] = total_runtime
     summary['total_runs'] = int(n_runs)
     if n_runs > 10:
         x = np.argsort(results[:,0])[::-1][:10] # get the 10 best models by f1 score
-        summary['top_10_models'] = list(x)
+        top_10 = {}
         for idx in x:
-            summary[str(idx)] = f'mean_f1: {results[idx,0]} mean_acc: {results[idx,1]}'
+            top_10[str(idx)] = f'mean_f1: {results[idx,0]} mean_acc: {results[idx,1]}'
+        summary['top_10_architectures'] = top_10
     else:
         for idx in range(results.shape[0]):
             summary[str(idx)] = f'mean_f1: {results[idx,0]} mean_acc: {results[idx,1]}'

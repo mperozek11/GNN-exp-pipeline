@@ -19,4 +19,7 @@ loss_fn: CrossEntropyLoss
 batch_size: 32
 epochs: 50 # enough to trigger early stopping
 lr: 0.01
-# add: early stopping config options
+
+# EARLY STOPPING
+patience: 5
+improvement_threshold: 0.05

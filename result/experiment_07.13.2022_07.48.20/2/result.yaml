@@ -1,0 +1,46 @@
+config:
+  aggregation: sum
+  batch_size: 64
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 30
+  hidden_units:
+  - 32
+  - 32
+  - 32
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_non_oversampled
+experiment_run_start: '2022-07-13 07:58:41.091436'
+fold_0_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_0_optim_dict.pt
+fold_0_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_0_state_dict.pt
+fold_1_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_1_optim_dict.pt
+fold_1_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_1_state_dict.pt
+fold_2_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_2_optim_dict.pt
+fold_2_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_2_state_dict.pt
+fold_3_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_3_optim_dict.pt
+fold_3_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_3_state_dict.pt
+fold_4_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_4_optim_dict.pt
+fold_4_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.13.2022_07.48.20/2/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: completed 30 epochs without stopping early
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 25 epochs
+  fold 2 training message: completed 30 epochs without stopping early
+  fold 3 training message: completed 30 epochs without stopping early
+  fold 4 training message: completed 30 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.5784215784215784, 0.6623376623376623, 0.7012987012987013, 0.5904095904095904,
+    0.629]'
+  fold_eval_f1: '[0.7197875166002656, 0.6960431654676258, 0.712776176753122, 0.514218009478673,
+    0.6611872146118721]'
+  mean_eval_accuracy: 0.6322935064935065
+  total_train_time: '0:04:26.172725'

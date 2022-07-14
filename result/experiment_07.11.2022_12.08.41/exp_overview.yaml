@@ -1,0 +1,66 @@
+'128': 'mean_f1: 0.6579288312025133 mean_acc: 0.6579288312025133'
+'140': 'mean_f1: 0.71565784277319 mean_acc: 0.71565784277319'
+'23': 'mean_f1: 0.6512964698531708 mean_acc: 0.6512964698531708'
+'26': 'mean_f1: 0.6285193895775494 mean_acc: 0.6285193895775494'
+'40': 'mean_f1: 0.6520267840828043 mean_acc: 0.6520267840828043'
+'67': 'mean_f1: 0.6355561056981014 mean_acc: 0.6355561056981014'
+'83': 'mean_f1: 0.6221605276652933 mean_acc: 0.6221605276652933'
+'92': 'mean_f1: 0.6503887346524965 mean_acc: 0.6503887346524966'
+'95': 'mean_f1: 0.7587841063818501 mean_acc: 0.7587841063818501'
+'98': 'mean_f1: 0.7138276364107915 mean_acc: 0.7138276364107915'
+cumulative runtime: '3:26:58.037748'
+top_10_models:
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - i8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    XwAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    jAAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    YgAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    gAAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    KAAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    FwAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    XAAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    QwAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    GgAAAAAAAAA=
+- !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    UwAAAAAAAAA=
+total_runs: 144

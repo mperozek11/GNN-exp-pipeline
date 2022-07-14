@@ -1,0 +1,43 @@
+config:
+  aggregation: sum
+  batch_size: 64
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 1
+  hidden_units:
+  - 64
+  improvement_threshold: 0.05
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.1
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: false
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-12 12:14:51.355349'
+fold_0_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_0_optim_dict.pt
+fold_0_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_0_state_dict.pt
+fold_1_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_1_optim_dict.pt
+fold_1_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_1_state_dict.pt
+fold_2_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_2_optim_dict.pt
+fold_2_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_2_state_dict.pt
+fold_3_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_3_optim_dict.pt
+fold_3_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_3_state_dict.pt
+fold_4_optim_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_4_optim_dict.pt
+fold_4_state_dict: /Users/maxperozek/GNN-research/GNN-exp-pipeline/result/experiment_07.12.2022_12.13.21/15/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: completed 1 epochs without stopping early
+  fold 1 training message: completed 1 epochs without stopping early
+  fold 2 training message: completed 1 epochs without stopping early
+  fold 3 training message: completed 1 epochs without stopping early
+  fold 4 training message: completed 1 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.20926243567753003, 0.6655231560891939, 0.6329331046312179, 0.16123499142367068,
+    0.15807560137457044]'
+  fold_eval_f1: '[0.23548922056384744, 0.37699680511182104, 0.24647887323943662, 0.2465331278890601,
+    0.25757575757575757]'
+  mean_eval_accuracy: 0.3654058578392365
+  total_train_time: '0:00:06.244171'
