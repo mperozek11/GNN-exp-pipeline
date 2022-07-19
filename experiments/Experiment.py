@@ -1,5 +1,6 @@
 from cProfile import label
 import os
+import pathlib
 import numpy as np
 from datetime import datetime
 from tqdm import tqdm
@@ -17,22 +18,23 @@ from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 
 import sys
-  
-sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms')
+
+root = pathlib.Path().resolve().as_posix()
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
-sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/models')
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
 from GIN import GIN
 from TorchDummy import TorchDummy
 
 
 DATASETS = {
-    'wico': '/Users/maxperozek/GNN-research/GNN-exp-pipeline/data/full_wico.pt'
+    'wico': f'{root}/GNN-exp-pipeline/data/full_wico.pt'
 }
     
 class Experiment:
     
-    DATA_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/data/'
-    TRANSFORMS_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms/'
+    DATA_DIR = f'{root}/GNN-exp-pipeline/data/'
+    TRANSFORMS_DIR = f'{root}/GNN-exp-pipeline/transforms/'
 
     def __init__(self, config, out_path):
         self.device = torch.device(config['device'])

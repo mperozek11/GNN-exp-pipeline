@@ -1,18 +1,29 @@
+from cgi import test
 import yaml
 import os
+import glob
 import sys
 import numpy as np
+import pathlib
+root = pathlib.Path().resolve().as_posix()
 
-
-sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/experiments')
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/experiments')
 from Experiment import Experiment, ExperimentLogger
 from exp_set_runner import run_experiment
-sys.path.insert(0, '/Users/maxperozek/GNN-research/GNN-exp-pipeline/transforms')
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 
 import torch
 from torch_geometric.data import Data
 from collections.abc import Iterable
+
+
+# ========================================================================================
+# ======================================= PATHS ==========================================
+# ========================================================================================
+
+RESULT_DIR = f'{root}/GNN-exp-pipeline/test/result/'
+DATA_DIR = f'{root}/GNN-exp-pipeline/data/'
 
 # ========================================================================================
 # =================================== GENERAL TESTS ======================================
@@ -20,8 +31,7 @@ from collections.abc import Iterable
 
 
 def test_experiment_class_init():
-    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
-    config_file = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/test_config.yml'
+    config_file = f'{root}/GNN-exp-pipeline/config/test_config.yml'
     config_name = os.path.basename(config_file)[:-5]
     with open(config_file) as file:
         config = yaml.safe_load(file)
@@ -31,8 +41,7 @@ def test_experiment_class_init():
     assert exp.device == torch.device('cpu')
 
 def test_experiment_run_e2e():
-    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
-    config_file = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/test_config.yml'
+    config_file = f'{root}/GNN-exp-pipeline/config/test_config.yml'
     config_name = os.path.basename(config_file)[:-4]
     with open(config_file) as file:
         config = yaml.safe_load(file)
@@ -47,8 +56,7 @@ def test_experiment_run_e2e():
 
 
 def test_experiment_prep_data():
-    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
-    config_file = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/test_config.yml'
+    config_file = f'{root}/GNN-exp-pipeline/config/test_config.yml'
     config_name = os.path.basename(config_file)[:-5]
     with open(config_file) as file:
         config = yaml.safe_load(file)
@@ -62,7 +70,6 @@ def test_experiment_prep_data():
 
 def test_wico_5g_vs_non_conspiracy_transform():
     t = getattr(WICOTransforms, 'wico_5g_vs_non_conspiracy')
-    DATA_DIR = '/Users/maxperozek/GNN-research/data_pro/data/'
     full_wico_pyg = 'full_wico.pt'
     wico = torch.load(DATA_DIR + full_wico_pyg)
     wico_2_class = t(wico)
@@ -74,7 +81,6 @@ def test_wico_5g_vs_non_conspiracy_transform():
 
 def test_wico_5g_non_oversampled_transform():
     t = getattr(WICOTransforms, 'wico_5g_non_oversampled')
-    DATA_DIR = '/Users/maxperozek/GNN-research/data_pro/data/'
     full_wico_pyg = 'full_wico.pt'
     wico = torch.load(DATA_DIR + full_wico_pyg)
     wico_2_class = t(wico)
@@ -88,7 +94,6 @@ def test_wico_5g_non_oversampled_transform():
 
 def test_torch_dummy_transform():
     t = getattr(WICOTransforms, 'torch_dummy_transform')
-    DATA_DIR = '/Users/maxperozek/GNN-research/data_pro/data/'
     full_wico_pyg = 'full_wico.pt'
     wico = torch.load(DATA_DIR + full_wico_pyg)
     dataset = t(wico)
@@ -101,8 +106,7 @@ def test_torch_dummy_transform():
     assert y.shape[0] == 3511
 
 def test_non_geometric_dataset_handling():
-    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
-    config_file = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/non_geo_test.yml'
+    config_file = f'{root}/GNN-exp-pipeline/config/non_geo_test.yml'
     config_name = os.path.basename(config_file)[:-5]
     with open(config_file) as file:
         config = yaml.safe_load(file)
@@ -115,8 +119,8 @@ def test_non_geometric_dataset_handling():
 # ========================================================================================
 
 def test_early_stopping():
-    CONFIG_FILE = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/early_stop_test_config.yml'
-    RESULT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/'
+    CONFIG_FILE = f'{root}/GNN-exp-pipeline/config/early_stop_test_config.yml'
+    RESULT_DIR = f'{root}/GNN-exp-pipeline/result/'
 
     config_name = os.path.basename(CONFIG_FILE)[:-4]
     with open(CONFIG_FILE) as file:
@@ -133,12 +137,11 @@ def test_early_stopping():
 
 
 def test_exp_set_runner():
-    CONFIG_FILE = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/top_level_small_test.yml'
-    OUTPUT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result' 
+    CONFIG_FILE = f'{root}/GNN-exp-pipeline/config/top_level_small_test.yml'
     with open(CONFIG_FILE) as file:
         config = yaml.safe_load(file)
 
-    summary = run_experiment(config, OUTPUT_DIR)
+    summary = run_experiment(config, RESULT_DIR)
     assert summary['total_runs'] == 2
     assert type(summary['cumulative runtime']) == str
     assert 'mean_f1' in summary['0']
@@ -147,25 +150,25 @@ def test_exp_set_runner():
     assert 'mean_acc' in summary['1']
 
 def test_exp_set_runner_more_than_10():
-    CONFIG_FILE = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/top_level_exp_test_gr10.yml'
-    OUTPUT_DIR = '/Users/maxperozek/GNN-research/GNN-exp-pipeline/result' 
+    CONFIG_FILE = f'{root}/GNN-exp-pipeline/config/top_level_exp_test_gr10.yml'
     with open(CONFIG_FILE) as file:
         config = yaml.safe_load(file)
 
-    summary = run_experiment(config, OUTPUT_DIR)
+    summary = run_experiment(config, RESULT_DIR)
     
     # assert summary['total_runs'] == 16
     assert type(summary['cumulative runtime']) == str
 
-
+def delete_unit_test_results(res_dir):
+    files = glob.glob(f'{res_dir}/*')
+    for f in files:
+        os.remove(f)
 def main(argv):
 
-    test_wico_5g_non_oversampled_transform()
-    return
+    test_experiment_run_e2e()
     # general
     test_experiment_class_init()
     test_experiment_run_e2e()
-    
     
     # data
     test_experiment_prep_data()
@@ -183,6 +186,8 @@ def main(argv):
     test_exp_set_runner()
     test_exp_set_runner_more_than_10()
 
+    # cleanup 
+    delete_unit_test_results(RESULT_DIR)
 
 
 if __name__ == "__main__":
