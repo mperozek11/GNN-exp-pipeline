@@ -7,7 +7,6 @@ from tqdm import tqdm
 import yaml
 import random
 
-from sklearn.utils import class_weight
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score
 
@@ -20,6 +19,8 @@ from torch_geometric.loader import DataLoader
 import sys
 
 root = pathlib.Path().resolve().as_posix()
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/data')
+from DataUtil import target_to_categorical, get_class_weights, to_device
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
@@ -47,19 +48,12 @@ class Experiment:
         # need to set random random seed as well
         
     def run(self):
-        
         dataset, kfold = self.prep_data()
-        self.in_dim, self.target_dim = self.get_dimensions(dataset)
-        for i in range(len(dataset)): # DEBUG
-            dataset[i] = dataset[i].cuda() # DEBUG
             
         self.model = self.config_model()
-        self.model = self.model.cuda() # test
         
         self.optimizer = self.config_optim()
-        
         self.loss_fn = self.config_loss()
-        self.loss_fn = self.loss_fn.cuda()
         
         fold_eval_acc = np.empty(kfold.get_n_splits())
         fold_eval_f1 = np.empty(kfold.get_n_splits())
@@ -105,27 +99,13 @@ class Experiment:
             dataset = t(dataset)
         
         # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
-        self.class_weights = None
-        if self.config['class_weights'] == True:
-            y = ExperimentUtils.get_y(dataset)
-            classes = np.unique(np.array(y))
-
-            # below are two different weighting schemes which yeild the same proportions but use different strategies
-
-            # === 1 ===
-            # prevs = []
-            # for c in classes:
-            #     prev = len((y == c).nonzero()[0])
-            #     prevs.append(prev)
-            # most_ex = sorted(prevs)[-1] # get most prevelant class number of examples
-            # self.class_weights = most_ex / torch.Tensor(prevs)
-
-            # === 2 ===
-            self.class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
-            self.class_weights = torch.tensor(self.class_weights, dtype=torch.float)
+        y = ExperimentUtils.get_y(dataset)
+        self.class_weights = get_class_weights(self.config['class_weights'], y)
             
-            
-        # kfold
+        self.in_dim, self.target_dim = self.get_dimensions(dataset)
+        dataset = target_to_categorical(dataset, self.target_dim)
+        to_device(dataset, self.device)
+
         kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
 
         return dataset, kfold
@@ -156,6 +136,7 @@ class Experiment:
         else:
             raise Exception(f"model defined in config ({self.config['model']}) has not been implemented")
         
+        model = model.to(self.device)
         return model
     
     def config_optim(self):
@@ -163,7 +144,9 @@ class Experiment:
         return util.OPTIMIZERS[self.config['optimizer']]
     def config_loss(self):
         util = ExperimentUtils(self)
-        return util.LOSS_FUNCTIONS[self.config['loss_fn']]
+        loss = util.LOSS_FUNCTIONS[self.config['loss_fn']]
+        loss = loss.to(self.device)
+        return loss
 
     # trains and evaluates the model each epoch. 
     # The running best model is stored in self.best_model on the criteria of lowest validation loss over training.
@@ -178,14 +161,12 @@ class Experiment:
 
                 if type(batch) == list: # non-geometric case 
                     model_out = self.model(batch[0].float())
-                    y = torch.Tensor(keras.utils.to_categorical(batch[1], self.target_dim))
+                    y = batch[1]
 
-                else:
+                else: # pyg Data
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
-                    y = torch.Tensor(keras.utils.to_categorical(torch.clone(batch.y).cpu(), self.target_dim))
+                    y = batch.y
                 
-                if torch.cuda.is_available():
-                    y = y.cuda()
                 loss = self.loss_fn(model_out, y)
                 loss.backward()
                 self.optimizer.step()
@@ -195,14 +176,13 @@ class Experiment:
             for _, batch in enumerate(eval_loader):
                 if type(batch) == list: # non-geometric case 
                     model_out = self.model(batch[0].float())
-                    y = torch.Tensor(keras.utils.to_categorical(batch[1], self.target_dim))
+                    y = batch[1]
 
                 else:
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
-                    y = torch.Tensor(keras.utils.to_categorical(torch.clone(batch.y).cpu(), self.target_dim))
+                    y = batch.y
                 
-                if torch.cuda.is_available():
-                    y = y.cuda()
+
                 loss = self.loss_fn(model_out, y)
                 total_loss += loss.item()
             
@@ -237,9 +217,9 @@ class Experiment:
             for data in test_loader:
                 if type(data) == list:
                     out = self.model(data[0].float())
-                    cor_list = (torch.argmax(out, dim=1).numpy() == data[1].numpy()) # np.array of shape (n_test_examples,) where each index corresponds a binary value for correctness of pred
+                    cor_list = (torch.clone(torch.argmax(out, dim=1)).cpu().numpy() == torch.clone(data[1]).cpu().numpy())
                     correct += cor_list.sum()
-                    f1 = f1_score(data[1].numpy(), torch.argmax(out, dim=1).numpy(), average=average)
+                    f1 = f1_score(torch.clone(data[1]).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
                     total += len(data[0])
                 else:
                     out = self.model(data.x.float(), data.edge_index, data.batch)

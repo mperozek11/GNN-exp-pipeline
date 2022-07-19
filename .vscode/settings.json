@@ -2,7 +2,8 @@
     "python.analysis.extraPaths": [
         "./transforms",
         "./models",
-        "./experiments"
+        "./experiments",
+        "./data"
     ],
     "python.testing.pytestArgs": [
         "."
