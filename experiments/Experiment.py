@@ -217,15 +217,13 @@ class Experiment:
             for data in test_loader:
                 if type(data) == list:
                     out = self.model(data[0].float())
-                    cor_list = (torch.clone(torch.argmax(out, dim=1)).cpu().numpy() == torch.clone(data[1]).cpu().numpy())
-                    correct += cor_list.sum()
-                    f1 = f1_score(torch.clone(data[1]).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
+                    correct += float(torch.eq(torch.argmax(out, dim=1), torch.argmax(data[1], dim=1)).sum())
+                    f1 = f1_score(torch.clone(torch.argmax(data[1], dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
                     total += len(data[0])
                 else:
                     out = self.model(data.x.float(), data.edge_index, data.batch)
-                    cor_list = (torch.clone(torch.argmax(out, dim=1)).cpu().numpy() == torch.clone(data.y).cpu().numpy())
-                    correct += cor_list.sum()
-                    f1 = f1_score(torch.clone(data.y).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
+                    correct += float(torch.eq(torch.argmax(out, dim=1), torch.argmax(data.y, dim=1)).sum())
+                    f1 = f1_score(torch.clone(torch.argmax(data.y, dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
                     total += len(data.y)
 
                 
