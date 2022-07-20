@@ -7,11 +7,11 @@ from sklearn.utils import class_weight
 def target_to_categorical(dataset, target_dim):
 
     if type(dataset[0]) == list: # traditional NN
-        dataset[1] = torch.Tensor(keras.utils.to_categorical(dataset[1], target_dim))
+        dataset[1] = torch.tensor(keras.utils.to_categorical(dataset[1], target_dim))
 
     else: # pyg Data class
         for i in range(len(dataset)):
-            dataset[i].y = torch.Tensor(keras.utils.to_categorical(dataset[i].y, target_dim))
+            dataset[i].y = torch.tensor(keras.utils.to_categorical(dataset[i].y, target_dim))
 
     return dataset
 
