@@ -29,7 +29,8 @@ def main(argv):
         
     run_experiment(config, output_dir)
     
-    sys.exit(0)
+    # sys exit call must be removed in order to run torch.utils.bottleneck script
+    # sys.exit(0) 
 
 def run_experiment(config, output_dir):
     exp_builder = ExperimentBuilder(config)

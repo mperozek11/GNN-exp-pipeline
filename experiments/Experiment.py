@@ -40,6 +40,7 @@ class Experiment:
     def __init__(self, config, out_path):
         self.device = torch.device(config['device'])
         print(f'torch device: {self.device}')
+        print(f'batch size: {config["batch_size"]}')
         self.logger = ExperimentLogger(config, out_path)
         self.config = config
         
@@ -182,7 +183,6 @@ class Experiment:
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
                     y = batch.y
                 
-
                 loss = self.loss_fn(model_out, y)
                 total_loss += loss.item()
             
@@ -224,6 +224,7 @@ class Experiment:
                     out = self.model(data.x.float(), data.edge_index, data.batch)
                     correct += float(torch.eq(torch.argmax(out, dim=1), torch.argmax(data.y, dim=1)).sum())
                     f1 = f1_score(torch.clone(torch.argmax(data.y, dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
+
                     total += len(data.y)
 
                 
