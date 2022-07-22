@@ -25,7 +25,9 @@ sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
 from GIN import GIN
+from NN import Network
 from TorchDummy import TorchDummy
+
 
 
 DATASETS = {
@@ -132,6 +134,8 @@ class Experiment:
                 'dropout': self.config['dropout']
             }
             model = GIN(dim_features=self.in_dim, dim_target=self.target_dim, config=GIN_config)
+        elif self.config['model'] == 'NN':
+            model = Network(dim_features=self.in_dim, dim_target=self.target_dim, config=None)
         elif self.config['model'] == 'TorchDummy':
             model = TorchDummy(self.in_dim, self.target_dim)
         else:
