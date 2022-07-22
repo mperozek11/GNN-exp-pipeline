@@ -161,7 +161,7 @@ class Experiment:
         val_losses = []
         for e in tqdm(range(epochs), position=0, leave=True):
             self.model.train()
-            for _, batch in enumerate(train_loader):
+            for batch in train_loader:
                 self.optimizer.zero_grad()
 
                 if type(batch) == list: # non-geometric case 
@@ -178,7 +178,7 @@ class Experiment:
             
             self.model.eval()
             total_loss = 0
-            for _, batch in enumerate(eval_loader):
+            for batch in eval_loader:
                 if type(batch) == list: # non-geometric case 
                     model_out = self.model(batch[0].float())
                     y = batch[1]
