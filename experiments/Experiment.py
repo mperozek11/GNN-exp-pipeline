@@ -21,6 +21,7 @@ import sys
 root = pathlib.Path().resolve().as_posix()
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/data')
 from DataUtil import target_to_categorical, get_class_weights, to_device
+from WICO import WICO, filter_5g_non, wico_data_to_custom
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
@@ -52,6 +53,7 @@ class Experiment:
         
     def run(self):
         dataset, kfold = self.prep_data()
+        dataset = WICO(root=f'{self.DATA_DIR}wico', pre_filter=filter_5g_non, pre_transform=wico_data_to_custom)
             
         self.model = self.config_model()
         
@@ -111,6 +113,7 @@ class Experiment:
 
         kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
 
+        print(f'dataset: {self.config["dataset"]} {sys.getsizeof(dataset)} bytes in memory')
         return dataset, kfold
     
     def get_dimensions(self, dataset):
