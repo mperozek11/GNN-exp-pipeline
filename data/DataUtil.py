@@ -1,7 +1,10 @@
+from ast import arg
 import torch
+import torch_geometric
 import numpy as np
 from tensorflow import keras
 from sklearn.utils import class_weight
+
 
 
 def target_to_categorical(dataset, target_dim):
@@ -40,7 +43,7 @@ def to_device(dataset, device):
             dataset[i][0] = dataset[i][0].to(device) # graph features
             dataset[i][1] = dataset[i][1].to(device) # graph labels
 
-    else:
-        for i in range(len(dataset)):
-            dataset[i] = dataset[i].to(device) # pyg Data object
-
+    elif issubclass(type(dataset), torch_geometric.data.Dataset):
+        dataset.data = dataset.data.to(device)
+    else: 
+        raise RuntimeError('dataset format not supported in to_device implementation')

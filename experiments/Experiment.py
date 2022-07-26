@@ -1,5 +1,5 @@
 from cProfile import label
-import os
+import sys
 import pathlib
 import numpy as np
 from datetime import datetime
@@ -13,15 +13,14 @@ from sklearn.metrics import f1_score
 from tensorflow import keras
 
 import torch
+import torch_geometric
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
-
-import sys
 
 root = pathlib.Path().resolve().as_posix()
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/data')
 from DataUtil import target_to_categorical, get_class_weights, to_device
-from WICO import WICO, filter_5g_non, wico_data_to_custom
+from DatasetBuilder import DatasetBuilder
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
 from wico_transforms import WICOTransforms
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
@@ -29,11 +28,6 @@ from GIN import GIN
 from NN import Network
 from TorchDummy import TorchDummy
 
-
-
-DATASETS = {
-    'wico': f'{root}/GNN-exp-pipeline/data/full_wico.pt'
-}
     
 class Experiment:
     
@@ -53,7 +47,6 @@ class Experiment:
         
     def run(self):
         dataset, kfold = self.prep_data()
-        dataset = WICO(root=f'{self.DATA_DIR}wico', pre_filter=filter_5g_non, pre_transform=wico_data_to_custom)
             
         self.model = self.config_model()
         
@@ -94,20 +87,14 @@ class Experiment:
     # returned dataset must be of the type list[Data] or torch Tensor with shape (num graphs, num features)
     def prep_data(self):
         
-        # load dataset
-        dataset = torch.load(DATASETS[self.config['dataset']])
-        random.shuffle(dataset)
-        # apply transform
-        if self.config['transform']:
-            # transform dataset
-            t = getattr(WICOTransforms, self.config['transform'])
-            dataset = t(dataset)
+        dataset_builder = DatasetBuilder(self.config, self.DATA_DIR)
+        dataset = dataset_builder.get_dataset()
         
         # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
-        y = ExperimentUtils.get_y(dataset)
+        y = dataset.data.y
         self.class_weights = get_class_weights(self.config['class_weights'], y)
             
-        self.in_dim, self.target_dim = self.get_dimensions(dataset)
+        self.in_dim, self.target_dim = self.get_dimensions(dataset) # this will need to be rewritten
         dataset = target_to_categorical(dataset, self.target_dim)
         to_device(dataset, self.device)
 
@@ -121,10 +108,12 @@ class Experiment:
             in_dim = len(dataset[0][0])
             out_dim = len(np.unique(np.array([item[1] for item in dataset]).astype(int)))
             return in_dim, out_dim
-        else:
+        elif issubclass(type(dataset), torch_geometric.data.Dataset):
             in_dim = dataset[0].x.shape[1]
-            out_dim = len(np.unique(np.array([data.y for data in dataset]).astype(int)))
+            out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
             return in_dim, out_dim
+        else: 
+            raise RuntimeError('dataset format not recognized')
         
     # in_dim is the number of features on input dimension. This should be # features per graph for conventional NN and # node features for GNN
     # target dim is the output dimension of the model (2 for binary classification)
@@ -149,7 +138,8 @@ class Experiment:
     
     def config_optim(self):
         util = ExperimentUtils(self)
-        return util.OPTIMIZERS[self.config['optimizer']]
+        optim = util.OPTIMIZERS[self.config['optimizer']]
+        return optim
     def config_loss(self):
         util = ExperimentUtils(self)
         loss = util.LOSS_FUNCTIONS[self.config['loss_fn']]

@@ -40,11 +40,22 @@ class WICO(InMemoryDataset):
         torch.save((data, slices), self.processed_paths[0])
 
 
+# ============================================================
+# ======================== FILTERS ===========================
+# ============================================================
+
 def filter_5g_non(data):
     if data.y == 2:
         return False
     return True
 
+
+# ============================================================
+# ======================= TRANSFORMS =========================
+# ============================================================
+
 def wico_data_to_custom(data):
     y = torch.tensor(keras.utils.to_categorical(data.y, 2))
     return MultiTargetData(x=data.x, edge_index=data.edge_index, y=y)
+
+    
