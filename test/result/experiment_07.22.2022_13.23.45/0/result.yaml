@@ -1,0 +1,43 @@
+config:
+  batch_size: 32
+  class_weights: true
+  dataset: wico
+  device: cuda
+  epochs: 20
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: NN
+  optimizer: Adam
+  patience: 5
+  transform: torch_dummy_transform
+experiment_run_start: '2022-07-22 13:23:45.950964'
+fold_0_optim_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_0_optim_dict.pt
+fold_0_state_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_0_state_dict.pt
+fold_1_optim_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_1_optim_dict.pt
+fold_1_state_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_1_state_dict.pt
+fold_2_optim_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_2_optim_dict.pt
+fold_2_state_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_2_state_dict.pt
+fold_3_optim_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_3_optim_dict.pt
+fold_3_state_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_3_state_dict.pt
+fold_4_optim_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_4_optim_dict.pt
+fold_4_state_dict: GNN-exp-pipeline/test/result/experiment_07.22.2022_13.23.45/0/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 3 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 4 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+training_metrics:
+  fold_eval_accs: '[0.7083926031294452, 0.5612535612535613, 0.7094017094017094, 0.5911680911680912,
+    0.7136752136752137]'
+  fold_eval_f1: '[0.7083926031294452, 0.5612535612535613, 0.7094017094017093, 0.5911680911680912,
+    0.7136752136752137]'
+  mean_eval_accuracy: 0.6567782357256042
+  total_train_time: '0:00:24.660003'

@@ -45,5 +45,6 @@ def to_device(dataset, device):
 
     elif issubclass(type(dataset), torch_geometric.data.Dataset):
         dataset.data = dataset.data.to(device)
+        return dataset
     else: 
         raise RuntimeError('dataset format not supported in to_device implementation')

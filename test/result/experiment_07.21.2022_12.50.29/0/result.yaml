@@ -1,0 +1,51 @@
+config:
+  aggregation: mean
+  batch_size: 128
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 50
+  hidden_units:
+  - 64
+  - 64
+  - 64
+  - 64
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-21 12:50:29.391026'
+fold_0_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_0_optim_dict.pt
+fold_0_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_0_state_dict.pt
+fold_1_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_1_optim_dict.pt
+fold_1_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_1_state_dict.pt
+fold_2_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_2_optim_dict.pt
+fold_2_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_2_state_dict.pt
+fold_3_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_3_optim_dict.pt
+fold_3_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_3_state_dict.pt
+fold_4_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_4_optim_dict.pt
+fold_4_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.50.29/0/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 29 epochs
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 12 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 20 epochs
+  fold 3 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 4 training message: stopped training due to stagnating improvement on validation
+    loss after 9 epochs
+training_metrics:
+  fold_eval_accs: '[0.6689536878216124, 0.5231560891938251, 0.5334476843910806, 0.6397941680960549,
+    0.5034364261168385]'
+  fold_eval_f1: '[0.35016835016835013, 0.29081632653061223, 0.29896907216494845, 0.41666666666666663,
+    0.3416856492027335]'
+  mean_eval_accuracy: 0.5737576111238823
+  total_train_time: '0:01:40.652060'

@@ -1,0 +1,30 @@
+'0': 'mean_f1: 0.3298162539699911 mean_acc: 0.613885990816549'
+cumulative runtime: '0:01:15.662485'
+top_lvl_config:
+  aggregation:
+  - mean
+  batch_size:
+  - 128
+  class_weights: true
+  dataset: wico
+  device: cuda
+  dropout:
+  - 0.0
+  epochs: 5
+  hidden_units:
+  - - 64
+    - 64
+    - 64
+    - 64
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr:
+  - 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps:
+  - true
+  transform: wico_5g_vs_non_conspiracy
+total_runs: 1

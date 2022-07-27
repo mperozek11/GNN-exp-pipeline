@@ -21,8 +21,9 @@ root = pathlib.Path().resolve().as_posix()
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/data')
 from DataUtil import target_to_categorical, get_class_weights, to_device
 from DatasetBuilder import DatasetBuilder
+
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
-from wico_transforms import WICOTransforms
+from wico_transforms import WICOTransforms, MultiTargetData
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
 from GIN import GIN
 from NN import Network
@@ -47,7 +48,6 @@ class Experiment:
         
     def run(self):
         dataset, kfold = self.prep_data()
-            
         self.model = self.config_model()
         
         self.optimizer = self.config_optim()
@@ -65,6 +65,7 @@ class Experiment:
             self.best_model = None # this will be the best model per training fold
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
             train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=True)
+
             test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=True) # single batch for test data since wico fits in memory
 
             train_message, epochs_trained = self.train_model(train_loader, test_loader, patience=int(self.config['patience']))
@@ -89,28 +90,33 @@ class Experiment:
         
         dataset_builder = DatasetBuilder(self.config, self.DATA_DIR)
         dataset = dataset_builder.get_dataset()
-        
-        # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
         y = dataset.data.y
         self.class_weights = get_class_weights(self.config['class_weights'], y)
-            
-        self.in_dim, self.target_dim = self.get_dimensions(dataset) # this will need to be rewritten
-        dataset = target_to_categorical(dataset, self.target_dim)
-        to_device(dataset, self.device)
+        self.in_dim = dataset.data.x.shape[1]
+        self.target_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
+        
+        # self.in_dim, self.target_dim = self.get_dimensions(dataset) # this call is moving some shit to CPU for some reason
 
         kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
-
+        dataset.data = dataset.data.to(self.device)
+        
         print(f'dataset: {self.config["dataset"]} {sys.getsizeof(dataset)} bytes in memory')
         return dataset, kfold
     
     def get_dimensions(self, dataset):
-        if type(dataset[0]) == list:
+#         in_dim = dataset.data.x.shape[1]
+#         out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
+
+#         return in_dim, out_dim
+        
+        
+        if issubclass(type(dataset), torch_geometric.data.Dataset):
+            in_dim = dataset.data.x.shape[1]
+            out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
+            return in_dim, out_dim
+        elif type(dataset[0]) == list:
             in_dim = len(dataset[0][0])
             out_dim = len(np.unique(np.array([item[1] for item in dataset]).astype(int)))
-            return in_dim, out_dim
-        elif issubclass(type(dataset), torch_geometric.data.Dataset):
-            in_dim = dataset[0].x.shape[1]
-            out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
             return in_dim, out_dim
         else: 
             raise RuntimeError('dataset format not recognized')
@@ -162,6 +168,7 @@ class Experiment:
                     y = batch[1]
 
                 else: # pyg Data
+                    # print(f'x: {batch.x.device}, edge_index: {batch.edge_index.device}, batch: {batch.batch.device}')
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
                     y = batch.y
                 

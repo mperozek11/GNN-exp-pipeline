@@ -1,5 +1,5 @@
 from cProfile import label
-import os
+import sys
 import pathlib
 import numpy as np
 from datetime import datetime
@@ -7,29 +7,28 @@ from tqdm import tqdm
 import yaml
 import random
 
-from sklearn.utils import class_weight
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score
 
 from tensorflow import keras
 
 import torch
+import torch_geometric
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 
-import sys
-
 root = pathlib.Path().resolve().as_posix()
+sys.path.insert(0, f'{root}/GNN-exp-pipeline/data')
+from DataUtil import target_to_categorical, get_class_weights, to_device
+from DatasetBuilder import DatasetBuilder
+
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/transforms')
-from wico_transforms import WICOTransforms
+from wico_transforms import WICOTransforms, MultiTargetData
 sys.path.insert(0, f'{root}/GNN-exp-pipeline/models')
 from GIN import GIN
+from NN import Network
 from TorchDummy import TorchDummy
 
-
-DATASETS = {
-    'wico': f'{root}/GNN-exp-pipeline/data/full_wico.pt'
-}
     
 class Experiment:
     
@@ -39,6 +38,7 @@ class Experiment:
     def __init__(self, config, out_path):
         self.device = torch.device(config['device'])
         print(f'torch device: {self.device}')
+        print(f'batch size: {config["batch_size"]}')
         self.logger = ExperimentLogger(config, out_path)
         self.config = config
         
@@ -47,19 +47,11 @@ class Experiment:
         # need to set random random seed as well
         
     def run(self):
-        
         dataset, kfold = self.prep_data()
-        self.in_dim, self.target_dim = self.get_dimensions(dataset)
-        for i in range(len(dataset)): # DEBUG
-            dataset[i] = dataset[i].cuda() # DEBUG
-            
         self.model = self.config_model()
-        self.model = self.model.cuda() # test
         
         self.optimizer = self.config_optim()
-        
         self.loss_fn = self.config_loss()
-        self.loss_fn = self.loss_fn.cuda()
         
         fold_eval_acc = np.empty(kfold.get_n_splits())
         fold_eval_f1 = np.empty(kfold.get_n_splits())
@@ -73,6 +65,7 @@ class Experiment:
             self.best_model = None # this will be the best model per training fold
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
             train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=True)
+
             test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=True) # single batch for test data since wico fits in memory
 
             train_message, epochs_trained = self.train_model(train_loader, test_loader, patience=int(self.config['patience']))
@@ -95,50 +88,38 @@ class Experiment:
     # returned dataset must be of the type list[Data] or torch Tensor with shape (num graphs, num features)
     def prep_data(self):
         
-        # load dataset
-        dataset = torch.load(DATASETS[self.config['dataset']])
-        random.shuffle(dataset)
-        # apply transform
-        if self.config['transform']:
-            # transform dataset
-            t = getattr(WICOTransforms, self.config['transform'])
-            dataset = t(dataset)
+        dataset_builder = DatasetBuilder(self.config, self.DATA_DIR)
+        dataset = dataset_builder.get_dataset()
+        y = dataset.data.y
+        self.class_weights = get_class_weights(self.config['class_weights'], y)
+        self.in_dim = dataset.data.x.shape[1]
+        self.target_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
         
-        # calculate class weights NOTE this could also be done on a per batch basis. It is worth trying that as an alternative eventually...
-        self.class_weights = None
-        if self.config['class_weights'] == True:
-            y = ExperimentUtils.get_y(dataset)
-            classes = np.unique(np.array(y))
+        # self.in_dim, self.target_dim = self.get_dimensions(dataset) # this call is moving some shit to CPU for some reason
 
-            # below are two different weighting schemes which yeild the same proportions but use different strategies
-
-            # === 1 ===
-            # prevs = []
-            # for c in classes:
-            #     prev = len((y == c).nonzero()[0])
-            #     prevs.append(prev)
-            # most_ex = sorted(prevs)[-1] # get most prevelant class number of examples
-            # self.class_weights = most_ex / torch.Tensor(prevs)
-
-            # === 2 ===
-            self.class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
-            self.class_weights = torch.tensor(self.class_weights, dtype=torch.float)
-            
-            
-        # kfold
         kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
-
+        dataset.data = dataset.data.to(self.device)
+        
+        print(f'dataset: {self.config["dataset"]} {sys.getsizeof(dataset)} bytes in memory')
         return dataset, kfold
     
     def get_dimensions(self, dataset):
-        if type(dataset[0]) == list:
+#         in_dim = dataset.data.x.shape[1]
+#         out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
+
+#         return in_dim, out_dim
+        
+        
+        if issubclass(type(dataset), torch_geometric.data.Dataset):
+            in_dim = dataset.data.x.shape[1]
+            out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
+            return in_dim, out_dim
+        elif type(dataset[0]) == list:
             in_dim = len(dataset[0][0])
             out_dim = len(np.unique(np.array([item[1] for item in dataset]).astype(int)))
             return in_dim, out_dim
-        else:
-            in_dim = dataset[0].x.shape[1]
-            out_dim = len(np.unique(np.array([data.y for data in dataset]).astype(int)))
-            return in_dim, out_dim
+        else: 
+            raise RuntimeError('dataset format not recognized')
         
     # in_dim is the number of features on input dimension. This should be # features per graph for conventional NN and # node features for GNN
     # target dim is the output dimension of the model (2 for binary classification)
@@ -151,19 +132,25 @@ class Experiment:
                 'dropout': self.config['dropout']
             }
             model = GIN(dim_features=self.in_dim, dim_target=self.target_dim, config=GIN_config)
+        elif self.config['model'] == 'NN':
+            model = Network(dim_features=self.in_dim, dim_target=self.target_dim, config=None)
         elif self.config['model'] == 'TorchDummy':
             model = TorchDummy(self.in_dim, self.target_dim)
         else:
             raise Exception(f"model defined in config ({self.config['model']}) has not been implemented")
         
+        model = model.to(self.device)
         return model
     
     def config_optim(self):
         util = ExperimentUtils(self)
-        return util.OPTIMIZERS[self.config['optimizer']]
+        optim = util.OPTIMIZERS[self.config['optimizer']]
+        return optim
     def config_loss(self):
         util = ExperimentUtils(self)
-        return util.LOSS_FUNCTIONS[self.config['loss_fn']]
+        loss = util.LOSS_FUNCTIONS[self.config['loss_fn']]
+        loss = loss.to(self.device)
+        return loss
 
     # trains and evaluates the model each epoch. 
     # The running best model is stored in self.best_model on the criteria of lowest validation loss over training.
@@ -173,36 +160,33 @@ class Experiment:
         val_losses = []
         for e in tqdm(range(epochs), position=0, leave=True):
             self.model.train()
-            for _, batch in enumerate(train_loader):
+            for batch in train_loader:
                 self.optimizer.zero_grad()
 
                 if type(batch) == list: # non-geometric case 
                     model_out = self.model(batch[0].float())
-                    y = torch.Tensor(keras.utils.to_categorical(batch[1], self.target_dim))
+                    y = batch[1]
 
-                else:
+                else: # pyg Data
+                    # print(f'x: {batch.x.device}, edge_index: {batch.edge_index.device}, batch: {batch.batch.device}')
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
-                    y = torch.Tensor(keras.utils.to_categorical(torch.clone(batch.y).cpu(), self.target_dim))
+                    y = batch.y
                 
-                if torch.cuda.is_available():
-                    y = y.cuda()
                 loss = self.loss_fn(model_out, y)
                 loss.backward()
                 self.optimizer.step()
             
             self.model.eval()
             total_loss = 0
-            for _, batch in enumerate(eval_loader):
+            for batch in eval_loader:
                 if type(batch) == list: # non-geometric case 
                     model_out = self.model(batch[0].float())
-                    y = torch.Tensor(keras.utils.to_categorical(batch[1], self.target_dim))
+                    y = batch[1]
 
                 else:
                     model_out = self.model(batch.x.float(), batch.edge_index, batch.batch)
-                    y = torch.Tensor(keras.utils.to_categorical(torch.clone(batch.y).cpu(), self.target_dim))
+                    y = batch.y
                 
-                if torch.cuda.is_available():
-                    y = y.cuda()
                 loss = self.loss_fn(model_out, y)
                 total_loss += loss.item()
             
@@ -237,15 +221,14 @@ class Experiment:
             for data in test_loader:
                 if type(data) == list:
                     out = self.model(data[0].float())
-                    cor_list = (torch.argmax(out, dim=1).numpy() == data[1].numpy()) # np.array of shape (n_test_examples,) where each index corresponds a binary value for correctness of pred
-                    correct += cor_list.sum()
-                    f1 = f1_score(data[1].numpy(), torch.argmax(out, dim=1).numpy(), average=average)
+                    correct += float(torch.eq(torch.argmax(out, dim=1), torch.argmax(data[1], dim=1)).sum())
+                    f1 = f1_score(torch.clone(torch.argmax(data[1], dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
                     total += len(data[0])
                 else:
                     out = self.model(data.x.float(), data.edge_index, data.batch)
-                    cor_list = (torch.clone(torch.argmax(out, dim=1)).cpu().numpy() == torch.clone(data.y).cpu().numpy())
-                    correct += cor_list.sum()
-                    f1 = f1_score(torch.clone(data.y).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
+                    correct += float(torch.eq(torch.argmax(out, dim=1), torch.argmax(data.y, dim=1)).sum())
+                    f1 = f1_score(torch.clone(torch.argmax(data.y, dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
+
                     total += len(data.y)
 
                 

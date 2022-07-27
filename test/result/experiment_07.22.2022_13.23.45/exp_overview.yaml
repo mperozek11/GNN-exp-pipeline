@@ -1,0 +1,19 @@
+'0': 'mean_f1: 0.6567782357256042 mean_acc: 0.6567782357256042'
+cumulative runtime: '0:00:28.943126'
+top_lvl_config:
+  batch_size:
+  - 32
+  class_weights: true
+  dataset: wico
+  device: cuda
+  epochs: 20
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr:
+  - 0.01
+  model: NN
+  optimizer: Adam
+  patience: 5
+  transform: torch_dummy_transform
+total_runs: 1

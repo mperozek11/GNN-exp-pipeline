@@ -1,0 +1,23 @@
+device: 'cuda'
+
+# DATA
+dataset: 'wico'
+transform: 'torch_dummy_transform'
+class_weights: True
+
+# MODEL
+model: 'NN'
+
+# TRAINING
+kfolds: 5
+optimizer: Adam
+loss_fn: CrossEntropyLoss
+batch_size:
+  - 32
+epochs: 20
+lr:
+  - 0.01
+
+# EARLY STOPPING
+patience: 5
+improvement_threshold: 0.01

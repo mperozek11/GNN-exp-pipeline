@@ -1,0 +1,48 @@
+cumulative runtime: '3:27:32.146092'
+top_10_architectures:
+  '14': 'mean_f1: 0.6817695221668407 mean_acc: 0.6588737262737263'
+  '18': 'mean_f1: 0.6809621428220092 mean_acc: 0.6199094905094904'
+  '26': 'mean_f1: 0.6805497758196989 mean_acc: 0.587138861138861'
+  '27': 'mean_f1: 0.6698859684112259 mean_acc: 0.5091906093906094'
+  '28': 'mean_f1: 0.6878985969296221 mean_acc: 0.5825490509490509'
+  '32': 'mean_f1: 0.6731931123234343 mean_acc: 0.6199116883116883'
+  '38': 'mean_f1: 0.6823326173743676 mean_acc: 0.6344891108891109'
+  '39': 'mean_f1: 0.6700244758175099 mean_acc: 0.509391008991009'
+  '4': 'mean_f1: 0.6866819568978355 mean_acc: 0.6470819180819181'
+  '46': 'mean_f1: 0.6701669052658803 mean_acc: 0.6412853146853147'
+top_lvl_config:
+  aggregation:
+  - sum
+  - mean
+  batch_size:
+  - 32
+  - 64
+  - 128
+  class_weights: true
+  dataset: wico
+  device: cpu
+  dropout:
+  - 0.0
+  - 0.5
+  epochs: 30
+  hidden_units:
+  - - 32
+    - 32
+    - 32
+  - - 32
+    - 32
+    - 32
+    - 32
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr:
+  - 0.01
+  - 0.1
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps:
+  - true
+  transform: wico_5g_non_oversampled
+total_runs: 48

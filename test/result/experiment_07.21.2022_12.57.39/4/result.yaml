@@ -1,0 +1,50 @@
+config:
+  aggregation: mean
+  batch_size: 512
+  class_weights: true
+  dataset: wico
+  device: cuda
+  dropout: 0.0
+  epochs: 50
+  hidden_units:
+  - 64
+  - 64
+  - 64
+  - 64
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-07-21 13:15:00.063765'
+fold_0_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_0_optim_dict.pt
+fold_0_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_0_state_dict.pt
+fold_1_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_1_optim_dict.pt
+fold_1_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_1_state_dict.pt
+fold_2_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_2_optim_dict.pt
+fold_2_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_2_state_dict.pt
+fold_3_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_3_optim_dict.pt
+fold_3_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_3_state_dict.pt
+fold_4_optim_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_4_optim_dict.pt
+fold_4_state_dict: GNN-exp-pipeline/test/result/experiment_07.21.2022_12.57.39/4/fold_4_state_dict.pt
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 16 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 31 epochs
+  fold 3 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 4 training message: completed 50 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.6518010291595198, 0.5694682675814752, 0.5248713550600344, 0.6072041166380789,
+    0.6134020618556701]'
+  fold_eval_f1: '[0.3164983164983165, 0.35475578406169667, 0.2767624020887729, 0.36211699164345407,
+    0.3589743589743589]'
+  mean_eval_accuracy: 0.5933493660589557
+  total_train_time: '0:01:06.971795'
