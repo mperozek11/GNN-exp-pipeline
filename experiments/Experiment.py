@@ -5,7 +5,6 @@ import numpy as np
 from datetime import datetime
 from tqdm import tqdm
 import yaml
-import random
 
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score
@@ -14,7 +13,6 @@ from tensorflow import keras
 
 import torch
 import torch_geometric
-from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 
 root = pathlib.Path().resolve().as_posix()
