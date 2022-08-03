@@ -14,11 +14,7 @@ class DatasetBuilder:
         self.config = config
 
 
-    def get_dataset(self):
-        # DEBUG
-        return WICO(root=f'{self.dataset_root}wico', pre_filter=filter_5g_non, pre_transform=wico_data_to_custom)
-        
-        
+    def get_dataset(self):        
         dataset_class = globals()[self.config['data']['dataset']]
         arg_dict = self.get_args()
         print(arg_dict)

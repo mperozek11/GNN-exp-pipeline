@@ -54,8 +54,9 @@ def filter_5g_non(data):
 # ======================= TRANSFORMS =========================
 # ============================================================
 
-def wico_data_to_custom(data):
+def wico_data_to_custom_with_categorical(data):
     y = torch.tensor(keras.utils.to_categorical(data.y, 2))
     return MultiTargetData(x=data.x, edge_index=data.edge_index, y=y)
 
-    
+def wico_data_to_custom(data):
+    return MultiTargetData(x=data.x, edge_index=data.edge_index, y=data.y)

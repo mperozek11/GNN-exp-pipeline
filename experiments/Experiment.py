@@ -6,7 +6,7 @@ from datetime import datetime
 from tqdm import tqdm
 import yaml
 
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.metrics import f1_score
 
 from tensorflow import keras
@@ -58,13 +58,17 @@ class Experiment:
         state_dicts = []
         optim_dicts = []
         train_message_dict = {}
-        for fold, (train_idx, test_idx) in enumerate(kfold.split(dataset)):
+        for fold, (train_idx, test_idx) in enumerate(kfold.split(dataset, dataset.data.y)):
             
+            train_sampler = torch.utils.data.SubsetRandomSampler(np.arange(len(train_idx)))
+            test_sampler = torch.utils.data.SubsetRandomSampler(np.arange(len(test_idx)))
+            # NOW change to categorical
+            dataset.data.y = torch.tensor(keras.utils.to_categorical(dataset.data.y, self.target_dim))
+
             self.best_model = None # this will be the best model per training fold
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
-            train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=True)
-
-            test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=True) # single batch for test data since wico fits in memory
+            train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=False, sampler=train_sampler)
+            test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=False, sampler=test_sampler) # single batch for test data since wico fits in memory
 
             train_message, epochs_trained = self.train_model(train_loader, test_loader, patience=int(self.config['patience']))
             fold_acc, fold_f1 = self.eval_model(test_loader)
@@ -78,7 +82,7 @@ class Experiment:
         mean_f1 = float(fold_eval_f1.mean())
         mean_acc = float(fold_eval_acc.mean())
         runtime = str(datetime.now() - start)
-        self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, runtime, state_dicts, optim_dicts, train_message_dict)
+        self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, mean_f1, runtime, state_dicts, optim_dicts, train_message_dict)
         self.logger.dump_log()
         return mean_f1, mean_acc
         
@@ -95,7 +99,8 @@ class Experiment:
         
         # self.in_dim, self.target_dim = self.get_dimensions(dataset) # this call is moving some shit to CPU for some reason
 
-        kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
+        # kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
+        kfold = StratifiedKFold(n_splits=self.config['kfolds'], shuffle=True)
         dataset.data = dataset.data.to(self.device)
         
         print(f'dataset: {self.config["dataset"]} {sys.getsizeof(dataset)} bytes in memory')
@@ -155,9 +160,11 @@ class Experiment:
     def train_model(self, train_loader, eval_loader, patience=5):
         epochs = self.config['epochs']
         
+        train_losses = []
         val_losses = []
         for e in tqdm(range(epochs), position=0, leave=True):
             self.model.train()
+            total_loss = 0
             for batch in train_loader:
                 self.optimizer.zero_grad()
 
@@ -171,9 +178,13 @@ class Experiment:
                     y = batch.y
                 
                 loss = self.loss_fn(model_out, y)
+                total_loss += loss.item()
                 loss.backward()
                 self.optimizer.step()
-            
+
+            train_losses.append(total_loss)
+
+
             self.model.eval()
             total_loss = 0
             for batch in eval_loader:
@@ -199,6 +210,7 @@ class Experiment:
             if len(val_losses) > patience and self.not_improving(val_losses[-patience:], epsilon=self.config['improvement_threshold']):
                 return f'stopped training due to stagnating improvement on validation loss after {e+1} epochs', e+1
 
+        self.logger.log_losses(train_losses, val_losses)
         return f'completed {e+1} epochs without stopping early', e+1
 
     def not_improving(self, last_n_losses, epsilon=0.01):
@@ -262,10 +274,11 @@ class ExperimentLogger():
         self.log = { "experiment_run_start": str(datetime.now()) } 
         self.log['config'] = config
         
-    def log_train(self, fold_eval_acc, fold_eval_f1, mean_acc, runtime, state_dicts, optim_dicts, train_message_dict):
+    def log_train(self, fold_eval_acc, fold_eval_f1, mean_acc, mean_f1, runtime, state_dicts, optim_dicts, train_message_dict):
         training = {
             'total_train_time': runtime,
             'mean_eval_accuracy': mean_acc,
+            'mean_f1_accuracy': mean_f1,
             'fold_eval_accs': str(list(fold_eval_acc)),
             'fold_eval_f1': str(list(fold_eval_f1))
         }
@@ -281,7 +294,12 @@ class ExperimentLogger():
         self.log['training_metrics'] = training
         self.log['training fold messages'] = train_message_dict
 
-        
+    def log_losses(self, train_losses, val_losses):
+        loss = {
+            'train_losses': train_losses,
+            'validation_losses': val_losses
+        }
+        self.log['loss_records'] = loss
     def dump_log(self):
         with open(f'{self.output_dir}result.yaml', 'w') as file:
             yaml.dump(self.log, file)

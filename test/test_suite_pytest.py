@@ -164,9 +164,10 @@ def delete_unit_test_results(res_dir):
     for f in files:
         os.remove(f)
 def main(argv):
+    test_experiment_run_e2e()
     delete_unit_test_results(RESULT_DIR)
     return 0
-    test_experiment_run_e2e()
+
     # general
     test_experiment_class_init()
     test_experiment_run_e2e()
