@@ -59,6 +59,6 @@ class SetSummarizer:
         pass
 
 
-summy = SetSummarizer('/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/08.03.2022_12.53.57')
+summy = SetSummarizer('/home/maxpzk/GNN-exp-pipeline/result/08.04.2022_10.15.30')
 summary = summy.summarize()
 print(summary)

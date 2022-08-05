@@ -63,14 +63,15 @@ class Experiment:
             train_sampler = torch.utils.data.SubsetRandomSampler(np.arange(len(train_idx)))
             test_sampler = torch.utils.data.SubsetRandomSampler(np.arange(len(test_idx)))
             # NOW change to categorical
-            dataset.data.y = torch.tensor(keras.utils.to_categorical(dataset.data.y, self.target_dim))
-
+            dataset.data.y = torch.tensor(keras.utils.to_categorical(dataset.data.y.to('cpu'), self.target_dim))
+            dataset.data = dataset.data.to(self.device)
+            
             self.best_model = None # this will be the best model per training fold
             # DataLoader code will work for either a list of torch.geometric Data objects or an arbitrary torch Tensor
             train_loader = DataLoader([dataset[i] for i in train_idx], batch_size=self.config['batch_size'], shuffle=False, sampler=train_sampler)
             test_loader = DataLoader([dataset[i] for i in test_idx], batch_size=len(test_idx), shuffle=False, sampler=test_sampler) # single batch for test data since wico fits in memory
 
-            train_message, epochs_trained = self.train_model(train_loader, test_loader, patience=int(self.config['patience']))
+            train_message, epochs_trained = self.train_model(train_loader, test_loader, fold=fold, patience=int(self.config['patience']))
             fold_acc, fold_f1 = self.eval_model(test_loader)
 
             train_message_dict[f'fold {fold} training message'] = train_message
@@ -101,7 +102,7 @@ class Experiment:
 
         # kfold = KFold(n_splits=self.config['kfolds'], shuffle=True)
         kfold = StratifiedKFold(n_splits=self.config['kfolds'], shuffle=True)
-        dataset.data = dataset.data.to(self.device)
+        # dataset.data = dataset.data.to(self.device) # need to move this line to inside the kfold loop
         
         print(f'dataset: {self.config["dataset"]} {sys.getsizeof(dataset)} bytes in memory')
         return dataset, kfold
@@ -157,7 +158,7 @@ class Experiment:
 
     # trains and evaluates the model each epoch. 
     # The running best model is stored in self.best_model on the criteria of lowest validation loss over training.
-    def train_model(self, train_loader, eval_loader, patience=5):
+    def train_model(self, train_loader, eval_loader, fold, patience=5):
         epochs = self.config['epochs']
         
         train_losses = []
@@ -210,7 +211,7 @@ class Experiment:
             if len(val_losses) > patience and self.not_improving(val_losses[-patience:], epsilon=self.config['improvement_threshold']):
                 return f'stopped training due to stagnating improvement on validation loss after {e+1} epochs', e+1
 
-        self.logger.log_losses(train_losses, val_losses)
+        self.logger.log_losses(train_losses, val_losses, fold)
         return f'completed {e+1} epochs without stopping early', e+1
 
     def not_improving(self, last_n_losses, epsilon=0.01):
@@ -294,12 +295,12 @@ class ExperimentLogger():
         self.log['training_metrics'] = training
         self.log['training fold messages'] = train_message_dict
 
-    def log_losses(self, train_losses, val_losses):
+    def log_losses(self, train_losses, val_losses, fold):
         loss = {
             'train_losses': train_losses,
             'validation_losses': val_losses
         }
-        self.log['loss_records'] = loss
+        self.log[f'loss_records_fold{fold}'] = loss
     def dump_log(self):
         with open(f'{self.output_dir}result.yaml', 'w') as file:
             yaml.dump(self.log, file)
