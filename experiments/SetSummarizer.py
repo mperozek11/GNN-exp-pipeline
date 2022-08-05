@@ -56,9 +56,15 @@ class SetSummarizer:
         return scores, keys
 
     def visualize(self):
-        pass
+        self.loss_data = {}
+        # get all the training and validation losses from the result files
+        for k, v in self.results.items():
+            if 'loss_records_fold' in k:
+                self.loss_data[k] = v
+        # build internal datastructure that can be used to generate training and validation loss graphs for each config
+        print(self.loss_data) # DEBUG
 
 
-summy = SetSummarizer('/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/08.03.2022_12.53.57')
-summary = summy.summarize()
-print(summary)
+# summy = SetSummarizer('/Users/maxperozek/GNN-research/GNN-exp-pipeline/result/08.03.2022_12.53.57')
+# summary = summy.summarize()
+# print(summary)
