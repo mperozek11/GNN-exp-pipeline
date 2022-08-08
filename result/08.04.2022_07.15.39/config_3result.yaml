@@ -1,0 +1,74 @@
+config:
+  aggregation: mean
+  batch_size: 64
+  class_weights: false
+  data:
+    dataset: WICO
+    pre_filter: filter_5g_non
+    pre_transform: wico_data_to_custom
+    root: wico
+  dataset: wico
+  device: cuda
+  dropout: 0.0
+  epochs: 10
+  hidden_units:
+  - 32
+  - 32
+  - 32
+  improvement_threshold: 0.01
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.1
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: true
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-08-04 09:47:46.076586'
+fold_0_optim_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_0_optim_dict.pt
+fold_0_state_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_0_state_dict.pt
+fold_1_optim_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_1_optim_dict.pt
+fold_1_state_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_1_state_dict.pt
+fold_2_optim_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_2_optim_dict.pt
+fold_2_state_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_2_state_dict.pt
+fold_3_optim_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_3_optim_dict.pt
+fold_3_state_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_3_state_dict.pt
+fold_4_optim_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_4_optim_dict.pt
+fold_4_state_dict: GNN-exp-pipeline/result/08.04.2022_07.15.39/config_3fold_4_state_dict.pt
+loss_records:
+  train_losses:
+  - 15.362728133797646
+  - 15.757665172219276
+  - 15.219413191080093
+  - 15.040710180997849
+  - 15.26141208410263
+  - 15.05790314078331
+  - 15.10721230506897
+  - 15.033294379711151
+  - 15.233747899532318
+  - 15.325571924448013
+  validation_losses:
+  - 0.4120807945728302
+  - 0.42570650577545166
+  - 0.4083687365055084
+  - 0.40649598836898804
+  - 0.42399895191192627
+  - 0.4083890914916992
+  - 1859.348876953125
+  - 263.611083984375
+  - 433.9869079589844
+  - 134.58859252929688
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 6 epochs
+  fold 1 training message: completed 10 epochs without stopping early
+  fold 2 training message: completed 10 epochs without stopping early
+  fold 3 training message: completed 10 epochs without stopping early
+  fold 4 training message: completed 10 epochs without stopping early
+training_metrics:
+  fold_eval_accs: '[0.8576329331046312, 0.8576329331046312, 0.8593481989708405, 0.8593481989708405,
+    0.140893470790378]'
+  fold_eval_f1: '[0.0, 0.0, 0.0, 0.0, 0.24698795180722893]'
+  mean_eval_accuracy: 0.7149711469882643
+  mean_f1_accuracy: 0.04939759036144579
+  total_train_time: '0:01:31.203368'

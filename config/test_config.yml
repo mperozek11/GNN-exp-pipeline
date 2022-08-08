@@ -1,4 +1,4 @@
-device: 'cpu'
+device: 'cuda'
 
 # DATA
 data: {
@@ -14,7 +14,7 @@ class_weights: false
 
 # MODEL
 model: 'GIN'
-hidden_units: [32,32]
+hidden_units: [32, 32, 32]
 train_eps: True
 aggregation: sum
 dropout: 0.0
@@ -24,7 +24,7 @@ kfolds: 5
 optimizer: Adam
 loss_fn: CrossEntropyLoss
 batch_size: 32
-epochs: 1
+epochs: 50
 lr: 0.01
 
 # EARLY STOPPING

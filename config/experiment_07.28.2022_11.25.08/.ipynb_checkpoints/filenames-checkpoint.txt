@@ -1,0 +1,4 @@
+/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/experiment_07.28.2022_11.25.08/config_0.yml
+/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/experiment_07.28.2022_11.25.08/config_1.yml
+/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/experiment_07.28.2022_11.25.08/config_2.yml
+/Users/maxperozek/GNN-research/GNN-exp-pipeline/config/experiment_07.28.2022_11.25.08/config_3.yml

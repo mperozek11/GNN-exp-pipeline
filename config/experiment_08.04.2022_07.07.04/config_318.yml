@@ -1,0 +1,25 @@
+aggregation: mean
+batch_size: 512
+class_weights: false
+data:
+  dataset: WICO
+  pre_filter: filter_5g_non
+  pre_transform: wico_data_to_custom
+  root: wico
+dataset: wico
+device: cuda
+dropout: 0.5
+epochs: 100
+hidden_units:
+- 128
+- 128
+- 128
+improvement_threshold: 0.01
+kfolds: 5
+loss_fn: CrossEntropyLoss
+lr: 0.01
+model: GIN
+optimizer: Adam
+patience: 7
+train_eps: false
+transform: wico_5g_vs_non_conspiracy

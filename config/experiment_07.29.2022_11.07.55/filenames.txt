@@ -1,0 +1,4 @@
+/home/maxpzk/GNN-exp-pipeline/config/experiment_07.29.2022_11.07.55/config_0.yml
+/home/maxpzk/GNN-exp-pipeline/config/experiment_07.29.2022_11.07.55/config_1.yml
+/home/maxpzk/GNN-exp-pipeline/config/experiment_07.29.2022_11.07.55/config_2.yml
+/home/maxpzk/GNN-exp-pipeline/config/experiment_07.29.2022_11.07.55/config_3.yml

@@ -1,0 +1,41 @@
+device: 'cuda'
+
+# DATA
+data: {
+  dataset: 'WICO',
+  root: 'wico',
+  pre_filter: 'filter_5g_non',
+  pre_transform: 'wico_data_to_custom'
+  }
+
+dataset: 'wico'
+transform: 'wico_5g_vs_non_conspiracy'
+class_weights: false
+
+# MODEL
+model: 'GIN'
+hidden_units:
+  - [32, 32, 32]
+  
+train_eps: 
+- true
+aggregation: 
+- sum
+- mean
+dropout: 
+  - 0.0
+
+# TRAINING
+kfolds: 5
+optimizer: Adam
+loss_fn: CrossEntropyLoss
+batch_size:
+  - 64
+epochs: 10
+lr:
+  - 0.01
+  - 0.1
+
+# EARLY STOPPING
+patience: 5
+improvement_threshold: 0.01
