@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pathlib
+import torch
 
 ROOT = pathlib.Path().resolve().as_posix()
 
@@ -82,7 +83,6 @@ if __name__ == "__main__":
 
     x_5G = np.unique(np.array(id_list_5G))
 
-<<<<<<< HEAD
     id_dict_5G = {}
     index = 0
     for idx in x_5G:
@@ -132,26 +132,19 @@ if __name__ == "__main__":
         another_str = non_consp_files + '\\' + filename
         vector_maker(another_str, id_dict_non, motif_list_non)
 
-                    
-=======
+
     
-data_list = []
-#first tensor is vector list, second is subgraph second part is wheter the data is 5g non or other
-for graph in motif_list_5G:
-    #tensor_graph = (torch.Tensor(graph)).long()
-    tensor_graph = torch.flatten(torch.Tensor(graph))
-    data_list.append([tensor_graph, torch.Tensor((0, 1, 1))]) 
-    
-for graph in motif_list_other: 
-    tensor_graph = torch.flatten(torch.Tensor(graph))
-    data_list.append([tensor_graph, torch.Tensor((1, 1, 1))]) 
+    data_list = []
+    #first tensor is vector list, second is subgraph second part is wheter the data is 5g non or other
+    for graph in motif_list_5G:
+        #tensor_graph = (torch.Tensor(graph)).long()
+        tensor_graph = torch.flatten(torch.Tensor(graph))
+        data_list.append([tensor_graph, torch.Tensor((0, 1, 1))]) 
+        
+    for graph in motif_list_other: 
+        tensor_graph = torch.flatten(torch.Tensor(graph))
+        data_list.append([tensor_graph, torch.Tensor((1, 1, 1))]) 
 
-for graph in motif_list_non: 
-    tensor_graph = torch.flatten(torch.Tensor(graph))
-    data_list.append([tensor_graph, torch.Tensor((2, 1, 1))]) 
-
-
-train_loader = DataLoader(data_list[:int(len(data_list)*0.9)], batch_size = 32, shuffle = True)
-test_loader = DataLoader(data_list[int(len(data_list)*0.9):], batch_size = 32, shuffle = True)
-                
->>>>>>> 63700e5ccb9d6d325a8d575f972f42ed7b6ff7ec
+    for graph in motif_list_non: 
+        tensor_graph = torch.flatten(torch.Tensor(graph))
+        data_list.append([tensor_graph, torch.Tensor((2, 1, 1))])
