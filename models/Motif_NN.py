@@ -13,6 +13,7 @@ class Network(nn.Module):
         self.b3 = nn.BatchNorm1d(6)
         self.fc4 = nn.Linear(6, 3)
         
+    
     def forward(self, x):
         x = F.relu(self.fc1(x))
         x = self.b1(x)
