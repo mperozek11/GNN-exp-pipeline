@@ -69,16 +69,16 @@ def vector_maker(file, id_dict, vector_list):
 
   
 #-----------------pretty sure these don't go here?
-consp_files = f'{ROOT}/data/5G_motif'
-non_consp_files = f'{ROOT}/data/Non_motif'
-other_files = f'{ROOT}/data/Other_motif'
+consp_files = f'{ROOT}/data/motif_wico/5G_motif'
+non_consp_files = f'{ROOT}/data/motif_wico/Non_motif'
+other_files = f'{ROOT}/data/motif_wico/Other_motif'
 
 
 if __name__ == "__main__":
     #-----------5G files (0)-----------------------------------
     id_list_5G = []
     for filename in os.listdir(consp_files):
-        another_str = consp_files + '\\' + filename
+        another_str = consp_files + '/' + filename
         id_counter(another_str, id_list_5G)
 
     x_5G = np.unique(np.array(id_list_5G))
@@ -91,13 +91,13 @@ if __name__ == "__main__":
         
     motif_list_5G = []
     for filename in os.listdir(consp_files):
-        another_str = consp_files + '\\' + filename
+        another_str = consp_files + '/' + filename
         vector_maker(another_str, id_dict_5G, motif_list_5G)
 
     #------ other files (1)--------------------------------------
     id_list_other = []
     for filename in os.listdir(other_files):
-        another_str = other_files + '\\' + filename
+        another_str = other_files + '/' + filename
         id_counter(another_str, id_list_other)
 
     x_other = np.unique(np.array(id_list_other))
@@ -110,13 +110,13 @@ if __name__ == "__main__":
         
     motif_list_other = []
     for filename in os.listdir(other_files):
-        another_str = other_files + '\\' + filename
+        another_str = other_files + '/' + filename
         vector_maker(another_str, id_dict_other, motif_list_other)
         
     #------ non-consp files (2) --------------------------------------
     id_list_non = []
     for filename in os.listdir(non_consp_files):
-        another_str = non_consp_files + '\\' + filename
+        another_str = non_consp_files + '/' + filename
         id_counter(another_str, id_list_non)
 
     x_non = np.unique(np.array(id_list_non))
@@ -129,7 +129,7 @@ if __name__ == "__main__":
         
     motif_list_non = []
     for filename in os.listdir(non_consp_files):
-        another_str = non_consp_files + '\\' + filename
+        another_str = non_consp_files + '/' + filename
         vector_maker(another_str, id_dict_non, motif_list_non)
 
 
@@ -148,3 +148,6 @@ if __name__ == "__main__":
     for graph in motif_list_non: 
         tensor_graph = torch.flatten(torch.Tensor(graph))
         data_list.append([tensor_graph, torch.Tensor((2, 1, 1))])
+
+    torch.save(data_list, f'{ROOT}/data/motif_wico/motif_wico.pt')
+
