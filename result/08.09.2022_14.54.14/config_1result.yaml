@@ -1,0 +1,208 @@
+config:
+  aggregation: sum
+  batch_size: 32
+  class_weights: false
+  data:
+    dataset: WICO
+    pre_filter: filter_5g_non
+    pre_transform: wico_data_to_custom
+    root: wico
+  dataset: wico
+  device: cpu
+  dropout: 0.0
+  epochs: 30
+  hidden_units:
+  - 32
+  - 32
+  - 32
+  improvement_threshold: 0.05
+  kfolds: 5
+  loss_fn: CrossEntropyLoss
+  lr: 0.01
+  model: GIN
+  optimizer: Adam
+  patience: 5
+  train_eps: false
+  transform: wico_5g_vs_non_conspiracy
+experiment_run_start: '2022-08-09 14:54:34.025373'
+fold_0_optim_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_0_optim_dict.pt
+fold_0_state_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_0_state_dict.pt
+fold_1_optim_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_1_optim_dict.pt
+fold_1_state_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_1_state_dict.pt
+fold_2_optim_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_2_optim_dict.pt
+fold_2_state_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_2_state_dict.pt
+fold_3_optim_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_3_optim_dict.pt
+fold_3_state_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_3_state_dict.pt
+fold_4_optim_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_4_optim_dict.pt
+fold_4_state_dict: GNN-exp-pipeline/result/08.09.2022_14.54.14/config_1fold_4_state_dict.pt
+loss_records_fold0:
+  train_losses:
+  - 59.89753590673209
+  - 30.328650760650635
+  - 14.074993565678596
+  - 16.99733721911907
+  - 12.998391512036324
+  - 14.81748034656048
+  - 16.6846803188324
+  - 11.363930422067643
+  - 10.956161513924599
+  - 12.326569966971874
+  - 15.24007723927498
+  - 8.567364312708378
+  - 9.619249856472017
+  - 8.368829968571664
+  validation_losses:
+  - 0.4287495017051697
+  - 0.516170859336853
+  - 0.43736472725868225
+  - 0.5141385197639465
+  - 2.528139114379883
+  - 0.39785370230674744
+  - 0.6045796275138855
+  - 0.8565365076065063
+  - 0.40712639689445496
+  - 0.817142128944397
+  - 0.41511937975883484
+  - 0.38828185200691223
+  - 0.38687634468078613
+  - 0.39095231890678406
+loss_records_fold1:
+  train_losses:
+  - 8.261121551692487
+  - 9.04325203448534
+  - 8.950962629914285
+  - 8.156436508893966
+  - 8.849871557950975
+  - 7.089717887341976
+  - 9.055731409788132
+  - 6.8847093552351
+  - 10.190414193272591
+  - 6.79922288954258
+  - 7.650547820329667
+  - 8.934184692054988
+  - 5.7875491172075275
+  - 7.012914252281189
+  validation_losses:
+  - 0.4030297100543976
+  - 1.4606542587280273
+  - 0.47511211037635803
+  - 0.4200940430164337
+  - 0.4346415102481842
+  - 0.41200610995292664
+  - 0.4047538936138153
+  - 0.5285156965255737
+  - 0.39730504155158997
+  - 0.48812147974967957
+  - 0.48220229148864746
+  - 0.4014371633529663
+  - 0.4215797185897827
+  - 0.4292934536933899
+loss_records_fold2:
+  train_losses:
+  - 8.392937001585961
+  - 7.456765396893025
+  - 7.939801603555679
+  - 7.45641110688448
+  - 6.505825078487397
+  - 6.407007721066475
+  - 6.402988898754121
+  - 6.300750362873078
+  - 6.465678209066391
+  - 6.032991677522659
+  - 6.0168693453073505
+  validation_losses:
+  - 0.3858999013900757
+  - 1.1860519647598267
+  - 0.4028705954551697
+  - 0.3999561071395874
+  - 0.3790748417377472
+  - 0.48959362506866455
+  - 0.40579256415367126
+  - 0.3766096830368042
+  - 0.4132136404514313
+  - 0.40684691071510315
+  - 0.37916478514671326
+loss_records_fold3:
+  train_losses:
+  - 5.87355033159256
+  - 6.32866173684597
+  - 5.935196670889855
+  - 5.802427378296852
+  - 6.4707554399967195
+  - 6.181150087714196
+  - 5.772309285402298
+  - 5.913667729496956
+  - 5.781903970241547
+  - 5.946505434811115
+  - 6.2224096983671195
+  - 5.862135979533196
+  - 6.165581142902375
+  - 6.14564554989338
+  - 5.690544989705086
+  - 5.80082394182682
+  - 5.888078403472901
+  - 5.994032913446427
+  - 6.058997949957848
+  validation_losses:
+  - 0.38624387979507446
+  - 0.38275277614593506
+  - 0.402239054441452
+  - 0.39572301506996155
+  - 0.4100537598133087
+  - 0.3836694061756134
+  - 0.40153947472572327
+  - 0.7068111300468445
+  - 0.4059261679649353
+  - 2.343932867050171
+  - 0.4824237525463104
+  - 5.8095808029174805
+  - 0.45591309666633606
+  - 0.3839845359325409
+  - 0.43478959798812866
+  - 0.3931625485420227
+  - 0.43085941672325134
+  - 0.38150736689567566
+  - 0.4150632917881012
+loss_records_fold4:
+  train_losses:
+  - 6.424137401580811
+  - 6.054412662982941
+  - 5.838266518712044
+  - 6.021189936995507
+  - 6.917652046680451
+  - 6.794653175771237
+  - 5.875161197781563
+  - 5.870283564925194
+  - 6.097347232699395
+  - 5.801628461480141
+  - 5.953480452299118
+  validation_losses:
+  - 0.4390012323856354
+  - 0.654698371887207
+  - 0.37690722942352295
+  - 0.45719489455223083
+  - 0.38744670152664185
+  - 0.4478504955768585
+  - 0.4195343255996704
+  - 0.41370293498039246
+  - 0.3979799449443817
+  - 0.3926689028739929
+  - 0.4068332016468048
+training fold messages:
+  fold 0 training message: stopped training due to stagnating improvement on validation
+    loss after 14 epochs
+  fold 1 training message: stopped training due to stagnating improvement on validation
+    loss after 14 epochs
+  fold 2 training message: stopped training due to stagnating improvement on validation
+    loss after 11 epochs
+  fold 3 training message: stopped training due to stagnating improvement on validation
+    loss after 19 epochs
+  fold 4 training message: stopped training due to stagnating improvement on validation
+    loss after 11 epochs
+training_metrics:
+  fold_eval_accs: '[0.8576329331046312, 0.8576329331046312, 0.8593481989708405, 0.8593481989708405,
+    0.8591065292096219]'
+  fold_eval_f1: '[0.0, 0.0, 0.0, 0.0, 0.0]'
+  mean_eval_accuracy: 0.858613758672113
+  mean_f1_accuracy: 0.0
+  total_train_time: '0:02:32.509612'

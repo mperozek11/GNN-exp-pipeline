@@ -86,7 +86,6 @@ class Experiment:
         self.logger.log_train(fold_eval_acc, fold_eval_f1, mean_acc, mean_f1, runtime, state_dicts, optim_dicts, train_message_dict)
         self.logger.dump_log()
         return mean_f1, mean_acc
-        
     
     # returned dataset must be of the type list[Data] or torch Tensor with shape (num graphs, num features)
     def prep_data(self):
@@ -110,10 +109,7 @@ class Experiment:
     def get_dimensions(self, dataset):
 #         in_dim = dataset.data.x.shape[1]
 #         out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
-
 #         return in_dim, out_dim
-        
-        
         if issubclass(type(dataset), torch_geometric.data.Dataset):
             in_dim = dataset.data.x.shape[1]
             out_dim = len(np.unique(np.array(dataset.data.y).astype(int)))
@@ -183,8 +179,7 @@ class Experiment:
                 loss.backward()
                 self.optimizer.step()
 
-            train_losses.append(total_loss)
-
+            train_losses.append(total_loss * (1/self.config['kfolds']))
 
             self.model.eval()
             total_loss = 0
@@ -208,7 +203,8 @@ class Experiment:
             
             val_losses.append(total_loss)
 
-            if len(val_losses) > patience and self.not_improving(val_losses[-patience:], epsilon=self.config['improvement_threshold']):
+            if len(val_losses) > 10 and self.not_improving(val_losses[-patience:], epsilon=self.config['improvement_threshold']):
+                self.logger.log_losses(train_losses, val_losses, fold)
                 return f'stopped training due to stagnating improvement on validation loss after {e+1} epochs', e+1
 
         self.logger.log_losses(train_losses, val_losses, fold)
@@ -241,7 +237,6 @@ class Experiment:
                     f1 = f1_score(torch.clone(torch.argmax(data.y, dim=1)).cpu().numpy(), torch.clone(torch.argmax(out, dim=1)).cpu().numpy(), average=average)
 
                     total += len(data.y)
-
                 
             acc = correct / total
         # This needs to be fixed to work on large validation datasets which need to be tested in batches. 
@@ -261,12 +256,14 @@ class ExperimentUtils:
         self.LOSS_FUNCTIONS = {
             'CrossEntropyLoss': torch.nn.CrossEntropyLoss(weight=experiment.class_weights)
         }
+
     def get_y(dataset): # I think there is a pythonic way to do this in one line ~~ y = np.array([item[1] for item in dataset]) if type(dataset[0]) == list else np.array([data.y for data in dataset]).astype(int)
 
         if type(dataset[0]) == list: # X, y case
             return np.array([item[1] for item in dataset]).astype(int)
         else: # geometric Data object case
             return np.array([data.y for data in dataset]).astype(int)
+
 
 class ExperimentLogger():
     

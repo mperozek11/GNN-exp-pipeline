@@ -1,14 +1,22 @@
 device: 'cpu'
 
 # DATA
+data: {
+  dataset: 'WICO',
+  root: 'wico',
+  pre_filter: 'filter_5g_non',
+  pre_transform: 'wico_data_to_custom'
+  }
+
 dataset: 'wico'
 transform: 'wico_5g_vs_non_conspiracy'
-class_weights: True
+class_weights: false
 
 # MODEL
 model: 'GIN'
 hidden_units:
-  - [32]
+  - [32, 32, 32]
+  - [32, 32, 32, 32]
 train_eps: 
 - false
 aggregation: 
@@ -18,13 +26,14 @@ dropout:
   - 0.0
 
 # TRAINING
-kfolds: 2
+kfolds: 5
 optimizer: Adam
 loss_fn: CrossEntropyLoss
 batch_size:
   - 32
-epochs: 2
+epochs: 30
 lr:
+  - 0.1
   - 0.01
 
 # EARLY STOPPING

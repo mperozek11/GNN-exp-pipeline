@@ -1,0 +1,2 @@
+GNN-exp-pipeline/config//experiment_08.09.2022_14.13.23/config_0.yml
+GNN-exp-pipeline/config//experiment_08.09.2022_14.13.23/config_1.yml
