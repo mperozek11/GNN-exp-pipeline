@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\557.txt
+Network type: Directed
+Number of nodes: 83
+Number of edges: 236
+Number of single edges: 181
+Number of mutual edges: 55
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5295 subgraphs were enumerated in the original network.
+5451920 subgraphs were enumerated in the random networks.
+5457215 subgraphs were enumerated in all networks.
+
+For the random networks: 1978836 tries were made, 126004 were successful.
+Randomization took 0.198 seconds.
+Enumeration took 2.697 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     84.967%       82.314%     0.0029608     8.9588        0
+     100
+     100
+
+  14 000     3.5505%       3.3063%      0.001617     1.5101    0.079
+     001
+     110
+
+  78 001     2.9273%       4.6849%    0.00084353    -20.837        1
+     001
+     110
+
+  46 000     1.9452%       1.9675%     0.0009059   -0.24602    0.638
+     101
+     110
+
+   6 000     1.5109%       2.3512%     0.0017321    -4.8519    0.975
+     000
+     110
+
+  38 000     1.3031%       1.3956%    0.00062044    -1.4913    0.911
+     100
+     110
+
+ 166 010     1.0954%     0.049994%     0.0016523     6.3267    0.002
+     100
+     110
+
+ 164 010    0.94429%       2.9593%     0.0030797     -6.543        1
+     100
+     100
+
+ 238 011    0.62323%     0.003646%    0.00020252     30.594        0
+     101
+     110
+
+  12 000    0.58546%      0.46614%    0.00060875       1.96    0.028
+     001
+     100
+
+ 174 010    0.47214%      0.42168%    0.00082984    0.60814    0.292
+     101
+     110
+
+ 102 001   0.056657%     0.077453%    0.00045518   -0.45686    0.549
+     100
+     110
+
+ 140 010   0.018886%    0.0016869%   5.3655e-005     3.2055    0.001
+     001
+     100
+
