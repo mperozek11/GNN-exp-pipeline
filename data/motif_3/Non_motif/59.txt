@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\59.txt
+Network type: Directed
+Number of nodes: 76
+Number of edges: 371
+Number of single edges: 173
+Number of mutual edges: 198
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5444 subgraphs were enumerated in the original network.
+5813590 subgraphs were enumerated in the random networks.
+5819034 subgraphs were enumerated in all networks.
+
+For the random networks: 3115626 tries were made, 197339 were successful.
+Randomization took 0.522 seconds.
+Enumeration took 2.879 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     27.461%       25.651%     0.0022472      8.055        0
+     100
+     100
+
+  78 001     21.087%       31.324%     0.0070166    -14.589        1
+     001
+     110
+
+ 164 010     16.238%       14.566%     0.0035541      4.704    0.001
+     100
+     100
+
+  14 000     9.4232%       7.4376%     0.0037283     5.3258        0
+     001
+     110
+
+ 238 011     6.9985%       2.0438%      0.003495     14.177        0
+     101
+     110
+
+ 174 010     5.7494%       7.3387%      0.004642    -3.4237    0.998
+     101
+     110
+
+  46 000     3.5084%       3.0425%     0.0017807     2.6167    0.004
+     101
+     110
+
+  12 000     2.8472%       2.4046%     0.0010848       4.08        0
+     001
+     100
+
+  38 000     2.1124%       2.2868%     0.0011236    -1.5516    0.937
+     100
+     110
+
+   6 000     2.0573%       2.2345%      0.001277    -1.3875    0.916
+     000
+     110
+
+ 166 010     1.7267%       1.0005%     0.0012062     6.0198        0
+     100
+     110
+
+ 102 001    0.77149%      0.64103%    0.00096411     1.3532    0.095
+     100
+     110
+
+ 140 010   0.018369%     0.028741%    0.00022539   -0.46021    0.486
+     001
+     100
+
