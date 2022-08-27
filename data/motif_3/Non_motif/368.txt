@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\368.txt
+Network type: Directed
+Number of nodes: 70
+Number of edges: 182
+Number of single edges: 124
+Number of mutual edges: 58
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2331 subgraphs were enumerated in the original network.
+2482200 subgraphs were enumerated in the random networks.
+2484531 subgraphs were enumerated in all networks.
+
+For the random networks: 1357517 tries were made, 228798 were successful.
+Randomization took 0.213 seconds.
+Enumeration took 1.037 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     49.764%       46.402%     0.0026717     12.582        0
+     100
+     100
+
+ 164 010     28.057%       30.449%     0.0031663    -7.5553        1
+     100
+     100
+
+  78 001     5.9631%       9.2907%      0.002387    -13.941        1
+     001
+     110
+
+ 166 010     3.4749%       1.3381%     0.0020465     10.442        0
+     100
+     110
+
+  14 000     3.1317%       3.5159%     0.0030611    -1.2552    0.906
+     001
+     110
+
+ 174 010     2.7885%       2.4129%     0.0024949     1.5053     0.06
+     101
+     110
+
+  12 000     1.8876%         1.44%     0.0019416     2.3056    0.012
+     001
+     100
+
+ 238 011     1.3728%      0.12766%    0.00052401     23.762        0
+     101
+     110
+
+   6 000      1.287%       2.6386%     0.0023073     -5.858        1
+     000
+     110
+
+  46 000     1.0296%      0.80415%     0.0014794     1.5239    0.064
+     101
+     110
+
+  38 000     0.8151%       1.2609%      0.001942    -2.2953    0.988
+     100
+     110
+
+ 102 001     0.3861%      0.31915%     0.0010364    0.64595    0.267
+     100
+     110
+
+ 140 010     0.0429%   0.00056311%   4.7281e-005     8.9543        0
+     001
+     100
+

@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\316.txt
+Network type: Directed
+Number of nodes: 42
+Number of edges: 185
+Number of single edges: 102
+Number of mutual edges: 83
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1861 subgraphs were enumerated in the original network.
+1918506 subgraphs were enumerated in the random networks.
+1920367 subgraphs were enumerated in all networks.
+
+For the random networks: 1514640 tries were made, 131782 were successful.
+Randomization took 0.232 seconds.
+Enumeration took 0.949 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     23.375%       23.649%     0.0051287   -0.53426    0.692
+     100
+     100
+
+  36 000      16.55%       16.319%     0.0040194     0.5745    0.288
+     100
+     100
+
+  78 001      15.69%       18.567%     0.0064442    -4.4644    0.998
+     001
+     110
+
+  14 000     14.616%       13.575%     0.0050964     2.0431    0.016
+     001
+     110
+
+ 174 010     7.7378%        7.228%     0.0049734     1.0251    0.156
+     101
+     110
+
+  12 000      5.051%       4.3539%     0.0033467     2.0831    0.017
+     001
+     100
+
+   6 000     4.5674%       5.4834%      0.002779     -3.296    0.999
+     000
+     110
+
+  38 000     3.1166%         2.78%     0.0025978     1.2957    0.098
+     100
+     110
+
+  46 000      2.633%       2.5337%       0.00335    0.29642    0.383
+     101
+     110
+
+ 238 011     2.4718%       1.3753%     0.0025389     4.3188    0.003
+     101
+     110
+
+ 166 010     2.2031%       1.3281%      0.002563      3.414    0.002
+     100
+     110
+
+ 102 001     1.8807%       2.7482%     0.0030344    -2.8589    0.999
+     100
+     110
+
+ 140 010    0.10747%      0.05951%    0.00058526    0.81945    0.118
+     001
+     100
+
