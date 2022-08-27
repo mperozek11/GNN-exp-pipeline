@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\685.txt
+Network type: Directed
+Number of nodes: 60
+Number of edges: 163
+Number of single edges: 59
+Number of mutual edges: 104
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2207 subgraphs were enumerated in the original network.
+2287134 subgraphs were enumerated in the random networks.
+2289341 subgraphs were enumerated in all networks.
+
+For the random networks: 1410988 tries were made, 51578 were successful.
+Randomization took 0.148 seconds.
+Enumeration took 1.197 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     30.766%        35.33%     0.0062345    -7.3207        1
+     001
+     110
+
+ 164 010     26.461%       25.232%     0.0024598     4.9962        0
+     100
+     100
+
+  36 000     24.241%       23.406%     0.0026173     3.1893    0.002
+     100
+     100
+
+ 238 011     6.3435%       4.1873%     0.0026479     8.1432        0
+     101
+     110
+
+  14 000     4.4857%       4.2557%     0.0042989    0.53497    0.321
+     001
+     110
+
+ 174 010     3.2623%       3.3139%     0.0048301   -0.10671    0.527
+     101
+     110
+
+  12 000     1.6765%       1.6881%     0.0012191  -0.094964    0.583
+     001
+     100
+
+  46 000     1.2234%       1.1451%     0.0017663    0.44318    0.324
+     101
+     110
+
+  38 000    0.54372%      0.54848%    0.00098083   -0.04851    0.507
+     100
+     110
+
+ 102 001    0.49841%      0.45997%     0.0010494    0.36631    0.331
+     100
+     110
+
+   6 000    0.36248%      0.24586%    0.00083577     1.3954    0.069
+     000
+     110
+
+ 166 010   0.090621%      0.16767%    0.00091099    -0.8458    0.687
+     100
+     110
+
+ 140 010    0.04531%      0.01945%    0.00025052     1.0323    0.021
+     001
+     100
+

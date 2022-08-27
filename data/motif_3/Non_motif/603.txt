@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\603.txt
+Network type: Directed
+Number of nodes: 64
+Number of edges: 187
+Number of single edges: 107
+Number of mutual edges: 80
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2182 subgraphs were enumerated in the original network.
+2247002 subgraphs were enumerated in the random networks.
+2249184 subgraphs were enumerated in all networks.
+
+For the random networks: 1478390 tries were made, 172294 were successful.
+Randomization took 0.195 seconds.
+Enumeration took 1.03 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     30.385%       28.839%     0.0034423      4.492        0
+     100
+     100
+
+  78 001     22.915%       27.108%     0.0038616    -10.859        1
+     001
+     110
+
+  14 000     15.307%       13.255%     0.0047221     4.3459        0
+     001
+     110
+
+ 164 010     10.678%       11.467%     0.0043447    -1.8157    0.965
+     100
+     100
+
+  12 000     4.3538%          4.2%     0.0024003    0.64069    0.237
+     001
+     100
+
+   6 000     3.8497%       4.4224%     0.0025102    -2.2815    0.994
+     000
+     110
+
+ 174 010     3.2081%       3.2299%     0.0042335  -0.051545    0.573
+     101
+     110
+
+  38 000     3.2081%       3.0753%     0.0026339     0.5041    0.335
+     100
+     110
+
+  46 000     2.1998%       2.8467%     0.0028013    -2.3091    0.981
+     101
+     110
+
+ 238 011      2.154%      0.43567%     0.0010743     15.994        0
+     101
+     110
+
+ 166 010     1.2374%      0.55825%     0.0013754     4.9379        0
+     100
+     110
+
+ 102 001     0.4583%      0.52088%     0.0015776    -0.3967    0.598
+     100
+     110
+
+ 140 010    0.04583%     0.042071%    0.00042854   0.087704    0.249
+     001
+     100
+
