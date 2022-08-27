@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\812.txt
+Network type: Directed
+Number of nodes: 65
+Number of edges: 252
+Number of single edges: 105
+Number of mutual edges: 147
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3562 subgraphs were enumerated in the original network.
+3711756 subgraphs were enumerated in the random networks.
+3715318 subgraphs were enumerated in all networks.
+
+For the random networks: 2164717 tries were made, 90898 were successful.
+Randomization took 0.241 seconds.
+Enumeration took 1.603 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     28.579%       27.776%     0.0020894     3.8468    0.001
+     100
+     100
+
+  78 001     22.544%       27.724%     0.0051021    -10.154        1
+     001
+     110
+
+ 164 010     19.371%       18.099%     0.0025688     4.9516        0
+     100
+     100
+
+  14 000      10.78%       10.386%     0.0026955      1.464    0.069
+     001
+     110
+
+ 238 011     6.5132%       3.9859%     0.0021848     11.568        0
+     101
+     110
+
+ 174 010     5.3341%        5.824%      0.003419    -1.4329    0.923
+     101
+     110
+
+  46 000     1.7687%       1.3091%     0.0012221     3.7604    0.001
+     101
+     110
+
+   6 000     1.5722%       1.5914%    0.00076725   -0.25092    0.596
+     000
+     110
+
+  12 000     1.4037%        1.324%     0.0011521    0.69144    0.244
+     001
+     100
+
+  38 000    0.81415%      0.82144%    0.00070115   -0.10398    0.506
+     100
+     110
+
+ 102 001    0.70185%      0.70528%     0.0010759  -0.031849    0.501
+     100
+     110
+
+ 166 010    0.58956%      0.44307%    0.00063816     2.2954    0.022
+     100
+     110
+
+ 140 010   0.028074%     0.010697%    0.00015939     1.0902    0.045
+     001
+     100
+

@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\857.txt
+Network type: Directed
+Number of nodes: 74
+Number of edges: 359
+Number of single edges: 165
+Number of mutual edges: 194
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+4676 subgraphs were enumerated in the original network.
+4913028 subgraphs were enumerated in the random networks.
+4917704 subgraphs were enumerated in all networks.
+
+For the random networks: 2755974 tries were made, 391772 were successful.
+Randomization took 0.404 seconds.
+Enumeration took 1.824 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     26.839%       33.592%     0.0059694    -11.312        1
+     001
+     110
+
+ 164 010     18.199%       17.141%     0.0041017     2.5803    0.003
+     100
+     100
+
+  14 000     13.644%       12.246%     0.0043636     3.2041    0.003
+     001
+     110
+
+  36 000      12.04%        11.44%     0.0027825     2.1579    0.022
+     100
+     100
+
+   6 000       7.87%         7.75%     0.0023341     0.5141    0.314
+     000
+     110
+
+ 238 011     5.4106%       2.0284%     0.0025554     13.235        0
+     101
+     110
+
+ 174 010     5.2823%       6.3478%     0.0045012    -2.3672    0.989
+     101
+     110
+
+  12 000     3.5714%       3.2631%     0.0019845     1.5537    0.053
+     001
+     100
+
+ 166 010     2.2455%       1.6096%     0.0019687     3.2303    0.001
+     100
+     110
+
+  46 000       2.16%       1.8077%     0.0023322     1.5104    0.071
+     101
+     110
+
+  38 000     1.6895%       1.8769%     0.0018331    -1.0223    0.853
+     100
+     110
+
+ 102 001     1.0051%      0.87425%       0.00149    0.87843    0.189
+     100
+     110
+
+ 140 010   0.042772%     0.024051%    0.00024834    0.75382    0.121
+     001
+     100
+
