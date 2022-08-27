@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\423.txt
+Network type: Directed
+Number of nodes: 72
+Number of edges: 145
+Number of single edges: 73
+Number of mutual edges: 72
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1610 subgraphs were enumerated in the original network.
+1703586 subgraphs were enumerated in the random networks.
+1705196 subgraphs were enumerated in all networks.
+
+For the random networks: 1138451 tries were made, 137613 were successful.
+Randomization took 0.191 seconds.
+Enumeration took 0.802 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     37.453%       37.978%     0.0028715     -1.828    0.962
+     100
+     100
+
+  78 001     20.186%       27.462%     0.0039082    -18.616        1
+     001
+     110
+
+  36 000     15.714%        13.76%     0.0021523     9.0823        0
+     100
+     100
+
+  14 000     8.7578%       6.7212%     0.0056484     3.6056    0.001
+     001
+     110
+
+  12 000     5.9627%       4.5744%       0.00285     4.8712        0
+     001
+     100
+
+ 174 010      3.913%       3.3074%      0.003837     1.5783    0.051
+     101
+     110
+
+ 238 011     2.9814%      0.15425%     0.0011855     23.847        0
+     101
+     110
+
+ 166 010      2.236%      0.68889%     0.0016075     9.6242        0
+     100
+     110
+
+   6 000     1.0559%        1.972%     0.0019023    -4.8155        1
+     000
+     110
+
+ 102 001    0.86957%        1.484%     0.0024679    -2.4897    0.995
+     100
+     110
+
+  38 000    0.49689%      0.92027%     0.0017409    -2.4319    0.993
+     100
+     110
+
+  46 000    0.31056%      0.93626%      0.002023    -3.0929        1
+     101
+     110
+
+ 140 010   0.062112%     0.041609%     0.0004098    0.50031    0.114
+     001
+     100
+
