@@ -1,0 +1,81 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\190.txt
+Network type: Directed
+Number of nodes: 43
+Number of edges: 92
+Number of single edges: 32
+Number of mutual edges: 60
+Number of vertex colors: 1
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   exchanging only edges with the same vertex colors,
+   3 exchanges per edge and 3 tries per edge.
+
+671 subgraphs were enumerated in the original network.
+674208 subgraphs were enumerated in the random networks.
+674879 subgraphs were enumerated in all networks.
+
+For the random networks: 736432 tries were made, 74323 were successful.
+Randomization took 0.127 seconds.
+Enumeration took 0.307 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     39.195%       47.423%      0.010402    -7.9096        1
+     001
+     110
+
+ 164 010     21.908%       17.761%     0.0059156     7.0102        0
+     100
+     100
+
+  14 000     16.841%       13.096%     0.0066632     5.6199        0
+     001
+     110
+
+ 174 010     5.3651%       8.7803%     0.0093483    -3.6533        1
+     101
+     110
+
+ 238 011     4.3219%      0.35382%      0.004813     8.2444        0
+     101
+     110
+
+  36 000     4.3219%         4.09%     0.0030405    0.76277    0.215
+     100
+     100
+
+  12 000     2.9806%       3.5729%     0.0034914    -1.6963    0.934
+     001
+     100
+
+   6 000     2.8316%       2.4168%     0.0026847     1.5451    0.055
+     000
+     110
+
+ 102 001     1.0432%      0.53073%     0.0028677     1.7871    0.062
+     100
+     110
+
+  38 000    0.59613%      0.43756%     0.0019789    0.80127      0.2
+     100
+     110
+
+  46 000    0.44709%      0.81319%     0.0026876    -1.3622    0.884
+     101
+     110
+
+ 166 010    0.14903%      0.70615%     0.0024947    -2.2332    0.989
+     100
+     110
+

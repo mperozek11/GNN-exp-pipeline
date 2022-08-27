@@ -1,0 +1,81 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\174.txt
+Network type: Directed
+Number of nodes: 35
+Number of edges: 102
+Number of single edges: 38
+Number of mutual edges: 64
+Number of vertex colors: 1
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   exchanging only edges with the same vertex colors,
+   3 exchanges per edge and 3 tries per edge.
+
+796 subgraphs were enumerated in the original network.
+866166 subgraphs were enumerated in the random networks.
+866962 subgraphs were enumerated in all networks.
+
+For the random networks: 816154 tries were made, 87506 were successful.
+Randomization took 0.13 seconds.
+Enumeration took 0.471 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     32.412%       39.441%      0.010552    -6.6616        1
+     001
+     110
+
+ 164 010     29.774%       29.015%     0.0050296     1.5082    0.066
+     100
+     100
+
+  36 000     17.337%       15.872%     0.0033927     4.3181        0
+     100
+     100
+
+ 174 010     5.2764%       4.3666%     0.0053844     1.6896    0.038
+     101
+     110
+
+  14 000     5.0251%       5.1827%     0.0053586   -0.29399    0.575
+     001
+     110
+
+ 238 011      4.397%      0.98625%     0.0045832     7.4419        0
+     101
+     110
+
+ 166 010     1.8844%       1.1339%     0.0026922     2.7877    0.001
+     100
+     110
+
+   6 000     1.3819%       1.7489%     0.0028915    -1.2691     0.92
+     000
+     110
+
+  46 000     1.1307%      0.98333%     0.0022109    0.66633    0.312
+     101
+     110
+
+  12 000    0.62814%      0.42651%     0.0018369     1.0977    0.135
+     001
+     100
+
+  38 000    0.50251%       0.5814%      0.001856   -0.42504     0.64
+     100
+     110
+
+ 102 001    0.25126%      0.26229%     0.0016418  -0.067202    0.408
+     100
+     110
+
