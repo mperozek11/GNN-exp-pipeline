@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\977.txt
+Network type: Directed
+Number of nodes: 61
+Number of edges: 111
+Number of single edges: 47
+Number of mutual edges: 64
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+791 subgraphs were enumerated in the original network.
+834284 subgraphs were enumerated in the random networks.
+835075 subgraphs were enumerated in all networks.
+
+For the random networks: 913342 tries were made, 70372 were successful.
+Randomization took 0.099 seconds.
+Enumeration took 0.347 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001      27.56%        36.38%     0.0083054     -10.62        1
+     001
+     110
+
+  14 000     21.113%       18.072%     0.0072868     4.1727        0
+     001
+     110
+
+ 164 010     13.906%       11.039%     0.0065232     4.3961        0
+     100
+     100
+
+ 238 011     8.5967%       3.8175%     0.0034675     13.783        0
+     101
+     110
+
+  36 000     7.4589%       7.9433%     0.0045015    -1.0761    0.865
+     100
+     100
+
+ 174 010     6.7004%       9.1134%     0.0084758     -2.847    0.996
+     101
+     110
+
+  12 000     4.2984%       4.0432%     0.0044418    0.57435    0.286
+     001
+     100
+
+  46 000     3.5398%       2.6989%     0.0040598     2.0714    0.022
+     101
+     110
+
+   6 000     3.4134%       4.0071%     0.0032926    -1.8032     0.96
+     000
+     110
+
+  38 000     1.6435%       1.3465%     0.0029454     1.0084    0.171
+     100
+     110
+
+ 166 010     1.1378%      0.52085%     0.0023984     2.5724    0.009
+     100
+     110
+
+ 102 001    0.50569%      0.98511%     0.0033235    -1.4425    0.921
+     100
+     110
+
+ 140 010    0.12642%     0.033019%    0.00065775       1.42    0.042
+     001
+     100
+

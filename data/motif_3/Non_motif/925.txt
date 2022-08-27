@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\925.txt
+Network type: Directed
+Number of nodes: 66
+Number of edges: 228
+Number of single edges: 72
+Number of mutual edges: 156
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2722 subgraphs were enumerated in the original network.
+2903700 subgraphs were enumerated in the random networks.
+2906422 subgraphs were enumerated in all networks.
+
+For the random networks: 1733386 tries were made, 249948 were successful.
+Randomization took 0.217 seconds.
+Enumeration took 1.254 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     43.644%       53.402%     0.0067471    -14.462        1
+     001
+     110
+
+ 164 010     23.218%       20.583%     0.0037219     7.0799        0
+     100
+     100
+
+  14 000     10.544%       8.5312%     0.0040316     4.9919        0
+     001
+     110
+
+ 238 011     6.6495%        1.612%      0.003499     14.397        0
+     101
+     110
+
+  36 000     5.9148%       5.3592%     0.0016485     3.3704        0
+     100
+     100
+
+ 174 010     3.5636%       4.7226%     0.0050541    -2.2932    0.989
+     101
+     110
+
+  12 000     2.7921%       2.3306%     0.0016546     2.7892    0.004
+     001
+     100
+
+   6 000     1.7634%       1.5519%     0.0012312     1.7182    0.042
+     000
+     110
+
+  46 000    0.69802%      0.59375%     0.0013593    0.76701    0.213
+     101
+     110
+
+ 102 001    0.47759%      0.54118%      0.001312   -0.48469    0.708
+     100
+     110
+
+ 166 010    0.47759%      0.30241%    0.00085738     2.0432    0.028
+     100
+     110
+
+  38 000    0.22043%      0.45336%     0.0011026    -2.1125    0.988
+     100
+     110
+
+ 140 010   0.036738%     0.016744%    0.00024369    0.82045    0.092
+     001
+     100
+

@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\934.txt
+Network type: Directed
+Number of nodes: 61
+Number of edges: 162
+Number of single edges: 78
+Number of mutual edges: 84
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1444 subgraphs were enumerated in the original network.
+1519580 subgraphs were enumerated in the random networks.
+1521024 subgraphs were enumerated in all networks.
+
+For the random networks: 1382298 tries were made, 67923 were successful.
+Randomization took 0.184 seconds.
+Enumeration took 0.61 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  14 000     19.529%       18.183%     0.0054338     2.4772    0.009
+     001
+     110
+
+  78 001     18.767%       25.578%     0.0059485    -11.449        1
+     001
+     110
+
+  36 000     16.967%       16.449%     0.0033563     1.5441    0.062
+     100
+     100
+
+ 164 010     9.5568%       8.8164%     0.0050417     1.4686    0.065
+     100
+     100
+
+ 174 010     8.9335%       9.3881%     0.0059187   -0.76796     0.79
+     101
+     110
+
+ 238 011     8.0332%       4.7542%      0.002706     12.118        0
+     101
+     110
+
+  46 000     5.4709%       4.6997%     0.0035915     2.1474    0.014
+     101
+     110
+
+   6 000     4.5706%       4.7232%     0.0023285   -0.65503    0.747
+     000
+     110
+
+  12 000     2.9778%       2.4744%     0.0029033     1.7341    0.036
+     001
+     100
+
+  38 000     2.4931%       2.5446%     0.0021113   -0.24428    0.602
+     100
+     110
+
+ 102 001      1.385%       1.7937%     0.0027598    -1.4807    0.927
+     100
+     110
+
+ 166 010     1.1773%      0.56399%     0.0017687     3.4676    0.003
+     100
+     110
+
+ 140 010     0.1385%     0.032562%    0.00046633     2.2718    0.015
+     001
+     100
+

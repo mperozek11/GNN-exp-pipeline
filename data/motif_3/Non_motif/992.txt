@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\992.txt
+Network type: Directed
+Number of nodes: 67
+Number of edges: 163
+Number of single edges: 69
+Number of mutual edges: 94
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1729 subgraphs were enumerated in the original network.
+1809102 subgraphs were enumerated in the random networks.
+1810831 subgraphs were enumerated in all networks.
+
+For the random networks: 1320669 tries were made, 121246 were successful.
+Randomization took 0.169 seconds.
+Enumeration took 0.694 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     32.273%        28.91%     0.0059292     5.6725    0.001
+     100
+     100
+
+  78 001      25.68%       34.773%      0.010482    -8.6754        1
+     001
+     110
+
+  36 000     12.435%       12.153%     0.0025642     1.0985    0.132
+     100
+     100
+
+  14 000     10.816%       8.1244%     0.0053247     5.0539    0.001
+     001
+     110
+
+ 238 011     5.7259%       1.1325%     0.0054505     8.4274        0
+     101
+     110
+
+ 174 010     4.6848%       7.2702%     0.0076903     -3.362    0.999
+     101
+     110
+
+  12 000       2.14%       1.9221%     0.0019072     1.1424    0.121
+     001
+     100
+
+   6 000     1.7351%       2.0642%     0.0017872    -1.8414    0.962
+     000
+     110
+
+  46 000     1.2724%      0.85063%     0.0024184      1.744     0.06
+     101
+     110
+
+ 166 010     1.2146%      0.65739%     0.0017052     3.2675    0.001
+     100
+     110
+
+ 102 001     1.0989%       1.2021%      0.001672   -0.61731    0.771
+     100
+     110
+
+  38 000    0.86755%      0.92695%     0.0016527   -0.35937    0.678
+     100
+     110
+
+ 140 010   0.057837%     0.013217%    0.00026763     1.6672    0.024
+     001
+     100
+
