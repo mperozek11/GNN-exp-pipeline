@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\721.txt
+Network type: Directed
+Number of nodes: 78
+Number of edges: 257
+Number of single edges: 149
+Number of mutual edges: 108
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3635 subgraphs were enumerated in the original network.
+3797810 subgraphs were enumerated in the random networks.
+3801445 subgraphs were enumerated in all networks.
+
+For the random networks: 1917034 tries were made, 321791 were successful.
+Randomization took 0.323 seconds.
+Enumeration took 1.88 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     49.298%        47.03%     0.0031131     7.2882        0
+     100
+     100
+
+  78 001      12.49%       17.997%     0.0026913    -20.465        1
+     001
+     110
+
+  14 000     12.187%       11.421%     0.0037832     2.0254    0.031
+     001
+     110
+
+ 164 010      9.436%       9.5966%      0.003103   -0.51735    0.704
+     100
+     100
+
+   6 000     3.4938%       3.5905%     0.0016583   -0.58317    0.699
+     000
+     110
+
+ 174 010     2.8061%       2.4863%     0.0032331    0.98908    0.163
+     101
+     110
+
+  46 000      2.641%       2.7043%      0.002285   -0.27688    0.629
+     101
+     110
+
+  12 000     2.4759%       2.3414%     0.0016549      0.813    0.189
+     001
+     100
+
+  38 000     2.2834%       2.1675%     0.0017104    0.67751    0.246
+     100
+     110
+
+ 238 011     2.0908%     0.053662%    0.00054691     37.248        0
+     101
+     110
+
+ 166 010    0.55021%      0.29848%    0.00090537     2.7803    0.003
+     100
+     110
+
+ 102 001    0.22008%      0.30211%    0.00093516   -0.87711    0.789
+     100
+     110
+
+ 140 010    0.02751%     0.011406%    0.00018023    0.89355    0.079
+     001
+     100
+

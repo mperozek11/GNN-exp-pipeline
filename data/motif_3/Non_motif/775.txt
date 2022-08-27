@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\775.txt
+Network type: Directed
+Number of nodes: 80
+Number of edges: 242
+Number of single edges: 167
+Number of mutual edges: 75
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3800 subgraphs were enumerated in the original network.
+3970648 subgraphs were enumerated in the random networks.
+3974448 subgraphs were enumerated in all networks.
+
+For the random networks: 1801319 tries were made, 304085 were successful.
+Randomization took 0.359 seconds.
+Enumeration took 1.967 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     66.158%        63.85%     0.0024496     9.4235        0
+     100
+     100
+
+ 164 010     10.605%       12.216%     0.0024629     -6.539        1
+     100
+     100
+
+  78 001     5.5526%       7.2506%       0.00215    -7.8977        1
+     001
+     110
+
+  14 000     4.8947%       5.2732%      0.002627    -1.4405    0.932
+     001
+     110
+
+  38 000     2.4474%        2.146%     0.0014376     2.0962    0.011
+     100
+     110
+
+  46 000     2.3684%       1.9294%     0.0015675     2.8005        0
+     101
+     110
+
+   6 000     2.3421%       3.5137%     0.0016026    -7.3105        1
+     000
+     110
+
+  12 000     1.7368%       1.7087%     0.0014902    0.18859    0.403
+     001
+     100
+
+ 166 010     1.7105%      0.56112%     0.0012002     9.5768        0
+     100
+     110
+
+ 174 010     1.2368%       1.0564%     0.0016577     1.0886    0.151
+     101
+     110
+
+ 238 011    0.84211%      0.20288%    0.00064508     9.9093        0
+     101
+     110
+
+ 102 001   0.078947%      0.28869%    0.00095623    -2.1934    0.993
+     100
+     110
+
+ 140 010   0.026316%     0.004052%     0.0001035      2.151    0.013
+     001
+     100
+
