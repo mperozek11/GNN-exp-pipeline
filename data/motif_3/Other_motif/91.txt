@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\91.txt
+Network type: Directed
+Number of nodes: 42
+Number of edges: 79
+Number of single edges: 32
+Number of mutual edges: 47
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+507 subgraphs were enumerated in the original network.
+513762 subgraphs were enumerated in the random networks.
+514269 subgraphs were enumerated in all networks.
+
+For the random networks: 572560 tries were made, 107821 were successful.
+Randomization took 0.106 seconds.
+Enumeration took 0.307 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     37.081%       40.955%      0.012366    -3.1328    0.997
+     001
+     110
+
+ 164 010     20.513%       19.317%     0.0070588     1.6936    0.049
+     100
+     100
+
+  14 000     16.963%       14.808%      0.008165     2.6393    0.003
+     001
+     110
+
+  36 000     10.651%       9.8511%     0.0042675     1.8742    0.026
+     100
+     100
+
+ 238 011      4.142%       2.2449%     0.0056642     3.3492    0.004
+     101
+     110
+
+   6 000     3.3531%        3.149%     0.0033822    0.60321    0.268
+     000
+     110
+
+ 174 010     3.1558%       4.2996%     0.0077907    -1.4681    0.933
+     101
+     110
+
+  12 000     1.5779%       2.8239%     0.0033122    -3.7618        1
+     001
+     100
+
+ 102 001     1.1834%      0.50068%     0.0027915     2.4458    0.014
+     100
+     110
+
+  38 000    0.59172%      0.53697%     0.0027459    0.19936    0.339
+     100
+     110
+
+ 166 010    0.39448%      0.59774%     0.0028161   -0.72179    0.689
+     100
+     110
+
+ 140 010    0.19724%     0.010923%    0.00045686     4.0782    0.017
+     001
+     100
+
+  46 000    0.19724%      0.90549%      0.003606    -1.9641    0.975
+     101
+     110
+

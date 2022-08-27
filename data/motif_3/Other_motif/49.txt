@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\49.txt
+Network type: Directed
+Number of nodes: 51
+Number of edges: 142
+Number of single edges: 115
+Number of mutual edges: 27
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2012 subgraphs were enumerated in the original network.
+2025708 subgraphs were enumerated in the random networks.
+2027720 subgraphs were enumerated in all networks.
+
+For the random networks: 1167013 tries were made, 96203 were successful.
+Randomization took 0.119 seconds.
+Enumeration took 0.956 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     55.716%       54.234%      0.004136     3.5815    0.001
+     100
+     100
+
+ 164 010     19.632%       21.766%      0.007635    -2.7943    0.994
+     100
+     100
+
+  12 000     7.3062%       6.5585%     0.0039972     1.8703     0.03
+     001
+     100
+
+  14 000     4.1252%       3.7798%     0.0019856     1.7396    0.057
+     001
+     110
+
+  78 001     3.4294%       4.0873%     0.0013567    -4.8495        1
+     001
+     110
+
+ 166 010     2.5845%       1.6562%     0.0039563     2.3464    0.006
+     100
+     110
+
+  38 000     2.2366%       2.9458%     0.0037563    -1.8881    0.949
+     100
+     110
+
+ 174 010     1.8887%       1.4727%     0.0014807     2.8095    0.009
+     101
+     110
+
+   6 000     1.4911%       1.6675%     0.0019986   -0.88294    0.817
+     000
+     110
+
+ 102 001    0.79523%      0.74886%     0.0016442    0.28198    0.327
+     100
+     110
+
+  46 000    0.44732%       0.8252%     0.0013434    -2.8129    0.973
+     101
+     110
+
+ 238 011    0.29821%      0.20359%    0.00033703     2.8074        0
+     101
+     110
+
+ 140 010   0.049702%     0.054356%    0.00053774  -0.086551    0.295
+     001
+     100
+
