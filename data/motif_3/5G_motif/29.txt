@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\5G_ascii\29.txt
+Network type: Directed
+Number of nodes: 60
+Number of edges: 369
+Number of single edges: 252
+Number of mutual edges: 117
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5242 subgraphs were enumerated in the original network.
+5289880 subgraphs were enumerated in the random networks.
+5295122 subgraphs were enumerated in all networks.
+
+For the random networks: 2960402 tries were made, 308961 were successful.
+Randomization took 0.556 seconds.
+Enumeration took 2.142 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  14 000     24.552%       23.995%      0.003696     1.5075    0.062
+     001
+     110
+
+   6 000     18.657%       18.606%     0.0023908    0.21168    0.408
+     000
+     110
+
+  78 001     10.053%       11.897%      0.003849    -4.7893        1
+     001
+     110
+
+  36 000     9.0233%       9.1808%     0.0026148   -0.60233    0.743
+     100
+     100
+
+ 164 010     8.1076%       7.4555%     0.0038057     1.7134    0.043
+     100
+     100
+
+  12 000     7.4208%       7.3293%     0.0025758    0.35538    0.359
+     001
+     100
+
+  46 000     6.3907%       6.0521%     0.0029541     1.1462    0.117
+     101
+     110
+
+ 174 010     5.3605%       6.3981%     0.0046477    -2.2325    0.973
+     101
+     110
+
+  38 000     5.1889%       5.1846%     0.0028748   0.014896      0.5
+     100
+     110
+
+ 238 011       2.48%       1.4511%     0.0022913     4.4904        0
+     101
+     110
+
+ 102 001      1.488%       1.2872%      0.001915     1.0484    0.137
+     100
+     110
+
+ 166 010       1.24%       1.0692%     0.0015135     1.1287    0.131
+     100
+     110
+
+ 140 010   0.038153%     0.094393%     0.0004875    -1.1536    0.844
+     001
+     100
+
