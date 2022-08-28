@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\445.txt
+Network type: Directed
+Number of nodes: 79
+Number of edges: 121
+Number of single edges: 58
+Number of mutual edges: 63
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1145 subgraphs were enumerated in the original network.
+1184010 subgraphs were enumerated in the random networks.
+1185155 subgraphs were enumerated in all networks.
+
+For the random networks: 1023926 tries were made, 57140 were successful.
+Randomization took 0.048 seconds.
+Enumeration took 0.444 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     27.249%       26.238%     0.0036818      2.745    0.002
+     100
+     100
+
+  36 000      21.31%       20.789%     0.0026342     1.9784    0.029
+     100
+     100
+
+  78 001     14.148%       17.805%      0.005001    -7.3118        1
+     001
+     110
+
+  14 000     10.742%       10.529%     0.0038906    0.54794    0.286
+     001
+     110
+
+  12 000     7.6856%       7.9856%     0.0025408    -1.1806    0.892
+     001
+     100
+
+ 238 011     6.6376%       5.2909%     0.0017116     7.8678        0
+     101
+     110
+
+ 174 010     6.6376%       5.6833%     0.0053361     1.7884    0.038
+     101
+     110
+
+   6 000     1.3974%       1.4032%     0.0013931  -0.041989    0.539
+     000
+     110
+
+ 166 010     1.2227%       1.4623%     0.0014001     -1.711     0.96
+     100
+     110
+
+ 102 001     0.9607%       1.2208%     0.0020354    -1.2781    0.889
+     100
+     110
+
+  46 000    0.87336%      0.99692%     0.0015729   -0.78555    0.765
+     101
+     110
+
+  38 000    0.87336%      0.51314%     0.0014304     2.5184    0.007
+     100
+     110
+
+ 140 010    0.26201%     0.082475%    0.00074571     2.4076    0.006
+     001
+     100
+
