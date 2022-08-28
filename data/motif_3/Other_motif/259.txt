@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\259.txt
+Network type: Directed
+Number of nodes: 76
+Number of edges: 146
+Number of single edges: 60
+Number of mutual edges: 86
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1393 subgraphs were enumerated in the original network.
+1471554 subgraphs were enumerated in the random networks.
+1472947 subgraphs were enumerated in all networks.
+
+For the random networks: 1127408 tries were made, 152414 were successful.
+Randomization took 0.25 seconds.
+Enumeration took 0.674 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     29.648%       28.557%     0.0039009     2.7968    0.003
+     100
+     100
+
+  78 001     28.715%       34.239%     0.0055671    -9.9219        1
+     001
+     110
+
+  36 000     15.721%       15.085%     0.0031724     2.0056    0.026
+     100
+     100
+
+  14 000     10.194%       9.5244%      0.005463     1.2254    0.122
+     001
+     110
+
+ 174 010      4.738%       4.3716%     0.0052501    0.69793    0.249
+     101
+     110
+
+ 238 011     3.5176%       1.0172%     0.0021608     11.572        0
+     101
+     110
+
+   6 000     2.0101%       2.4114%     0.0022766    -1.7632    0.963
+     000
+     110
+
+  46 000     1.4358%       1.2623%     0.0024971    0.69469    0.244
+     101
+     110
+
+  12 000     1.4358%       1.2245%     0.0022327    0.94622    0.154
+     001
+     100
+
+  38 000     1.1486%      0.98328%     0.0020189    0.81887     0.23
+     100
+     110
+
+ 166 010    0.93324%      0.47922%     0.0016435     2.7625    0.007
+     100
+     110
+
+ 102 001    0.43073%      0.84227%     0.0021507    -1.9136    0.981
+     100
+     110
+
+ 140 010   0.071788%    0.0027819%    0.00013462      5.126        0
+     001
+     100
+
