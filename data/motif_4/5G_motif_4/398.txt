@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\398.txt
+Network type: Directed
+Number of nodes: 54
+Number of edges: 153
+Number of single edges: 74
+Number of mutual edges: 79
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1548 subgraphs were enumerated in the original network.
+1594150 subgraphs were enumerated in the random networks.
+1595698 subgraphs were enumerated in all networks.
+
+For the random networks: 1202986 tries were made, 140562 were successful.
+Randomization took 0.207 seconds.
+Enumeration took 0.457 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     27.907%        26.38%     0.0043839      3.483    0.001
+     100
+     100
+
+  78 001     22.416%       27.315%       0.00704    -6.9592        1
+     001
+     110
+
+  14 000     14.858%       13.777%     0.0043206     2.5028    0.012
+     001
+     110
+
+  36 000     10.917%       10.611%     0.0025898     1.1813    0.104
+     100
+     100
+
+  12 000     6.2016%       6.1951%     0.0027387   0.023389    0.512
+     001
+     100
+
+ 238 011     4.7804%       2.3056%     0.0033708     7.3418        0
+     101
+     110
+
+ 174 010     4.6512%       5.9816%     0.0060005    -2.2173    0.978
+     101
+     110
+
+   6 000     3.8114%       3.6759%     0.0021221    0.63845    0.262
+     000
+     110
+
+ 102 001     1.4858%       1.0673%     0.0023406     1.7881    0.049
+     100
+     110
+
+  46 000     1.0982%      0.84837%     0.0020599     1.2128    0.123
+     101
+     110
+
+ 166 010     1.0336%      0.82018%     0.0017994      1.186    0.122
+     100
+     110
+
+  38 000    0.77519%      0.96194%     0.0021085   -0.88571    0.796
+     100
+     110
+
+ 140 010   0.064599%     0.060748%    0.00060279   0.063896    0.244
+     001
+     100
+
