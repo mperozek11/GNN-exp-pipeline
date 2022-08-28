@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\244.txt
+Network type: Directed
+Number of nodes: 83
+Number of edges: 269
+Number of single edges: 111
+Number of mutual edges: 158
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+4714 subgraphs were enumerated in the original network.
+4897462 subgraphs were enumerated in the random networks.
+4902176 subgraphs were enumerated in all networks.
+
+For the random networks: 2175803 tries were made, 210497 were successful.
+Randomization took 0.223 seconds.
+Enumeration took 2.587 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     45.248%       42.909%     0.0025633     9.1268        0
+     100
+     100
+
+  78 001     23.144%       29.386%     0.0039114     -15.96        1
+     001
+     110
+
+ 164 010     17.353%       16.975%      0.002585      1.462    0.077
+     100
+     100
+
+  14 000     4.5185%       3.5149%     0.0024838     4.0405    0.001
+     001
+     110
+
+ 238 011     2.9275%      0.45964%     0.0017451     14.141        0
+     101
+     110
+
+ 174 010     2.6517%       2.5182%     0.0028202     0.4732    0.319
+     101
+     110
+
+  46 000     1.8244%       2.1792%     0.0014012    -2.5321    0.995
+     101
+     110
+
+  12 000    0.89096%      0.66498%    0.00077688     2.9088    0.005
+     001
+     100
+
+  38 000    0.44548%      0.65132%    0.00066541    -3.0933    0.996
+     100
+     110
+
+   6 000    0.40305%      0.29541%    0.00051459     2.0919    0.029
+     000
+     110
+
+ 166 010    0.36063%      0.21718%    0.00063253     2.2679    0.018
+     100
+     110
+
+ 102 001    0.21213%      0.22662%     0.0006309   -0.22962    0.541
+     100
+     110
+
+ 140 010   0.021213%    0.0029818%   7.6076e-005     2.3965    0.007
+     001
+     100
+

@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\288.txt
+Network type: Directed
+Number of nodes: 74
+Number of edges: 140
+Number of single edges: 69
+Number of mutual edges: 71
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1780 subgraphs were enumerated in the original network.
+1857542 subgraphs were enumerated in the random networks.
+1859322 subgraphs were enumerated in all networks.
+
+For the random networks: 1106747 tries were made, 125342 were successful.
+Randomization took 0.14 seconds.
+Enumeration took 0.883 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     53.315%       50.252%     0.0035357     8.6621        0
+     100
+     100
+
+ 164 010      17.36%        17.17%     0.0028117    0.67255    0.253
+     100
+     100
+
+  78 001     14.944%       21.598%     0.0033661    -19.769        1
+     001
+     110
+
+  14 000     4.1573%       2.9768%     0.0043013     2.7445    0.011
+     001
+     110
+
+ 238 011     3.7079%        1.038%     0.0011174     23.894        0
+     101
+     110
+
+  12 000     2.6404%       2.8878%     0.0018096    -1.3668    0.903
+     001
+     100
+
+ 174 010     1.6854%       1.8832%     0.0031147   -0.63507    0.708
+     101
+     110
+
+ 102 001    0.67416%      0.18123%     0.0014713     3.3504    0.008
+     100
+     110
+
+  46 000    0.44944%       1.0326%     0.0021202    -2.7507     0.99
+     101
+     110
+
+ 166 010    0.44944%      0.26174%    0.00070336     2.6686    0.002
+     100
+     110
+
+   6 000    0.33708%      0.25411%    0.00080813     1.0267    0.111
+     000
+     110
+
+  38 000    0.22472%      0.45322%    0.00085543    -2.6712    0.983
+     100
+     110
+
+ 140 010    0.05618%     0.010344%    0.00022433     2.0433    0.009
+     001
+     100
+
