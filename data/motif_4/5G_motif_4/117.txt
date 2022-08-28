@@ -1,0 +1,116 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\5G_ascii\117.txt
+Network type: Directed
+Number of nodes: 8
+Number of edges: 10
+Number of single edges: 6
+Number of mutual edges: 4
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+28 subgraphs were enumerated in the original network.
+1500 subgraphs were enumerated in the random networks.
+1528 subgraphs were enumerated in all networks.
+
+For the random networks: 4588 tries were made, 1 were successful.
+Randomization took 0 seconds.
+Enumeration took 0 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+   30 0000     17.857%       23.333%    2.243e-016-2.4415e+014        1
+      0000
+      0001
+      1110
+
+  286 0000     14.286%       16.667%   8.4112e-017-2.8307e+014        1
+      0001
+      0001
+      1110
+
+  158 0000     7.1429%            0%             0  undefined        0
+      0000
+      1001
+      1110
+
+  602 0000     7.1429%       6.6667%   7.0093e-0176.7937e+013        0
+      0010
+      0101
+      1010
+
+  350 0000     7.1429%       6.6667%   7.0093e-0176.7937e+013        0
+      0001
+      0101
+      1110
+
+  334 0000     7.1429%       6.6667%   7.0093e-0176.7937e+013        0
+      0001
+      0100
+      1110
+
+10372 0010     3.5714%            0%             0  undefined        0
+      1000
+      1000
+      0100
+
+19030 0100     3.5714%       3.3333%   3.5047e-0176.7937e+013        0
+      1010
+      0101
+      0110
+
+ 8598 0010     3.5714%       3.3333%   3.5047e-0176.7937e+013        0
+      0001
+      1001
+      0110
+
+ 4510 0001     3.5714%       3.3333%   3.5047e-0176.7937e+013        0
+      0001
+      1001
+      1110
+
+   14 0000     3.5714%       3.3333%   3.5047e-0176.7937e+013        0
+      0000
+      0000
+      1110
+
+ 6302 0001     3.5714%       3.3333%   3.5047e-0176.7937e+013        0
+      1000
+      1001
+      1110
+
+  392 0000     3.5714%            0%             0  undefined        0
+      0001
+      1000
+      1000
+
+  414 0000     3.5714%            0%             0  undefined        0
+      0001
+      1001
+      1110
+
+ 4442 0001     3.5714%            0%             0  undefined        0
+      0001
+      0101
+      1010
+
+18568 0100     3.5714%            0%             0  undefined        0
+      1000
+      1000
+      1000
+
+16798 0100     3.5714%            0%             0  undefined        0
+      0001
+      1001
+      1110
+
