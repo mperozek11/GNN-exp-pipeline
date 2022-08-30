@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\172.txt
+Network type: Directed
+Number of nodes: 28
+Number of edges: 17
+Number of single edges: 14
+Number of mutual edges: 3
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+268 subgraphs were enumerated in the original network.
+13158 subgraphs were enumerated in the random networks.
+13426 subgraphs were enumerated in all networks.
+
+For the random networks: 5609 tries were made, 1529 were successful.
+Randomization took 0 seconds.
+Enumeration took 0.013 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+ 2184 0000     58.209%       61.175%      0.019392    -1.5295        1
+      1000
+      1000
+      1000
+
+18568 0100     20.522%       20.663%        0.0121   -0.11604     0.68
+      1000
+      1000
+      1000
+
+  392 0000     7.4627%       5.9911%      0.025017    0.58823     0.22
+      0001
+      1000
+      1000
+
+18504 0100     4.1045%      0.92402%      0.018449      1.724     0.06
+      1000
+      0100
+      1000
+
+  396 0000     3.7313%       5.2464%      0.022464   -0.67441     0.92
+      0001
+      1000
+      1100
+
+ 2202 0000     3.3582%       1.6121%      0.017648    0.98942     0.46
+      1000
+      1001
+      1010
+
+  284 0000    0.74627%      0.52528%     0.0032027       0.69      0.3
+      0001
+      0001
+      1100
+
+10372 0010    0.74627%      0.66753%     0.0025051    0.31429     0.54
+      1000
+      1000
+      0100
+
+ 8588 0010    0.37313%      0.52969%     0.0029815   -0.52507     0.82
+      0001
+      1000
+      1100
+
+ 2116 0000    0.37313%      0.33377%     0.0012526    0.31429     0.54
+      1000
+      0100
+      0100
+
+18518 0100    0.37313%      0.17912%     0.0019609    0.98942     0.46
+      1000
+      0101
+      0110
+
