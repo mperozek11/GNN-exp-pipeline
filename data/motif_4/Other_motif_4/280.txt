@@ -1,0 +1,91 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\280.txt
+Network type: Directed
+Number of nodes: 80
+Number of edges: 66
+Number of single edges: 60
+Number of mutual edges: 6
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+32626 subgraphs were enumerated in the original network.
+1634225 subgraphs were enumerated in the random networks.
+1666851 subgraphs were enumerated in all networks.
+
+For the random networks: 29257 tries were made, 694 were successful.
+Randomization took 0 seconds.
+Enumeration took 1.53 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+ 2184 0000     93.726%       93.724%   6.1576e-005    0.32275     0.36
+      1000
+      1000
+      1000
+
+18568 0100     5.0512%       5.0452%   1.8516e-006     32.304        0
+      1000
+      1000
+      1000
+
+ 2202 0000    0.50267%      0.33845%   4.2234e-005     38.883        0
+      1000
+      1001
+      1010
+
+ 2188 0000    0.33715%      0.33967%   1.9918e-005    -1.2638      0.8
+      1000
+      1000
+      1100
+
+ 4492 0001    0.17777%            0%             0  undefined        0
+      0001
+      1000
+      1100
+
+  396 0000    0.17471%      0.51217%   2.4845e-005    -135.83        1
+      0001
+      1000
+      1100
+
+18518 0100  0.0091951%    0.0061191%   2.2457e-009      13697        0
+      1000
+      0101
+      0110
+
+10380 0010  0.0061301%    0.0061191%   2.2457e-009     48.858        0
+      1000
+      1000
+      1100
+
+ 2206 0000  0.0061301%    0.0029984%   2.0021e-005     1.5642        0
+      1000
+      1001
+      1110
+
+ 8588 0010   0.003065%    0.0091787%   3.3685e-009     -18149        1
+      0001
+      1000
+      1100
+
+ 2462 0000   0.003065%   0.00061194%   1.2363e-005     1.9842        0
+      1001
+      1001
+      1110
+
+  286 0000   0.003065%    0.0037326%   1.2801e-005   -0.52149     0.22
+      0001
+      0001
+      1110
+
