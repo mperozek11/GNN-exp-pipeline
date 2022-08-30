@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\368.txt
+Network type: Directed
+Number of nodes: 70
+Number of edges: 182
+Number of single edges: 124
+Number of mutual edges: 58
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2331 subgraphs were enumerated in the original network.
+123886 subgraphs were enumerated in the random networks.
+126217 subgraphs were enumerated in all networks.
+
+For the random networks: 68705 tries were made, 11915 were successful.
+Randomization took 0.007 seconds.
+Enumeration took 0.081 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     49.764%       46.463%     0.0032126     10.275        0
+     100
+     100
+
+ 164 010     28.057%       30.442%     0.0033527    -7.1161        1
+     100
+     100
+
+  78 001     5.9631%       9.1358%     0.0031246    -10.154        1
+     001
+     110
+
+ 166 010     3.4749%       1.4274%     0.0025674     7.9749        0
+     100
+     110
+
+  14 000     3.1317%        3.549%     0.0037149    -1.1234     0.88
+     001
+     110
+
+ 174 010     2.7885%        2.311%     0.0027202     1.7554     0.02
+     101
+     110
+
+  12 000     1.8876%       1.4684%     0.0021852     1.9183     0.02
+     001
+     100
+
+ 238 011     1.3728%      0.22065%     0.0012584     9.1561        0
+     101
+     110
+
+   6 000      1.287%       2.5751%     0.0026227    -4.9112        1
+     000
+     110
+
+  46 000     1.0296%      0.84821%     0.0017283     1.0495     0.16
+     101
+     110
+
+  38 000     0.8151%       1.2446%     0.0020591    -2.0857     0.98
+     100
+     110
+
+ 102 001     0.3861%      0.31418%     0.0012263    0.58648     0.26
+     100
+     110
+
+ 140 010     0.0429%            0%             0  undefined        0
+     001
+     100
+
