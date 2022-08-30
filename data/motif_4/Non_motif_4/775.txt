@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\775.txt
+Network type: Directed
+Number of nodes: 80
+Number of edges: 242
+Number of single edges: 167
+Number of mutual edges: 75
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3800 subgraphs were enumerated in the original network.
+198620 subgraphs were enumerated in the random networks.
+202420 subgraphs were enumerated in all networks.
+
+For the random networks: 91879 tries were made, 15595 were successful.
+Randomization took 0.001 seconds.
+Enumeration took 0.086 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     66.158%        63.81%      0.002475     9.4857        0
+     100
+     100
+
+ 164 010     10.605%       12.261%     0.0024954    -6.6359        1
+     100
+     100
+
+  78 001     5.5526%       7.2353%     0.0020256     -8.307        1
+     001
+     110
+
+  14 000     4.8947%       5.2492%     0.0026783    -1.3235     0.92
+     001
+     110
+
+  38 000     2.4474%       2.1335%     0.0012486     2.5135        0
+     100
+     110
+
+  46 000     2.3684%       1.9514%     0.0015825     2.6349        0
+     101
+     110
+
+   6 000     2.3421%        3.537%     0.0015907    -7.5116        1
+     000
+     110
+
+  12 000     1.7368%       1.7432%     0.0012144  -0.052752     0.52
+     001
+     100
+
+ 166 010     1.7105%      0.54752%     0.0012828     9.0662        0
+     100
+     110
+
+ 174 010     1.2368%        1.048%     0.0016149     1.1696     0.12
+     101
+     110
+
+ 238 011    0.84211%      0.20949%    0.00064636     9.7873        0
+     101
+     110
+
+ 102 001   0.078947%      0.27246%    0.00089219    -2.1689        1
+     100
+     110
+
+ 140 010   0.026316%    0.0015045%   6.0156e-005     4.1245        0
+     001
+     100
+

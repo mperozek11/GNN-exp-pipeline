@@ -1,0 +1,161 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\736.txt
+Network type: Directed
+Number of nodes: 43
+Number of edges: 15
+Number of single edges: 9
+Number of mutual edges: 6
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+91 subgraphs were enumerated in the original network.
+4550 subgraphs were enumerated in the random networks.
+4641 subgraphs were enumerated in all networks.
+
+For the random networks: 6680 tries were made, 188 were successful.
+Randomization took 0 seconds.
+Enumeration took 0 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+ 4380 0001     12.088%       12.088%   1.5421e-016    0.98995        0
+      0001
+      0001
+      1100
+
+18568 0100     10.989%       10.989%   7.0093e-017    0.98995        0
+      1000
+      1000
+      1000
+
+ 2184 0000     10.989%       10.989%   7.0093e-017    0.98995        0
+      1000
+      1000
+      1000
+
+18572 0100     8.7912%       8.7912%             0  undefined        0
+      1000
+      1000
+      1100
+
+  284 0000     7.6923%       7.6923%   5.6075e-017   -0.98995        0
+      0001
+      0001
+      1100
+
+  286 0000     6.5934%       6.5934%   7.0093e-017   -0.98995        0
+      0001
+      0001
+      1110
+
+ 4382 0001     5.4945%       5.4945%   3.5047e-017    0.98995        0
+      0001
+      0001
+      1110
+
+ 8906 0010     5.4945%       5.4945%   3.5047e-017    0.98995        0
+      0010
+      1100
+      1010
+
+ 4492 0001     4.3956%       4.3956%             0  undefined        0
+      0001
+      1000
+      1100
+
+17238 0100     3.2967%       3.2967%   3.5047e-017   -0.98995        0
+      0011
+      0101
+      0110
+
+ 4958 0001     2.1978%       2.1978%             0  undefined        0
+      0011
+      0101
+      1110
+
+ 6284 0001     2.1978%       2.1978%             0  undefined        0
+      1000
+      1000
+      1100
+
+18504 0100     2.1978%       2.1978%             0  undefined        0
+      1000
+      0100
+      1000
+
+ 4510 0001     2.1978%       2.1978%             0  undefined        0
+      0001
+      1001
+      1110
+
+16982 0100     2.1978%       2.1978%             0  undefined        0
+      0010
+      0101
+      0110
+
+ 4494 0001     2.1978%       2.1978%             0  undefined        0
+      0001
+      1000
+      1110
+
+17094 0100     1.0989%       1.0989%             0  undefined        0
+      0010
+      1100
+      0110
+
+ 6302 0001     1.0989%       1.0989%             0  undefined        0
+      1000
+      1001
+      1110
+
+17246 0100     1.0989%       1.0989%             0  undefined        0
+      0011
+      0101
+      1110
+
+ 2116 0000     1.0989%       1.0989%             0  undefined        0
+      1000
+      0100
+      0100
+
+16668 0100     1.0989%       1.0989%             0  undefined        0
+      0001
+      0001
+      1100
+
+  710 0000     1.0989%       1.0989%             0  undefined        0
+      0010
+      1100
+      0110
+
+13214 0011     1.0989%       1.0989%             0  undefined        0
+      0011
+      1001
+      1110
+
+19148 0100     1.0989%       1.0989%             0  undefined        0
+      1010
+      1100
+      1100
+
+27342 0110     1.0989%       1.0989%             0  undefined        0
+      1010
+      1100
+      1110
+
+ 4438 0001     1.0989%       1.0989%             0  undefined        0
+      0001
+      0101
+      0110
+
