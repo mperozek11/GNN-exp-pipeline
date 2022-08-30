@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\259.txt
+Network type: Directed
+Number of nodes: 66
+Number of edges: 81
+Number of single edges: 77
+Number of mutual edges: 4
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+21061 subgraphs were enumerated in the original network.
+1058345 subgraphs were enumerated in the random networks.
+1079406 subgraphs were enumerated in all networks.
+
+For the random networks: 29931 tries were made, 5412 were successful.
+Randomization took 0.016 seconds.
+Enumeration took 1.004 seconds.
+
+
+Result overview:
+
+  ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+           [Original]      [Random]      [Random]
+
+2184 0000     94.796%       94.727%     0.0020335    0.34172     0.32
+     1000
+     1000
+     1000
+
+ 140 0000     2.8299%       3.0757%     0.0016012    -1.5353     0.98
+     0000
+     1000
+     1100
+
+ 396 0000    0.66474%      0.66138%     0.0020197   0.016623     0.36
+     0001
+     1000
+     1100
+
+2188 0000      0.641%       0.3219%     0.0022361      1.427     0.14
+     1000
+     1000
+     1100
+
+2202 0000    0.43683%       0.3628%     0.0012675    0.58399      0.4
+     1000
+     1001
+     1010
+
+ 204 0000    0.37035%      0.36185%    0.00052719    0.16122     0.34
+     0000
+     1100
+     1100
+
+ 392 0000    0.22791%      0.44879%     0.0021744    -1.0158     0.78
+     0001
+     1000
+     1000
+
+2252 0000   0.014244%    0.0023726%   3.7496e-005     3.1661     0.04
+     1000
+     1100
+     1100
+
+ 158 0000  0.0094962%    0.0055778%    3.128e-005     1.2527     0.06
+     0000
+     1001
+     1110
+
+ 286 0000  0.0047481%     0.004343%   2.0929e-005    0.19356     0.16
+     0001
+     0001
+     1110
+
+2462 0000  0.0047481%   0.00094595%   1.9111e-005     1.9895     0.04
+     1001
+     1001
+     1110
+
