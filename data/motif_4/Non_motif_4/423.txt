@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\423.txt
+Network type: Directed
+Number of nodes: 72
+Number of edges: 145
+Number of single edges: 73
+Number of mutual edges: 72
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1610 subgraphs were enumerated in the original network.
+84600 subgraphs were enumerated in the random networks.
+86210 subgraphs were enumerated in all networks.
+
+For the random networks: 57405 tries were made, 7472 were successful.
+Randomization took 0.018 seconds.
+Enumeration took 0.049 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     37.453%       38.081%     0.0034542    -1.8168     0.98
+     100
+     100
+
+  78 001     20.186%       27.007%      0.012489    -5.4616        1
+     001
+     110
+
+  36 000     15.714%       13.822%     0.0029495     6.4169        0
+     100
+     100
+
+  14 000     8.7578%       6.6378%     0.0059698     3.5511        0
+     001
+     110
+
+  12 000     5.9627%       4.5855%     0.0038001     3.6243        0
+     001
+     100
+
+ 174 010      3.913%       3.3147%     0.0040668     1.4713     0.06
+     101
+     110
+
+ 238 011     2.9814%      0.37477%     0.0043437     6.0008        0
+     101
+     110
+
+ 166 010      2.236%      0.76093%     0.0022434     6.5752        0
+     100
+     110
+
+   6 000     1.0559%       1.9389%     0.0019172    -4.6057        1
+     000
+     110
+
+ 102 001    0.86957%       1.5331%     0.0029978    -2.2134     0.98
+     100
+     110
+
+  38 000    0.49689%      0.90585%     0.0018417    -2.2206     0.98
+     100
+     110
+
+  46 000    0.31056%      0.99572%     0.0019137    -3.5803        1
+     101
+     110
+
+ 140 010   0.062112%     0.042628%     0.0003379    0.57663     0.06
+     001
+     100
+
