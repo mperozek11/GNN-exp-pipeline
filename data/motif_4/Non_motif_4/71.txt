@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\71.txt
+Network type: Directed
+Number of nodes: 65
+Number of edges: 68
+Number of single edges: 66
+Number of mutual edges: 2
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+26604 subgraphs were enumerated in the original network.
+1328914 subgraphs were enumerated in the random networks.
+1355518 subgraphs were enumerated in all networks.
+
+For the random networks: 27013 tries were made, 3059 were successful.
+Randomization took 0 seconds.
+Enumeration took 1.396 seconds.
+
+
+Result overview:
+
+  ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+           [Original]      [Random]      [Random]
+
+2184 0000     97.715%       97.734%     0.0018244   -0.10808     0.56
+     1000
+     1000
+     1000
+
+2188 0000    0.95098%      0.87168%     0.0017594    0.45074     0.44
+     1000
+     1000
+     1100
+
+ 392 0000    0.58262%      0.79286%      0.001826    -1.1514     0.82
+     0001
+     1000
+     1000
+
+ 396 0000    0.40595%     0.042599%     0.0008613     4.2187        0
+     0001
+     1000
+     1100
+
+ 140 0000    0.20298%      0.25806%     0.0016212   -0.33978      0.7
+     0000
+     1000
+     1100
+
+2116 0000   0.067659%     0.070344%    0.00010416   -0.25781     0.56
+     1000
+     0100
+     0100
+
+2124 0000   0.033829%     0.030476%   5.7082e-005    0.58744     0.26
+     1000
+     0100
+     1100
+
+2252 0000   0.011276%     0.012055%   8.1817e-005  -0.095112     0.52
+     1000
+     1100
+     1100
+
+2076 0000   0.011276%    0.0069996%   6.1217e-005    0.69864     0.38
+     1000
+     0001
+     1100
+
+2204 0000   0.011276%     0.007009%    6.146e-005    0.69436     0.38
+     1000
+     1001
+     1100
+
+ 536 0000  0.0075177%    0.0020311%   4.2453e-005     1.2924      0.1
+     0010
+     0001
+     1000
+

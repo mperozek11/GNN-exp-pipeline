@@ -1,0 +1,111 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\96.txt
+Network type: Directed
+Number of nodes: 7
+Number of edges: 15
+Number of single edges: 5
+Number of mutual edges: 10
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+30 subgraphs were enumerated in the original network.
+1500 subgraphs were enumerated in the random networks.
+1530 subgraphs were enumerated in all networks.
+
+For the random networks: 6885 tries were made, 0 were successful.
+Randomization took 0 seconds.
+Enumeration took 0 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+27614 0110     13.333%       13.333%   1.4019e-016   -0.98995        0
+      1011
+      1101
+      1110
+
+19148 0100     13.333%       13.333%   1.4019e-016   -0.98995        0
+      1010
+      1100
+      1100
+
+27340 0110     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      1010
+      1100
+      1100
+
+ 8606 0010     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0001
+      1001
+      1110
+
+13278 0011     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0011
+      1101
+      1110
+
+16982 0100     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0010
+      0101
+      0110
+
+ 4510 0001     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0001
+      1001
+      1110
+
+ 8906 0010     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0010
+      1100
+      1010
+
+ 4958 0001     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0011
+      0101
+      1110
+
+17238 0100     6.6667%       6.6667%   7.0093e-017   -0.98995        0
+      0011
+      0101
+      0110
+
+ 9182 0010     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      0011
+      1101
+      1110
+
+27342 0110     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      1010
+      1100
+      1110
+
+27102 0110     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      1001
+      1101
+      1110
+
+  396 0000     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      0001
+      1000
+      1100
+
+ 4492 0001     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      0001
+      1000
+      1100
+
+ 4380 0001     3.3333%       3.3333%   3.5047e-017   -0.98995        0
+      0001
+      0001
+      1100
+
