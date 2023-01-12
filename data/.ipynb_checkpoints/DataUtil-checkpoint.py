@@ -23,16 +23,16 @@ def get_class_weights(calculate, y):
         classes = np.unique(np.array(y))
             # below are two different weighting schemes which yeild the same proportions but use different strategies
 
-            # === 1 ===
-            # prevs = []
-            # for c in classes:
-            #     prev = len((y == c).nonzero()[0])
-            #     prevs.append(prev)
-            # most_ex = sorted(prevs)[-1] # get most prevelant class number of examples
-            # self.class_weights = most_ex / torch.Tensor(prevs)
+        # === 1 ===
+        prevs = []
+        for c in classes:
+            prev = len((y == c).nonzero()[0])
+            prevs.append(prev)
+        most_ex = sorted(prevs)[-1] # get most prevelant class number of examples
+        class_weights = most_ex / torch.Tensor(prevs)
 
-            # === 2 ===
-        class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
+        # === 2 ===
+        # class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=classes, y=y)
         return torch.tensor(class_weights, dtype=torch.float)
     else:
         return None

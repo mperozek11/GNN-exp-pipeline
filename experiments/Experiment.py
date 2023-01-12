@@ -92,6 +92,10 @@ class Experiment:
         
         dataset_builder = DatasetBuilder(self.config, self.DATA_DIR)
         dataset = dataset_builder.get_dataset()
+        if self.config['transform'] != None:
+            transform = getattr(WICOTransforms, self.config['transform'])
+            dataset = transform(dataset)
+            
         y = dataset.data.y
         self.class_weights = get_class_weights(self.config['class_weights'], y)
         self.in_dim = dataset.data.x.shape[1]

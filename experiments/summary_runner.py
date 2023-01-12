@@ -20,8 +20,8 @@ def main(argv):
             RESULT_DIR = arg
         
     summarizer = SetSummarizer(RESULT_DIR=RESULT_DIR)
-    exp_summary = summarizer.summarize()
-    summarizer.visualize()
+    exp_summary = summarizer.summarize(RESULT_DIR)
+    # summarizer.visualize()
     sys.exit(0)
         
 

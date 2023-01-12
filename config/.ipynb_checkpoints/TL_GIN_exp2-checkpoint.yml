@@ -1,0 +1,48 @@
+# === NOTES ===
+# oversampled transform applied to WICO to try to recreate old results
+device: 'cuda'
+
+# DATA
+data: {
+  dataset: 'WICO',
+  root: 'wico',
+  pre_filter: 'filter_5g_non',
+  pre_transform: 'wico_data_to_custom'
+  }
+
+dataset: 'wico'
+transform: 'wico_5g_non_oversampled'
+class_weights: true
+
+# MODEL
+model: 'GIN'
+hidden_units:
+ - [32, 32, 32]
+ - [32, 32, 32, 32]
+ - [64, 64, 64]
+ - [64, 64, 64, 64]
+train_eps: 
+ - true
+ - false
+aggregation: 
+- mean
+- sum
+dropout: 
+  - 0.0
+  - 0.5
+# TRAINING
+kfolds: 5
+optimizer: Adam
+loss_fn: CrossEntropyLoss
+batch_size:
+  - 32
+  - 64
+  - 128
+  - 256
+epochs: 100
+lr:
+  - 0.01
+
+# EARLY STOPPING
+patience: 7
+improvement_threshold: 0.01

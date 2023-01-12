@@ -4,6 +4,7 @@ from pathlib import Path
 import yaml
 import numpy as np
 import matplotlib.pyplot as plt
+import re
 
 class SetSummarizer:
 
@@ -11,14 +12,15 @@ class SetSummarizer:
         self.RESULT_DIR = RESULT_DIR
         self.file_key = file_key
         self.get_results()
-        self.summary = self.summary_full_result = None
+        self.summary = None
+        self.summary_full_result = None
         
     def get_results(self):
         self.results = {}
         files = Path(self.RESULT_DIR).glob('*')
         for f in files:
             if self.file_key in f.stem:
-                with open(f) as file:
+                with open(f) as file: # open each config's result.yaml
                     config_res = yaml.safe_load(file)
                 self.results[f] = config_res
 
@@ -33,10 +35,14 @@ class SetSummarizer:
 
         if n_runs > 10:
             x = np.argsort(scores[:,0])[::-1][:10] # get the 10 best models by f1 score
+            best = scores[x]
+
             top_10 = {}
-            for idx in x:
-                top_10[str(idx)] = f'mean_f1: {scores[idx,0]} mean_acc: {scores[idx,1]}'
-                summary_full_result[file_keys.index(scores[idx,2])] = self.results[file_keys.index(scores[idx,2])] ## NEW
+            for i, row in enumerate(best):
+                fname = file_keys[int(row[2])]
+                regex = re.compile(r'\d+')
+                top_10[regex.findall(fname.stem)[0]] = f'mean_f1: {row[0]} mean_acc: {row[1]}'
+                # summary_full_result[file_keys.index(scores[idx,2])] = self.results[file_keys.index(scores[idx,2])] ## NEW NEED TO FIX THIS
             summary['top_10_architectures'] = top_10
         else:
             x = np.argsort(scores[:,0])[::-1]
@@ -47,8 +53,9 @@ class SetSummarizer:
             summary_full_result = self.results
 
         if out_dir != None:
-            with open(f'{out_dir}/exp_overview.yaml', 'w') as file:
-                yaml.dump(summary, file)
+            print(f'{out_dir}/exp_overview.yaml')
+            with open(f'{out_dir}/exp_overview.yaml', 'w') as out_file:
+                yaml.dump(summary, out_file)
         self.summary = summary
         self.summary_full_result = summary_full_result
         return summary, summary_full_result

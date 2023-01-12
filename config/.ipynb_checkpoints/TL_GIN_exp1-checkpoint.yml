@@ -10,7 +10,7 @@ data: {
 
 dataset: 'wico'
 transform: 'wico_5g_vs_non_conspiracy'
-class_weights: false
+class_weights: true
 
 # MODEL
 model: 'GIN'
@@ -40,7 +40,6 @@ batch_size:
 epochs: 100
 lr:
   - 0.01
-  - 0.1
 
 # EARLY STOPPING
 patience: 7
