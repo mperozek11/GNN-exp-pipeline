@@ -1,0 +1,81 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\249.txt
+Network type: Directed
+Number of nodes: 65
+Number of edges: 96
+Number of single edges: 55
+Number of mutual edges: 41
+Number of vertex colors: 1
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   exchanging only edges with the same vertex colors,
+   3 exchanges per edge and 3 tries per edge.
+
+550 subgraphs were enumerated in the original network.
+571570 subgraphs were enumerated in the random networks.
+572120 subgraphs were enumerated in all networks.
+
+For the random networks: 528934 tries were made, 229637 were successful.
+Randomization took 0.097 seconds.
+Enumeration took 0.336 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     31.636%       30.525%     0.0041192      2.699    0.003
+     100
+     100
+
+  78 001     17.636%       18.511%     0.0038375    -2.2799    0.981
+     001
+     110
+
+ 164 010         16%       17.603%     0.0052183    -3.0717    0.999
+     100
+     100
+
+  14 000     13.636%       13.382%     0.0072456     0.3509    0.367
+     001
+     110
+
+  12 000     9.2727%       9.4321%     0.0048882   -0.32607    0.633
+     001
+     100
+
+   6 000     5.2727%        6.123%     0.0044679     -1.903    0.975
+     000
+     110
+
+  38 000     1.8182%       1.5854%     0.0047899    0.48599    0.299
+     100
+     110
+
+ 166 010     1.2727%      0.34148%     0.0022742     4.0948    0.001
+     100
+     110
+
+ 174 010     1.0909%       1.0842%      0.004307   0.015638    0.435
+     101
+     110
+
+ 102 001    0.90909%       0.4046%     0.0025972     1.9425    0.031
+     100
+     110
+
+  46 000    0.90909%       0.9644%     0.0039794   -0.13899    0.473
+     101
+     110
+
+ 238 011    0.54545%    0.0014043%    0.00022109     24.608        0
+     101
+     110
+

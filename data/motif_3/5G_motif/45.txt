@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\5G_ascii\45.txt
+Network type: Directed
+Number of nodes: 88
+Number of edges: 1009
+Number of single edges: 87
+Number of mutual edges: 922
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+20464 subgraphs were enumerated in the original network.
+22333628 subgraphs were enumerated in the random networks.
+22354092 subgraphs were enumerated in all networks.
+
+For the random networks: 8780637 tries were made, 261810 were successful.
+Randomization took 1.655 seconds.
+Enumeration took 15.782 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     50.088%       58.285%     0.0049044    -16.714        1
+     001
+     110
+
+ 238 011     33.698%       26.795%     0.0040197     17.173        0
+     101
+     110
+
+ 164 010     5.6587%       5.4636%     0.0015325     1.2733    0.095
+     100
+     100
+
+  14 000      5.346%       4.8211%     0.0014184     3.7002    0.001
+     001
+     110
+
+ 174 010     3.5868%       3.1471%     0.0017818     2.4677    0.004
+     101
+     110
+
+  36 000    0.68413%      0.50604%    0.00040374      4.411        0
+     100
+     100
+
+   6 000    0.21501%      0.25411%    0.00021242    -1.8408    0.958
+     000
+     110
+
+  12 000    0.20524%      0.21475%    0.00017148   -0.55466    0.729
+     001
+     100
+
+ 166 010    0.19547%      0.11882%    0.00019953     3.8414        0
+     100
+     110
+
+  46 000    0.17103%      0.27437%     0.0003971    -2.6022    0.999
+     101
+     110
+
+ 102 001    0.10751%     0.080207%    0.00015016      1.818    0.029
+     100
+     110
+
+  38 000   0.039093%     0.039016%    0.00011929   0.006487    0.527
+     100
+     110
+
+ 140 010  0.0048866%   0.00061823%   1.6713e-005      2.554    0.008
+     001
+     100
+

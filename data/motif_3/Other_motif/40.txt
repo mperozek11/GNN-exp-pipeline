@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\40.txt
+Network type: Directed
+Number of nodes: 67
+Number of edges: 122
+Number of single edges: 74
+Number of mutual edges: 48
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1476 subgraphs were enumerated in the original network.
+1495922 subgraphs were enumerated in the random networks.
+1497398 subgraphs were enumerated in all networks.
+
+For the random networks: 971364 tries were made, 106813 were successful.
+Randomization took 0.152 seconds.
+Enumeration took 0.684 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     53.997%       52.993%     0.0038579     2.6028    0.005
+     100
+     100
+
+ 164 010     22.154%       22.322%     0.0040385   -0.41546    0.669
+     100
+     100
+
+  78 001     9.6883%       11.685%     0.0035582    -5.6104    0.999
+     001
+     110
+
+  14 000      3.794%       3.4125%     0.0036994     1.0313     0.14
+     001
+     110
+
+ 174 010     3.1843%        2.672%     0.0031615     1.6205    0.046
+     101
+     110
+
+  12 000      1.897%       1.7856%     0.0018549    0.60066    0.255
+     001
+     100
+
+  38 000     1.5583%       1.5422%     0.0015348    0.10436    0.473
+     100
+     110
+
+ 238 011     1.1518%      0.58491%     0.0011861      4.779    0.001
+     101
+     110
+
+  46 000     1.1518%       1.4197%     0.0017542    -1.5274    0.923
+     101
+     110
+
+ 166 010    0.88076%      0.75587%     0.0017304     0.7217    0.169
+     100
+     110
+
+   6 000    0.33875%      0.44281%     0.0016084   -0.64694    0.648
+     000
+     110
+
+ 102 001     0.1355%      0.36854%     0.0013169    -1.7696    0.958
+     100
+     110
+
+ 140 010   0.067751%     0.015775%    0.00031381     1.6563    0.024
+     001
+     100
+

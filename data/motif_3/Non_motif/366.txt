@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\366.txt
+Network type: Directed
+Number of nodes: 76
+Number of edges: 364
+Number of single edges: 101
+Number of mutual edges: 263
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5974 subgraphs were enumerated in the original network.
+6586816 subgraphs were enumerated in the random networks.
+6592790 subgraphs were enumerated in all networks.
+
+For the random networks: 3087901 tries were made, 171423 were successful.
+Randomization took 0.429 seconds.
+Enumeration took 3.437 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     35.537%       47.097%     0.0087889    -13.152        1
+     001
+     110
+
+  36 000     28.942%       26.249%     0.0023195      11.61        0
+     100
+     100
+
+ 164 010     15.819%       13.888%     0.0024101     8.0115        0
+     100
+     100
+
+ 238 011     6.9635%       1.1973%     0.0044091     13.078        0
+     101
+     110
+
+  14 000     5.5909%       4.5742%     0.0021619      4.703        0
+     001
+     110
+
+ 174 010     3.6994%       3.8485%     0.0025461   -0.58568    0.719
+     101
+     110
+
+  46 000     1.9585%       1.7746%    0.00052835     3.4798    0.001
+     101
+     110
+
+  12 000    0.50218%      0.48076%    0.00037393    0.57267     0.27
+     001
+     100
+
+  38 000    0.31804%      0.29241%    0.00024062     1.0655    0.158
+     100
+     110
+
+ 166 010    0.23435%      0.19243%     0.0002526     1.6595    0.051
+     100
+     110
+
+   6 000    0.21761%      0.21358%    0.00021822     0.1846    0.407
+     000
+     110
+
+ 102 001    0.20087%      0.18965%    0.00035509    0.31593    0.309
+     100
+     110
+
+ 140 010   0.016739%    0.0029633%    6.369e-005      2.163    0.009
+     001
+     100
+

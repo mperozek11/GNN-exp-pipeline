@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\554.txt
+Network type: Directed
+Number of nodes: 76
+Number of edges: 573
+Number of single edges: 135
+Number of mutual edges: 438
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+9646 subgraphs were enumerated in the original network.
+9879854 subgraphs were enumerated in the random networks.
+9889500 subgraphs were enumerated in all networks.
+
+For the random networks: 5012509 tries were made, 130459 were successful.
+Randomization took 0.776 seconds.
+Enumeration took 6.046 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     37.052%       43.385%     0.0082492     -7.678        1
+     001
+     110
+
+ 238 011     19.666%       15.959%     0.0051474     7.2031        0
+     101
+     110
+
+  14 000     14.566%       12.208%     0.0036189      6.516        0
+     001
+     110
+
+ 164 010     10.637%       8.6231%     0.0035022     5.7491        0
+     100
+     100
+
+ 174 010     8.9674%       11.274%     0.0043936    -5.2501    0.998
+     101
+     110
+
+   6 000     2.0838%       2.2093%    0.00076939    -1.6311    0.938
+     000
+     110
+
+  36 000     1.9697%        1.972%    0.00098164  -0.023557    0.512
+     100
+     100
+
+  12 000     1.5965%       1.4472%     0.0008555     1.7455    0.033
+     001
+     100
+
+  46 000     1.5654%       1.3031%     0.0010892     2.4087    0.014
+     101
+     110
+
+ 102 001    0.85009%      0.77574%     0.0007274     1.0221    0.155
+     100
+     110
+
+ 166 010    0.71532%      0.34718%    0.00075393      4.883    0.001
+     100
+     110
+
+  38 000    0.30064%      0.47001%    0.00055597    -3.0463    0.999
+     100
+     110
+
+ 140 010   0.031101%      0.02682%    0.00015977    0.26793    0.281
+     001
+     100
+

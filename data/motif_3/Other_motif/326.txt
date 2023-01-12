@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\326.txt
+Network type: Directed
+Number of nodes: 75
+Number of edges: 158
+Number of single edges: 58
+Number of mutual edges: 100
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1897 subgraphs were enumerated in the original network.
+2005524 subgraphs were enumerated in the random networks.
+2007421 subgraphs were enumerated in all networks.
+
+For the random networks: 1343232 tries were made, 70221 were successful.
+Randomization took 0.172 seconds.
+Enumeration took 0.77 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     36.953%       35.401%     0.0022639     6.8562        0
+     100
+     100
+
+  78 001     29.995%       37.434%     0.0058286    -12.763        1
+     001
+     110
+
+  36 000     12.335%       11.196%      0.001658     6.8725    0.001
+     100
+     100
+
+  14 000     6.9056%       5.3075%     0.0036832     4.3389    0.001
+     001
+     110
+
+ 238 011     5.5351%       2.0345%     0.0026131     13.396        0
+     101
+     110
+
+ 174 010     4.2172%       4.5324%     0.0035852   -0.87917    0.818
+     101
+     110
+
+ 166 010     1.0016%      0.43381%       0.00114     4.9804    0.001
+     100
+     110
+
+ 102 001    0.94887%      0.93588%     0.0012625    0.10288    0.428
+     100
+     110
+
+  12 000    0.84344%      0.73604%     0.0011446    0.93829    0.198
+     001
+     100
+
+   6 000    0.79072%       1.1107%     0.0012788    -2.5019    0.991
+     000
+     110
+
+  46 000    0.26357%      0.57094%     0.0013472    -2.2815    0.993
+     101
+     110
+
+  38 000    0.15814%      0.30052%    0.00094081    -1.5134    0.918
+     100
+     110
+
+ 140 010   0.052715%    0.0073828%    0.00018551     2.4436    0.006
+     001
+     100
+

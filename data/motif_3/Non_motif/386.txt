@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\386.txt
+Network type: Directed
+Number of nodes: 81
+Number of edges: 354
+Number of single edges: 194
+Number of mutual edges: 160
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5376 subgraphs were enumerated in the original network.
+5737226 subgraphs were enumerated in the random networks.
+5742602 subgraphs were enumerated in all networks.
+
+For the random networks: 2705376 tries were made, 398507 were successful.
+Randomization took 0.384 seconds.
+Enumeration took 2.964 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     38.783%       35.725%     0.0024991     12.237        0
+     100
+     100
+
+ 164 010     17.987%       19.184%     0.0039149    -3.0569        1
+     100
+     100
+
+  78 001     15.197%           22%      0.004131    -16.468        1
+     001
+     110
+
+  14 000     9.2448%       8.2208%     0.0033282     3.0766    0.001
+     001
+     110
+
+ 238 011     4.2039%       1.3081%     0.0015015     19.287        0
+     101
+     110
+
+ 174 010     3.8318%       3.7254%     0.0029331    0.36288    0.366
+     101
+     110
+
+   6 000     2.6414%       3.2426%     0.0021845    -2.7522    0.999
+     000
+     110
+
+  12 000     2.3624%       1.8569%     0.0012803     3.9483        0
+     001
+     100
+
+ 166 010     2.0089%      0.67575%      0.002071     6.4375        0
+     100
+     110
+
+  46 000     1.9345%       1.9914%     0.0021038    -0.2705    0.595
+     101
+     110
+
+  38 000     1.2463%       1.6072%     0.0012642    -2.8553        1
+     100
+     110
+
+ 102 001    0.53943%      0.45588%     0.0009052    0.92308    0.187
+     100
+     110
+
+ 140 010   0.018601%    0.0064612%    0.00011622     1.0445    0.069
+     001
+     100
+

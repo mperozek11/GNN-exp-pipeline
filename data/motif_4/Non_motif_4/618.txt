@@ -1,0 +1,136 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\618.txt
+Network type: Directed
+Number of nodes: 51
+Number of edges: 61
+Number of single edges: 12
+Number of mutual edges: 49
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+616 subgraphs were enumerated in the original network.
+32809 subgraphs were enumerated in the random networks.
+33425 subgraphs were enumerated in all networks.
+
+For the random networks: 13045 tries were made, 8827 were successful.
+Randomization took 0 seconds.
+Enumeration took 0.015 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+ 8598 0010     27.273%       31.924%      0.021793    -2.1341     0.96
+      0001
+      1001
+      0110
+
+ 4382 0001      20.13%       23.933%      0.012818    -2.9665        1
+      0001
+      0001
+      1110
+
+  286 0000     14.286%       13.676%      0.010815    0.56425     0.28
+      0001
+      0001
+      1110
+
+  602 0000     9.7403%       8.4623%      0.015378    0.83104     0.18
+      0010
+      0101
+      1010
+
+ 8588 0010     6.1688%       6.1323%      0.015924   0.022943     0.42
+      0001
+      1000
+      1100
+
+ 4958 0001     5.6818%     0.070064%     0.0049543     11.327        0
+      0011
+      0101
+      1110
+
+ 4492 0001     5.0325%       4.3144%      0.010968    0.65464     0.24
+      0001
+      1000
+      1100
+
+   30 0000     2.7597%       2.4023%     0.0018871     1.8943        0
+      0000
+      0001
+      1110
+
+ 4380 0001     1.6234%       1.6374%     0.0030011  -0.046879     0.56
+      0001
+      0001
+      1100
+
+  862 0000     1.2987%     0.012739%    0.00090077     14.276        0
+      0011
+      0101
+      1110
+
+  284 0000     1.2987%       1.0053%     0.0030429    0.96425     0.06
+      0001
+      0001
+      1100
+
+  588 0000     1.1364%       1.0547%     0.0027263    0.29947     0.38
+      0010
+      0100
+      1100
+
+  150 0000    0.64935%      0.37695%     0.0026395      1.032     0.14
+      0000
+      1001
+      0110
+
+  332 0000    0.64935%      0.52879%       0.00257     0.4691      0.3
+      0001
+      0100
+      1100
+
+17238 0100    0.48701%            0%             0  undefined        0
+      0011
+      0101
+      0110
+
+10372 0010    0.48701%      0.29106%     0.0018765     1.0442     0.06
+      1000
+      1000
+      0100
+
+27030 0110    0.48701%      0.58728%     0.0024318   -0.41234     0.48
+      1001
+      1001
+      0110
+
+  390 0000    0.32468%      0.65339%     0.0078567   -0.41838     0.44
+      0001
+      1000
+      0110
+
+   28 0000    0.16234%      0.13453%    0.00050728    0.54821     0.08
+      0000
+      0001
+      1100
+
+18504 0100    0.16234%      0.12175%     0.0011086    0.36611      0.2
+      1000
+      0100
+      1000
+
+13278 0011    0.16234%            0%             0  undefined        0
+      0011
+      1101
+      1110
+

@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\588.txt
+Network type: Directed
+Number of nodes: 65
+Number of edges: 189
+Number of single edges: 70
+Number of mutual edges: 119
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+2787 subgraphs were enumerated in the original network.
+2854672 subgraphs were enumerated in the random networks.
+2857459 subgraphs were enumerated in all networks.
+
+For the random networks: 1603220 tries were made, 86417 were successful.
+Randomization took 0.165 seconds.
+Enumeration took 1.318 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     54.682%       53.267%     0.0024058     5.8843        0
+     100
+     100
+
+  78 001     28.418%       31.909%     0.0040028    -8.7233        1
+     001
+     110
+
+ 238 011     4.6645%        3.099%     0.0018435     8.4918        0
+     101
+     110
+
+  14 000     4.3416%       3.8513%     0.0019051     2.5736    0.006
+     001
+     110
+
+ 164 010     3.4087%       3.1429%     0.0017557     1.5138    0.056
+     100
+     100
+
+  46 000     2.2964%       2.3526%    0.00082458   -0.68245    0.872
+     101
+     110
+
+ 174 010     1.2558%       1.4263%     0.0018096    -0.9422    0.836
+     101
+     110
+
+  38 000    0.39469%      0.39522%    0.00017732   -0.02996    0.262
+     100
+     110
+
+  12 000    0.21529%       0.3104%    0.00055134    -1.7251    0.924
+     001
+     100
+
+ 102 001    0.14352%      0.10602%      0.000396    0.94718    0.098
+     100
+     110
+
+   6 000    0.10764%      0.08576%    0.00022223    0.98471    0.001
+     000
+     110
+
+ 140 010   0.035881%    0.0097038%    0.00016596     1.5773    0.012
+     001
+     100
+
+ 166 010   0.035881%     0.044485%    0.00017352   -0.49589    0.262
+     100
+     110
+

@@ -1,0 +1,96 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\191.txt
+Network type: Directed
+Number of nodes: 52
+Number of edges: 60
+Number of single edges: 54
+Number of mutual edges: 6
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+10194 subgraphs were enumerated in the original network.
+540654 subgraphs were enumerated in the random networks.
+550848 subgraphs were enumerated in all networks.
+
+For the random networks: 25854 tries were made, 1410 were successful.
+Randomization took 0 seconds.
+Enumeration took 0.454 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+ 2184 0000     84.059%       79.232%    0.00077214     62.521        0
+      1000
+      1000
+      1000
+
+18568 0100      9.692%       14.103%    0.00022681    -194.46        1
+      1000
+      1000
+      1000
+
+18572 0100     4.3359%            0%             0  undefined        0
+      1000
+      1000
+      1100
+
+18504 0100    0.56896%            0%             0  undefined        0
+      1000
+      0100
+      1000
+
+18636 0100    0.47087%            0%             0  undefined        0
+      1000
+      1100
+      1100
+
+ 2188 0000    0.35315%      0.34819%     0.0012572   0.039444     0.62
+      1000
+      1000
+      1100
+
+17238 0100     0.3041%            0%             0  undefined        0
+      0011
+      0101
+      0110
+
+  392 0000   0.098097%     0.069629%     0.0013028    0.21851     0.12
+      0001
+      1000
+      1000
+
+27340 0110   0.049048%            0%             0  undefined        0
+      1010
+      1100
+      1100
+
+27342 0110   0.039239%            0%             0  undefined        0
+      1010
+      1100
+      1110
+
+18634 0100  0.0098097%            0%             0  undefined        0
+      1000
+      1100
+      1010
+
+10380 0010  0.0098097%      0.02851%    0.00011969    -1.5624     0.92
+      1000
+      1000
+      1100
+
+10372 0010  0.0098097%    0.0084828%    0.00011888    0.11161     0.38
+      1000
+      1000
+      0100
+

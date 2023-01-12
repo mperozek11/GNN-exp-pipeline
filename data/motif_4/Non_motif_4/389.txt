@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\389.txt
+Network type: Directed
+Number of nodes: 58
+Number of edges: 208
+Number of single edges: 61
+Number of mutual edges: 147
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1834 subgraphs were enumerated in the original network.
+106914 subgraphs were enumerated in the random networks.
+108748 subgraphs were enumerated in all networks.
+
+For the random networks: 79303 tries were made, 13192 were successful.
+Randomization took 0.009 seconds.
+Enumeration took 0.08 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     33.097%       49.365%      0.013924    -11.684        1
+     001
+     110
+
+ 164 010     20.338%       17.522%     0.0058367     4.8239        0
+     100
+     100
+
+  14 000     12.105%       10.581%     0.0060502     2.5187     0.02
+     001
+     110
+
+ 238 011     11.341%       2.6064%     0.0072972      11.97        0
+     101
+     110
+
+ 174 010     10.414%       9.3297%      0.008474       1.28     0.08
+     101
+     110
+
+  36 000     4.3075%       3.8664%     0.0020139     2.1905        0
+     100
+     100
+
+  12 000      3.217%       2.5547%     0.0019531     3.3914        0
+     001
+     100
+
+  46 000     1.5267%      0.93456%     0.0018375     3.2225        0
+     101
+     110
+
+   6 000     1.4722%       1.3734%     0.0015233    0.64862      0.3
+     000
+     110
+
+ 166 010     1.0905%      0.62106%      0.001214     3.8669        0
+     100
+     110
+
+ 102 001    0.65431%      0.71922%     0.0019939   -0.32557     0.62
+     100
+     110
+
+  38 000    0.32715%      0.48464%      0.001611   -0.97753      0.8
+     100
+     110
+
+ 140 010    0.10905%     0.041276%     0.0003238     2.0931        0
+     001
+     100
+

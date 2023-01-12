@@ -1,0 +1,71 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\811.txt
+Network type: Directed
+Number of nodes: 53
+Number of edges: 73
+Number of single edges: 49
+Number of mutual edges: 24
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+919 subgraphs were enumerated in the original network.
+46644 subgraphs were enumerated in the random networks.
+47563 subgraphs were enumerated in all networks.
+
+For the random networks: 31961 tries were made, 1304 were successful.
+Randomization took 0 seconds.
+Enumeration took 0.015 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     86.616%       85.279%     0.0033059     4.0435        0
+     100
+     100
+
+  78 001     5.9848%       7.8517%     0.0040586    -4.5999        1
+     001
+     110
+
+  14 000     2.1763%       2.1264%     0.0015454    0.32276     0.38
+     001
+     110
+
+  46 000     2.0675%       2.0775%    0.00062654   -0.16028     0.34
+     101
+     110
+
+ 238 011    0.97933%       0.3413%     0.0013453     4.7427        0
+     101
+     110
+
+  38 000    0.87051%      0.86619%    0.00031049    0.13905     0.08
+     100
+     110
+
+ 164 010    0.54407%      0.81011%     0.0011883    -2.2388     0.94
+     100
+     100
+
+ 174 010    0.43526%       0.3433%     0.0010476    0.87778      0.1
+     101
+     110
+
+  12 000    0.21763%      0.18429%    0.00053046    0.62838        0
+     001
+     100
+
+ 166 010    0.10881%     0.002139%    0.00015125     7.0528        0
+     100
+     110
+

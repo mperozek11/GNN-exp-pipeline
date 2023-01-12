@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\857.txt
+Network type: Directed
+Number of nodes: 74
+Number of edges: 359
+Number of single edges: 165
+Number of mutual edges: 194
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+4676 subgraphs were enumerated in the original network.
+243886 subgraphs were enumerated in the random networks.
+248562 subgraphs were enumerated in all networks.
+
+For the random networks: 139062 tries were made, 21186 were successful.
+Randomization took 0.016 seconds.
+Enumeration took 0.095 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     26.839%        32.49%      0.011576    -4.8816        1
+     001
+     110
+
+ 164 010     18.199%       17.366%     0.0051763     1.6094     0.04
+     100
+     100
+
+  14 000     13.644%        12.52%     0.0044966     2.5001        0
+     001
+     110
+
+  36 000      12.04%       11.529%      0.002559     1.9995     0.04
+     100
+     100
+
+   6 000       7.87%       7.7696%     0.0024777    0.40505     0.34
+     000
+     110
+
+ 238 011     5.4106%       2.5424%     0.0059626     4.8103        0
+     101
+     110
+
+ 174 010     5.2823%       6.2432%     0.0048022     -2.001     0.98
+     101
+     110
+
+  12 000     3.5714%        3.286%     0.0019649     1.4527     0.06
+     001
+     100
+
+ 166 010     2.2455%       1.6453%     0.0023667     2.5363        0
+     100
+     110
+
+  46 000       2.16%       1.8027%     0.0021634     1.6515     0.06
+     101
+     110
+
+  38 000     1.6895%       1.9035%     0.0017317    -1.2361     0.92
+     100
+     110
+
+ 102 001     1.0051%      0.88345%     0.0016331     0.7451      0.2
+     100
+     110
+
+ 140 010   0.042772%     0.019282%     0.0001961     1.1978     0.08
+     001
+     100
+

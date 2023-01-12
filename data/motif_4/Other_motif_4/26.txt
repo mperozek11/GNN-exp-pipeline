@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\26.txt
+Network type: Directed
+Number of nodes: 25
+Number of edges: 14
+Number of single edges: 10
+Number of mutual edges: 4
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+66 subgraphs were enumerated in the original network.
+3300 subgraphs were enumerated in the random networks.
+3366 subgraphs were enumerated in all networks.
+
+For the random networks: 6426 tries were made, 0 were successful.
+Randomization took 0 seconds.
+Enumeration took 0 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+18568 0100     33.333%       33.333%   1.6822e-016   -0.98995        0
+      1000
+      1000
+      1000
+
+ 2184 0000     21.212%       21.212%   5.6075e-017   -0.98995        0
+      1000
+      1000
+      1000
+
+ 2252 0000     9.0909%       9.0909%   4.2056e-017    0.98995        0
+      1000
+      1100
+      1100
+
+ 4492 0001     7.5758%       7.5758%   4.2056e-017    0.98995        0
+      0001
+      1000
+      1100
+
+  714 0000     6.0606%       6.0606%   4.9065e-017    0.98995        0
+      0010
+      1100
+      1010
+
+19146 0100     6.0606%       6.0606%   4.9065e-017    0.98995        0
+      1010
+      1100
+      1010
+
+ 2188 0000     6.0606%       6.0606%   4.9065e-017    0.98995        0
+      1000
+      1000
+      1100
+
+17238 0100     6.0606%       6.0606%   4.9065e-017    0.98995        0
+      0011
+      0101
+      0110
+
+ 9182 0010     1.5152%       1.5152%   1.2266e-017    0.98995        0
+      0011
+      1101
+      1110
+
+  396 0000     1.5152%       1.5152%   1.2266e-017    0.98995        0
+      0001
+      1000
+      1100
+
+16982 0100     1.5152%       1.5152%   1.2266e-017    0.98995        0
+      0010
+      0101
+      0110
+

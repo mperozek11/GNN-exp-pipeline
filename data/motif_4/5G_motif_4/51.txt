@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\5G_ascii\51.txt
+Network type: Directed
+Number of nodes: 80
+Number of edges: 24
+Number of single edges: 12
+Number of mutual edges: 12
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+207 subgraphs were enumerated in the original network.
+11708 subgraphs were enumerated in the random networks.
+11915 subgraphs were enumerated in all networks.
+
+For the random networks: 6517 tries were made, 2885 were successful.
+Randomization took 0.001 seconds.
+Enumeration took 0.016 seconds.
+
+
+Result overview:
+
+   ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+            [Original]      [Random]      [Random]
+
+18568 0100      40.58%       33.921%      0.017041     3.9073        0
+      1000
+      1000
+      1000
+
+ 2184 0000     27.053%        21.84%      0.014368     3.6281        0
+      1000
+      1000
+      1000
+
+ 4380 0001     11.594%       9.9908%      0.006341     2.5286     0.04
+      0001
+      0001
+      1100
+
+  396 0000     6.7633%       8.9311%      0.029798    -0.7275     0.82
+      0001
+      1000
+      1100
+
+  602 0000     3.8647%       1.9954%      0.010563     1.7697     0.04
+      0010
+      0101
+      1010
+
+ 8588 0010     2.8986%       3.8095%      0.011722   -0.77707     0.78
+      0001
+      1000
+      1100
+
+  286 0000     2.8986%       1.2544%     0.0097846     1.6804        0
+      0001
+      0001
+      1110
+
+ 4382 0001     2.4155%       2.1452%     0.0015314     1.7648     0.08
+      0001
+      0001
+      1110
+
+  150 0000    0.96618%      0.43161%     0.0048357     1.1055     0.16
+      0000
+      1001
+      0110
+
+ 8598 0010    0.48309%       1.5458%     0.0082243    -1.2921      0.9
+      0001
+      1001
+      0110
+
+   30 0000    0.48309%      0.32241%     0.0018477    0.86964     0.02
+      0000
+      0001
+      1110
+

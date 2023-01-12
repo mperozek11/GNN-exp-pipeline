@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\5G_ascii\205.txt
+Network type: Directed
+Number of nodes: 72
+Number of edges: 91
+Number of single edges: 62
+Number of mutual edges: 29
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+675 subgraphs were enumerated in the original network.
+35448 subgraphs were enumerated in the random networks.
+36123 subgraphs were enumerated in all networks.
+
+For the random networks: 33443 tries were made, 6488 were successful.
+Randomization took 0.008 seconds.
+Enumeration took 0.015 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     39.407%       37.441%     0.0053319     3.6876        0
+     100
+     100
+
+ 164 010     28.444%       30.653%     0.0070333    -3.1399        1
+     100
+     100
+
+  78 001     7.1111%       8.8891%     0.0044144    -4.0278        1
+     001
+     110
+
+  14 000     6.6667%        6.245%     0.0069959     0.6028     0.18
+     001
+     110
+
+  12 000     4.8889%       4.5708%     0.0040131    0.79274     0.22
+     001
+     100
+
+ 166 010     2.8148%      0.86969%      0.003861     5.0379        0
+     100
+     110
+
+ 174 010     2.6667%       2.2163%     0.0051727    0.87061      0.2
+     101
+     110
+
+   6 000     2.3704%       4.0065%     0.0039506    -4.1415        1
+     000
+     110
+
+  38 000     2.3704%       2.3188%     0.0038478    0.13413      0.5
+     100
+     110
+
+  46 000     1.6296%       1.5758%     0.0029561    0.18211     0.38
+     101
+     110
+
+ 238 011    0.74074%      0.10727%    0.00093022     6.8099        0
+     101
+     110
+
+ 102 001    0.74074%       1.0841%     0.0037241   -0.92206     0.82
+     100
+     110
+
+ 140 010    0.14815%     0.022599%    0.00065847     1.9067     0.04
+     001
+     100
+

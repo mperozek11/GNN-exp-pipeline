@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\863.txt
+Network type: Directed
+Number of nodes: 68
+Number of edges: 268
+Number of single edges: 182
+Number of mutual edges: 86
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3114 subgraphs were enumerated in the original network.
+3395480 subgraphs were enumerated in the random networks.
+3398594 subgraphs were enumerated in all networks.
+
+For the random networks: 2232825 tries were made, 158607 were successful.
+Randomization took 0.327 seconds.
+Enumeration took 1.247 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+   6 000     24.566%       26.357%     0.0029765    -6.0147        1
+     000
+     110
+
+  14 000     18.593%       17.249%     0.0043518     3.0902    0.011
+     001
+     110
+
+ 164 010     13.552%        13.88%     0.0032839   -0.99877    0.843
+     100
+     100
+
+  36 000     6.9364%       9.5596%     0.0026116    -10.044        1
+     100
+     100
+
+  12 000     6.4547%       5.3547%     0.0025183     4.3682    0.001
+     001
+     100
+
+  38 000     6.1657%       4.2143%     0.0023429      8.329        0
+     100
+     110
+
+  78 001     5.9088%       9.7414%      0.004403    -8.7045        1
+     001
+     110
+
+ 174 010     4.9454%       5.9994%     0.0044661      -2.36    0.984
+     101
+     110
+
+  46 000     4.7848%       2.6313%     0.0021624     9.9591        0
+     101
+     110
+
+ 166 010     4.7848%       2.0037%     0.0026548     10.476        0
+     100
+     110
+
+ 238 011     2.4406%      0.30983%     0.0023278     9.1537        0
+     101
+     110
+
+ 102 001    0.80283%       2.5915%     0.0025319    -7.0646        1
+     100
+     110
+
+ 140 010   0.064226%      0.10916%    0.00057713   -0.77862    0.714
+     001
+     100
+

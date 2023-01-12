@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\840.txt
+Network type: Directed
+Number of nodes: 58
+Number of edges: 153
+Number of single edges: 50
+Number of mutual edges: 103
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1293 subgraphs were enumerated in the original network.
+1429920 subgraphs were enumerated in the random networks.
+1431213 subgraphs were enumerated in all networks.
+
+For the random networks: 1215346 tries were made, 126847 were successful.
+Randomization took 0.162 seconds.
+Enumeration took 0.584 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     36.272%       50.576%     0.0088066    -16.242        1
+     001
+     110
+
+ 164 010     24.594%       20.314%     0.0051418     8.3239        0
+     100
+     100
+
+  14 000     11.833%       8.6253%     0.0062383     5.1418        0
+     001
+     110
+
+ 238 011     9.2807%       1.4126%     0.0044866     17.537        0
+     101
+     110
+
+ 174 010     5.8005%       8.4216%     0.0089733    -2.9211        1
+     101
+     110
+
+  36 000     4.4084%        4.193%     0.0021743    0.99062     0.16
+     100
+     100
+
+  12 000     2.5522%       2.3928%      0.002098    0.75957    0.228
+     001
+     100
+
+   6 000     1.7788%       1.8881%     0.0020885   -0.52311    0.698
+     000
+     110
+
+ 166 010     1.3148%      0.66209%     0.0017912     3.6439        0
+     100
+     110
+
+  46 000     1.0828%      0.52566%     0.0017123     3.2534        0
+     101
+     110
+
+ 102 001     0.7734%      0.50857%     0.0017048     1.5534    0.071
+     100
+     110
+
+  38 000    0.23202%      0.45772%     0.0014944    -1.5103    0.933
+     100
+     110
+
+ 140 010    0.07734%     0.022813%    0.00038706     1.4087    0.036
+     001
+     100
+

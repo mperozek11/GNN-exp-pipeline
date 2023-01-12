@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\450.txt
+Network type: Directed
+Number of nodes: 68
+Number of edges: 213
+Number of single edges: 73
+Number of mutual edges: 140
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3281 subgraphs were enumerated in the original network.
+3374234 subgraphs were enumerated in the random networks.
+3377515 subgraphs were enumerated in all networks.
+
+For the random networks: 1729168 tries were made, 157255 were successful.
+Randomization took 0.195 seconds.
+Enumeration took 1.331 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+ 164 010     37.763%       35.912%     0.0020791     8.9031    0.001
+     100
+     100
+
+  78 001      35.66%       41.402%      0.004184    -13.725        1
+     001
+     110
+
+  36 000     13.898%       13.278%    0.00079456     7.8056        0
+     100
+     100
+
+  14 000     4.3584%        3.072%     0.0017177     7.4889        0
+     001
+     110
+
+ 238 011     2.9869%      0.40203%     0.0019972     12.942    0.001
+     101
+     110
+
+ 174 010     2.7735%       3.4773%     0.0020106    -3.5001    0.998
+     101
+     110
+
+  12 000    0.97531%      0.63147%    0.00070984     4.8439        0
+     001
+     100
+
+ 102 001    0.45718%      0.68124%    0.00068041     -3.293    0.998
+     100
+     110
+
+   6 000    0.45718%      0.38691%    0.00056592     1.2417    0.103
+     000
+     110
+
+ 166 010    0.33526%      0.22172%    0.00064555     1.7589    0.041
+     100
+     110
+
+  46 000    0.18287%      0.25235%     0.0005937    -1.1703     0.89
+     101
+     110
+
+  38 000    0.12191%      0.28049%    0.00053505    -2.9637    0.996
+     100
+     110
+
+ 140 010   0.030479%    0.0023985%   8.1899e-005     3.4286    0.001
+     001
+     100
+

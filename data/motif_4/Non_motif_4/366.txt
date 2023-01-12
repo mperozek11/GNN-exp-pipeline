@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\366.txt
+Network type: Directed
+Number of nodes: 76
+Number of edges: 364
+Number of single edges: 101
+Number of mutual edges: 263
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5974 subgraphs were enumerated in the original network.
+322724 subgraphs were enumerated in the random networks.
+328698 subgraphs were enumerated in all networks.
+
+For the random networks: 153473 tries were made, 11918 were successful.
+Randomization took 0.019 seconds.
+Enumeration took 0.205 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     35.537%       44.517%      0.020379    -4.4062        1
+     001
+     110
+
+  36 000     28.942%       26.781%     0.0048626     4.4441        0
+     100
+     100
+
+ 164 010     15.819%       14.418%     0.0039284     3.5647        0
+     100
+     100
+
+ 238 011     6.9635%       2.4925%      0.010293     4.3439        0
+     101
+     110
+
+  14 000     5.5909%       4.8946%     0.0026681     2.6098     0.02
+     001
+     110
+
+ 174 010     3.6994%       3.6743%     0.0023831    0.10513     0.34
+     101
+     110
+
+  46 000     1.9585%       1.8214%     0.0006067     2.2592     0.02
+     101
+     110
+
+  12 000    0.50218%      0.48483%    0.00042305    0.41009     0.38
+     001
+     100
+
+  38 000    0.31804%      0.30121%    0.00028187    0.59739     0.28
+     100
+     110
+
+ 166 010    0.23435%      0.19794%    0.00026816     1.3577     0.08
+     100
+     110
+
+   6 000    0.21761%      0.21376%    0.00022764    0.16918     0.38
+     000
+     110
+
+ 102 001    0.20087%      0.20215%    0.00049824  -0.025628      0.4
+     100
+     110
+
+ 140 010   0.016739%    0.0012296%   4.2123e-005      3.682        0
+     001
+     100
+

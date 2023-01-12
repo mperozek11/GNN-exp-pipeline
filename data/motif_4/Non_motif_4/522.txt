@@ -1,0 +1,86 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\522.txt
+Network type: Directed
+Number of nodes: 73
+Number of edges: 70
+Number of single edges: 67
+Number of mutual edges: 3
+
+Algorithm: enumeration
+Subgraph size: 4
+
+Generated 50 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+31377 subgraphs were enumerated in the original network.
+1569379 subgraphs were enumerated in the random networks.
+1600756 subgraphs were enumerated in all networks.
+
+For the random networks: 30074 tries were made, 1529 were successful.
+Randomization took 0 seconds.
+Enumeration took 1.269 seconds.
+
+
+Result overview:
+
+  ID  Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+           [Original]      [Random]      [Random]
+
+2184 0000      98.34%       98.258%     0.0010122    0.80763     0.36
+     1000
+     1000
+     1000
+
+ 140 0000     1.0326%       1.0611%    0.00051933   -0.54942     0.62
+     0000
+     1000
+     1100
+
+ 396 0000    0.37926%       0.3431%      0.001823    0.19835     0.46
+     0001
+     1000
+     1100
+
+2188 0000    0.17847%      0.13096%    0.00078422    0.60589        0
+     1000
+     1000
+     1100
+
+ 204 0000   0.047806%     0.051988%   7.9386e-005   -0.52679     0.58
+     0000
+     1100
+     1100
+
+ 714 0000  0.0063741%    0.0035684%   2.5419e-005     1.1038        0
+     0010
+     1100
+     1010
+
+4380 0001   0.003187%     0.003186%   6.6864e-008    0.15861     0.36
+     0001
+     0001
+     1100
+
+ 150 0000   0.003187%            0%             0  undefined        0
+     0000
+     1001
+     0110
+
+ 286 0000   0.003187%    0.0014631%   1.6013e-005     1.0766        0
+     0001
+     0001
+     1110
+
+ 332 0000   0.003187%            0%             0  undefined        0
+     0001
+     0100
+     1100
+
+ 602 0000   0.003187%            0%             0  undefined        0
+     0010
+     0101
+     1010
+

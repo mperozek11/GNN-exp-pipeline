@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\127.txt
+Network type: Directed
+Number of nodes: 72
+Number of edges: 161
+Number of single edges: 86
+Number of mutual edges: 75
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+1427 subgraphs were enumerated in the original network.
+1450182 subgraphs were enumerated in the random networks.
+1451609 subgraphs were enumerated in all networks.
+
+For the random networks: 997936 tries were made, 331216 were successful.
+Randomization took 0.358 seconds.
+Enumeration took 0.591 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  36 000     27.821%        26.93%     0.0038985     2.2845    0.003
+     100
+     100
+
+ 164 010      27.33%       28.205%      0.004999    -1.7509     0.96
+     100
+     100
+
+  78 001     19.411%       20.825%     0.0031923    -4.4276        1
+     001
+     110
+
+  14 000     10.862%       10.548%     0.0046069    0.68085    0.237
+     001
+     110
+
+  12 000     5.1156%       4.6992%     0.0030196      1.379    0.077
+     001
+     100
+
+   6 000     2.8732%       3.1043%     0.0028137   -0.82132    0.797
+     000
+     110
+
+ 174 010      2.733%       1.9177%     0.0039465     2.0658    0.019
+     101
+     110
+
+  38 000     1.1913%       1.3139%     0.0028302    -0.4331    0.647
+     100
+     110
+
+ 166 010     1.0512%       0.6162%     0.0020303     2.1423    0.021
+     100
+     110
+
+  46 000    0.77085%       1.0656%     0.0025367    -1.1621    0.863
+     101
+     110
+
+ 102 001    0.42046%       0.7126%     0.0020731    -1.4092    0.914
+     100
+     110
+
+ 238 011    0.35039%      0.02815%    0.00038071      8.464        0
+     101
+     110
+
+ 140 010   0.070077%     0.033898%    0.00049454    0.73158    0.116
+     001
+     100
+

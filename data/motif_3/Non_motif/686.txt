@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Non_ascii\686.txt
+Network type: Directed
+Number of nodes: 68
+Number of edges: 269
+Number of single edges: 50
+Number of mutual edges: 219
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+3045 subgraphs were enumerated in the original network.
+3312094 subgraphs were enumerated in the random networks.
+3315139 subgraphs were enumerated in all networks.
+
+For the random networks: 2298192 tries were made, 100982 were successful.
+Randomization took 0.387 seconds.
+Enumeration took 1.94 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     52.414%       62.342%     0.0098936    -10.035    0.999
+     001
+     110
+
+ 238 011     15.993%       9.4446%     0.0062923     10.408    0.001
+     101
+     110
+
+ 164 010     11.264%       9.0361%     0.0039254     5.6765    0.001
+     100
+     100
+
+  14 000     8.8998%       6.8483%     0.0038742     5.2953    0.001
+     001
+     110
+
+ 174 010     6.7652%       7.8528%     0.0048814    -2.2281    0.986
+     101
+     110
+
+   6 000     1.0837%       1.1697%     0.0010363   -0.82934    0.793
+     000
+     110
+
+  12 000    0.95238%       1.1231%     0.0010202    -1.6739    0.955
+     001
+     100
+
+  36 000    0.82102%      0.92126%    0.00086858    -1.1541     0.86
+     100
+     100
+
+ 102 001    0.59113%      0.42473%    0.00086178     1.9309    0.032
+     100
+     110
+
+ 166 010    0.45977%      0.32639%    0.00095268     1.4001    0.072
+     100
+     110
+
+  46 000    0.39409%      0.27286%    0.00078133     1.5516    0.057
+     101
+     110
+
+  38 000    0.32841%      0.22508%    0.00065804     1.5702    0.082
+     100
+     110
+
+ 140 010   0.032841%      0.01293%    0.00018904     1.0533    0.061
+     001
+     100
+

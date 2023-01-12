@@ -1,0 +1,83 @@
+FANMOD 1.1 subgraph enumeration
+-------------------------------
+
+Network name: C:\Users\s_cural\Other_ascii\3.txt
+Network type: Directed
+Number of nodes: 97
+Number of edges: 298
+Number of single edges: 112
+Number of mutual edges: 186
+
+Algorithm: enumeration
+Subgraph size: 3
+
+Generated 1000 random networks
+   with locally constant number of bidirectional edges,
+   3 exchanges per edge and 3 tries per edge.
+
+5001 subgraphs were enumerated in the original network.
+5087806 subgraphs were enumerated in the random networks.
+5092807 subgraphs were enumerated in all networks.
+
+For the random networks: 2045150 tries were made, 468414 were successful.
+Randomization took 0.394 seconds.
+Enumeration took 2.212 seconds.
+
+
+Result overview:
+
+  ID Adj   Frequency     Mean-Freq  Standard-Dev    Z-Score  p-Value
+          [Original]      [Random]      [Random]
+
+  78 001     38.592%       42.475%     0.0025476    -15.242        1
+     001
+     110
+
+ 164 010     34.653%        33.08%     0.0016275     9.6671        0
+     100
+     100
+
+  36 000     10.038%         9.83%    0.00098272     2.1166    0.013
+     100
+     100
+
+  14 000     8.2384%       7.3306%     0.0028377      3.199    0.001
+     001
+     110
+
+  12 000     2.1596%       2.0691%    0.00079829     1.1333    0.118
+     001
+     100
+
+ 174 010     2.1396%        2.726%     0.0031231    -1.8778    0.972
+     101
+     110
+
+ 238 011     1.8996%      0.14637%     0.0010666     16.438        0
+     101
+     110
+
+   6 000     1.3797%       1.2111%    0.00079835     2.1128    0.018
+     000
+     110
+
+ 166 010    0.25995%      0.38988%    0.00067806    -1.9163    0.972
+     100
+     110
+
+  46 000    0.23995%      0.26222%    0.00072194   -0.30846    0.555
+     101
+     110
+
+  38 000    0.21996%      0.22705%    0.00056779   -0.12491    0.493
+     100
+     110
+
+ 102 001    0.15997%      0.24925%    0.00071589    -1.2472    0.871
+     100
+     110
+
+ 140 010   0.019996%    0.0032824%   8.8223e-005     1.8945    0.023
+     001
+     100
+
